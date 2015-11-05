@@ -136,7 +136,7 @@
 		\end{figure}
 		
 		\newpage
-		Der dem Maßstab zugrundeliegende Verzweigungsfaktor des Satzstruktur-Baums muss zunächst experimentell mittels Sample-Tool\footnote{\url{http://devel.cpl.upc.edu/freeling/svn/trunk/src/main/simple_examples/sample.cc}} ermittelt werden. Des Weiteren ist evtl. die Erweiterung der verwendeten Parse-Grammatik notwendig, um den Einfluss von Mehrdeutigkeiten zu verringern.
+		Der dem Maßstab zugrundeliegende Verzweigungsfaktor des Satzstruktur-Baums muss zunächst experimentell über das \texttt{parse\_tree}-Objekt aus dem Sample-Tool\footnote{\url{http://devel.cpl.upc.edu/freeling/svn/trunk/src/main/simple_examples/sample.cc}} ermittelt werden. Des Weiteren ist evtl. die Erweiterung der verwendeten Parse-Grammatik notwendig, um den Einfluss von Mehrdeutigkeiten zu verringern.
 		
 	\begin{figure}[h]
 		\centering
@@ -230,4 +230,19 @@
 			\end{tikzpicture}
 			\caption{Beispiel 2 für Mehrdeutigkeit, 5 Level}
 		\end{figure}
+
+	\begin{tabular}{ l|l|l }
+		Symbol & Bedeutung &Beispiel\\
+		\hline
+		S&	sentence	&the man walked\\
+		NP&	noun phrase&	a dog\\
+		VP&	verb phrase&	saw a park\\
+		PP&	prepositional phrase&	with a telescope\\
+		Det&	determiner&	the\\
+		N&	noun&	dog\\
+		V&	verb&	walked\\
+		P&	preposition&	in
+	\end{tabular}
+
+		
 \end{document}
