@@ -7,6 +7,7 @@
 \usepackage{a4wide}
 \usepackage{pgfplots}
 \usepackage{hyperref}
+\usepackage{tikz}
 %\usepackage{parskip}
 \usepackage[ngerman]{babel}
  
@@ -14,7 +15,7 @@
 	\section*{Kriterien für die Lesbarkeitsanalyse}
 	Die folgenden 5 Kriterien sind in der Literatur\footnote{\url{bib.dbvis.de/uploadedFiles/305.pdf}} durch empirische Analyse als für die Lesbarkeit bedeutsam befunden worden. Die Beschreibung enthält jeweils einen Vorschlag zur Berechnung des Kriteriums aus den zu erhebenden Features. 
 	
-	Alternativ zur Ad-hoc-Normalisierung könnte analog zu den \textit{Grundwahrheiten} im Paper ein Korpus besonders leicht bzw. schwer lesbarer Texte analysiert und das resultierende Minimum / Maximum als Grundlage für die Normalisierung genutzt werden. 
+	Alternativ zur Ad-hoc-Normalisierung könnte analog zu den \textit{Grundwahrheiten} im Paper ein Korpus von etwa 5 besonders leicht bzw. schwer lesbaren Texten analysiert und das resultierende Minimum / Maximum als Grundlage für die Normalisierung genutzt werden. 
 	
 	Wird die Farbkodierung adaptiv in Bezug auf den zugrundeliegenden Maßstab für die Normalisierung (vgl. Figure 2 im Paper) implementiert, überlappen sich vermutlich die Werte des längsten Wörter in den leicht lesbaren Texten mit den Werten der kürzesten Wörter in den schwer lesbaren Texten. Es ist generell zu diskutieren, ob dieser Umstand in der Farbkodierung reflektiert werden sollte oder ob dies die Interpretation der Analyseergebnisse nicht sogar erschwert.
 	
@@ -114,7 +115,7 @@
 			\end{tikzpicture}
 		\end{figure}
 	\subsection*{Komplexität der Satzstruktur}
-	Dieses Kriterium basiert auf der Annahme, dass der für das Verständnis eines Satzes erforderliche mentale Arbeitsaufwand mit dem Grad an Verschachtelung und der Verwendung von Klammern steigt. Der Maßstab zugrundeliegende Verzweigungsfaktor des Satzstruktur-Baums muss zunächst experimentell ermittelt werden, etwa mittels NLTK\footnote{\url{http://www.nltk.org/book/ch08.html}}.
+	Dieses Kriterium basiert auf der Annahme, dass der für das Verständnis eines Satzes erforderliche mentale Arbeitsaufwand mit dem Grad an Verschachtelung und der Verwendung von Klammern steigt. 
 	
 		\begin{figure}[h]
 			\centering
@@ -132,5 +133,101 @@
 			]
 			\end{axis}
 			\end{tikzpicture}
+		\end{figure}
+		
+		\newpage
+		Der dem Maßstab zugrundeliegende Verzweigungsfaktor des Satzstruktur-Baums muss zunächst experimentell mittels Sample-Tool\footnote{\url{http://devel.cpl.upc.edu/freeling/svn/trunk/src/main/simple_examples/sample.cc}} ermittelt werden. Des Weiteren ist evtl. die Erweiterung der verwendeten Parse-Grammatik notwendig, um den Einfluss von Mehrdeutigkeiten zu verringern.
+		
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}[
+		sibling distance        = 8em,
+		level distance          = 3em,
+		every node/.style = {shape=rectangle, rounded corners,
+			draw, align=center},
+		leaf/.style = {shape=rectangle, rounded corners,
+			draw=none, align=center, color=red},
+		]]
+
+		\node(Root) {S}
+		child { node {NP} 			
+			child { node[leaf] {I}}
+		}
+		child { node {VP}
+			child[level distance=2em] { node {V} 
+					child { node[leaf] {shot} }
+			}
+			child { node {NP} 
+				child { node {Det} 
+					child { node[leaf] {an} 
+					}
+				}
+				child { node {N} 
+					child { node[leaf] {elephant} 
+					}
+				}
+				child { node {PP} 
+					child { node {P}
+						child { node[leaf] {in} }
+					}
+					child { node {NP}
+						child { node {Det}
+							child { node[leaf] {my}}
+						}
+						child { node {N}
+							child { node[leaf] {pajamas}}
+						}
+					}
+				}
+			}
+		};
+		\end{tikzpicture}
+		\caption{Beispiel 1 für Mehrdeutigkeit, 6 Level}
+	\end{figure}
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}[
+			sibling distance        = 12em,
+			level distance          = 3em,
+			every node/.style = {shape=rectangle, rounded corners,
+				draw, align=center},
+			leaf/.style = {shape=rectangle, rounded corners,
+				draw=none, align=center, color=red},
+			]]
+			\node {S}
+			child { node {NP} 			
+				child { node[leaf] {I}}
+			}
+			child { node {VP}
+				child[sibling distance=12em]  { node {VP} 
+						child{ node {V} 
+							child { node[leaf] {shot}}	
+						}
+						child [sibling distance=5em]  { node {NP} 
+								child { node {Det} 
+									child { node[leaf] {an}}
+								}
+								child { node {N} 
+									child { node[leaf] {elephant}}
+								}
+						}
+				}
+				child  { node {PP} 
+					child[sibling distance=5em] { node {P} 
+						child { node[leaf] {in} 
+						}
+					}
+					child { node {NP} 
+						child { node {Det}
+							child { node[leaf] {my} }
+						}
+						child { node {N}
+							child { node[leaf] {pajamas}}
+						}
+					}
+				}
+		};
+			\end{tikzpicture}
+			\caption{Beispiel 2 für Mehrdeutigkeit, 5 Level}
 		\end{figure}
 \end{document}
