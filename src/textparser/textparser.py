@@ -3,7 +3,6 @@ import nltk
 from builtins import print
 from nltk.corpus import brown
 from nltk.parse.stanford import StanfordParser
-from nltk.tree import Tree
 
 testTrees = False
 
@@ -34,8 +33,7 @@ if testTrees:
     # display the tree
     for line in sentences:
         for sentence in line:
-            t = Tree.copy(sentence)
-            depth = str(t.height() - 1)
+            depth = str(sentence.height() - 1)
             print('The depth of the parse tree is ' + depth + '.')
             sentence.draw()
             brown_tagged_sents = brown.tagged_sents(categories="news")
