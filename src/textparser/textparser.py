@@ -1,9 +1,11 @@
 import os
 import nltk
+from builtins import print
 from nltk.corpus import brown
 from nltk.parse.stanford import StanfordParser
+from nltk.tree import Tree
 
-testTrees=False
+testTrees = False
 
 class TextParser():
     def __init__(self):
@@ -27,11 +29,13 @@ if testTrees:
     s = "I shot an elephant in my pajamas."
 
     sentences = english_parser.raw_parse_sents((s,))
-    print(sentences) #only prints <listiterator object> in this version
-
+    # print(sentences)  # only prints <listiterator object> in this version
 
     # display the tree
     for line in sentences:
         for sentence in line:
+            t = Tree.copy(sentence)
+            depth = str(t.height() - 1)
+            print('The depth of the parse tree is ' + depth + '.')
             sentence.draw()
             brown_tagged_sents = brown.tagged_sents(categories="news")
