@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/ysengrimm/Desktop/Semester 5/AVAmD/python_setup/ui/ui_files/test02.ui'
+# Form implementation generated from reading ui file 'ui_files\test02.ui'
 #
-# Created by: PyQt5 UI code generator 5.5
+# Created by: PyQt5 UI code generator 5.5.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -14,6 +14,15 @@ class Ui_Dialog(object):
         Dialog.resize(400, 300)
         self.verticalLayout = QtWidgets.QVBoxLayout(Dialog)
         self.verticalLayout.setObjectName("verticalLayout")
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.Datei_btn = QtWidgets.QPushButton(Dialog)
+        self.Datei_btn.setObjectName("Datei_btn")
+        self.horizontalLayout.addWidget(self.Datei_btn)
+        self.pushButton_3 = QtWidgets.QPushButton(Dialog)
+        self.pushButton_3.setObjectName("pushButton_3")
+        self.horizontalLayout.addWidget(self.pushButton_3)
+        self.verticalLayout.addLayout(self.horizontalLayout)
         self.plainTextEdit = QtWidgets.QPlainTextEdit(Dialog)
         self.plainTextEdit.setObjectName("plainTextEdit")
         self.verticalLayout.addWidget(self.plainTextEdit)
@@ -27,5 +36,7 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        self.Datei_btn.setText(_translate("Dialog", "Datei"))
+        self.pushButton_3.setText(_translate("Dialog", "PushButton"))
         self.pushButton.setText(_translate("Dialog", "show tagged"))
 

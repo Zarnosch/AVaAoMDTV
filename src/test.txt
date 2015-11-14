@@ -1,0 +1,1 @@
+This is just a test textfile. If this can be loaded and tokenized with the programm, we reached a milestone!
