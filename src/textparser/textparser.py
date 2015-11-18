@@ -6,6 +6,7 @@ from nltk.corpus import brown
 from nltk.parse.stanford import StanfordParser
 from nltk.tokenize import RegexpTokenizer
 
+
 class TextParser():
     def __init__(self):
         sent = "This is a sample sentence, nothing important here."
@@ -20,14 +21,25 @@ class TextParser():
         length = len(tokenizer.tokenize(s))
         print("The sentence has ", length, "words.")
         return (s, length)
-    
+
+    def get_word_length(self, s):
+        tokenizer = RegexpTokenizer(r'\w+')
+        tokens = tokenizer.tokenize(s)
+        length_sum = 0
+        for word in tokens:
+            length_sum += len(word)
+        average_length = length_sum / len(tokenizer.tokenize(s))
+        print("The average word length is ", average_length, ".")
+        return average_length
+
     def tagText(self, text):
         tokens = nltk.word_tokenize(text)
-        
+
         return self.bigram_tagger.tag(tokens)
 
     def output(self):
         # Warum wurde das als String zurueck gegeben????
+        # YOLO
         # return str(self.bigram_tagger.tag(self.tokens)).strip('[]')
         return self.bigram_tagger.tag(self.tokens)
 
