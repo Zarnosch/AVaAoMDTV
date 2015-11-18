@@ -1,1 +1,1 @@
-This is just a test textfile. If this can be loaded and tokenized with the programm, we reached a milestone!
+This is just a test textfile. When this can be loaded and tokenized with the program, we have reached a milestone then!
