@@ -8,7 +8,7 @@
 \usepackage{pgfplots}
 \usepackage{hyperref}
 \usepackage{tikz}
-%\usepackage{parskip}
+\usepackage{parskip}
 \usepackage[ngerman]{babel}
  
 \begin{document}
@@ -136,7 +136,7 @@
 		\end{figure}
 		
 		\newpage
-		Der dem Maßstab zugrundeliegende Verzweigungsfaktor des Satzstruktur-Baums muss zunächst experimentell über das \texttt{parse\_tree}-Objekt aus dem Sample-Tool\footnote{\url{http://devel.cpl.upc.edu/freeling/svn/trunk/src/main/simple_examples/sample.cc}} ermittelt werden. Des Weiteren ist evtl. die Erweiterung der verwendeten Parse-Grammatik notwendig, um den Einfluss von Mehrdeutigkeiten zu verringern.
+		Der dem Maßstab zugrundeliegende Verzweigungsfaktor des Satzstruktur-Baums muss zunächst experimentell ermittelt werden. Um Mehrdeutigkeiten aufzulösen, wird der Stanford Parser\footnote{\url{http://nlp.stanford.edu/software/lex-parser.shtml}} verwendet. Dieser hat auch eine eingebaute Visualisierungsmöglichkeit für den entstehenden Syntaxbaum.
 		
 	\begin{figure}[h]
 		\centering
