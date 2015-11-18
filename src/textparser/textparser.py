@@ -19,6 +19,12 @@ class TextParser():
         tokenizer = RegexpTokenizer(r'\w+')
         length = len(tokenizer.tokenize(s))
         print("The sentence has ", length, "words.")
+        return (s, length)
+    
+    def tagText(self, text):
+        tokens = nltk.word_tokenize(text)
+        
+        return self.bigram_tagger.tag(tokens)
 
     def output(self):
         # Warum wurde das als String zurueck gegeben????

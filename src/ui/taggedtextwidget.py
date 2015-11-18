@@ -32,8 +32,7 @@ class MQTaggedTextWidget(QtWidgets.QTextEdit):
                 text += token+" "
             else:
                 text += token + " "
-
-        self.taggedData = data        
+       
         self.setPlainText(text)
     
     def setTaggedData(self, data, tagvalue):
@@ -50,5 +49,4 @@ class MQTaggedTextWidget(QtWidgets.QTextEdit):
             else:
                 text += token + " "
 
-            self.taggedData = data
             self.setPlainText(text)

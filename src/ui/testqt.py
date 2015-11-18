@@ -4,11 +4,14 @@ from PyQt5.QtCore import QTextStream, QFile, QIODevice
 from PyQt5.QtGui import QImageReader, QImage, QPalette, QPixmap
 from PyQt5 import QtCore, QtGui
 from ui.ui_dialog import Ui_Dialog
-
+from textparser.textparser import TextParser
 
 class MainApplication(QDialog, Ui_Dialog):
     def __init__(self, tagged_data):
         super(MainApplication, self).__init__()
+
+        # Load TextParser
+        self.textParser = TextParser()
 
         # Set up the user interface from Designer.
         self.setupUi(self)
@@ -30,7 +33,7 @@ class MainApplication(QDialog, Ui_Dialog):
         #if not file.open(QIODevice.ReadOnly):
         #    QtGui.QMessageBox.information(None, 'info', file.errorString())
         #stream = QtCore.QTextStream(file)
-        self.tag = open(file_name[0]).read()
+        self.tag = self.textParser.tagText(open(file_name[0]).read())
 
 
 
