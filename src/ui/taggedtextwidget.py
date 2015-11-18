@@ -1,7 +1,7 @@
 from PyQt5 import QtCore, QtWidgets
 import re # Just for testing at the moment
 
-class MQTaggedTextWidget(QtWidgets.QWidget):
+class MQTaggedTextWidget(QtWidgets.QTextEdit):
     
     def __init__(self, parent):
         
@@ -13,9 +13,10 @@ class MQTaggedTextWidget(QtWidgets.QWidget):
         
         self.setMinimumSize(300, 300)
         
-        self.TextEdit = QtWidgets.QTextEdit(self)
-        self.TextEdit.setMinimumSize(300, 300)
-        self.TextEdit.setReadOnly(True)
+        #  self.TextEdit = QtWidgets.QTextEdit(self)
+        # self.TextEdit.setMinimumSize(300, 300)
+        # self.TextEdit.setReadOnly(True)
+        self.setReadOnly(True)
 
     #Einfach nur stur Textausgabe
     def setPlainText(self, text):

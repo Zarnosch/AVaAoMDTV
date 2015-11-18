@@ -27,12 +27,19 @@ class TextParser():
 class Stanford():
     def __init__(self):
         # The Stanford Parser is required, download from http://nlp.stanford.edu/software/lex-parser.shtml and unpack somewhere
-        # insert path to java.exe
-        os.environ['JAVAHOME'] = 'C:/Program Files (x86)/Java/jdk1.8.0_60/bin/java.exe'
-        # insert path to the directory containing stanford-parser.jar and stanford-parser-3.5.2-models.jar
-        self.english_parser = StanfordParser(
-            'C:/Python34/Lib/site-packages/stanford-parser-full-2015-04-20/stanford-parser.jar',
-            'C:/Python34/Lib/site-packages/stanford-parser-full-2015-04-20/stanford-parser-3.5.2-models.jar')
+        # insert path to java home
+        if os.name != "posix":
+            os.environ['JAVAHOME'] = 'C:/Program Files (x86)/Java/jdk1.8.0_60/bin/java.exe'
+            # insert path to the directory containing stanford-parser.jar and stanford-parser-3.5.2-models.jar
+            self.english_parser = StanfordParser(
+                'C:/Python34/Lib/site-packages/stanford-parser-full-2015-04-20/stanford-parser.jar',
+                'C:/Python34/Lib/site-packages/stanford-parser-full-2015-04-20/stanford-parser-3.5.2-models.jar')
+        else:
+            os.environ['JAVA_HOME'] = '/usr/lib/jvm/java-1.8.0-openjdk-amd64'
+            # insert path to the directory containing stanford-parser.ja and stanford-parser-3.5.2-models.jar
+            self.english_parser = StanfordParser(
+                '/lib/stanford-parser-full-2015-04-20/stanford-parser.jar',
+                '/lib/stanford-parser-full-2015-04-20/stanford-parser-3.5.2-models.jar')
 
     def get_sent_depth(self, s, draw_tree):
         sentences = self.english_parser.raw_parse_sents((s,))
