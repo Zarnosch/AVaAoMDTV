@@ -19,7 +19,7 @@ class MainApplication(QDialog, Ui_Dialog):
         self.Datei_btn.clicked.connect(self.open_text)
 
     def show_tagged(self):
-        self.taggedTextWidget.setTaggedData(self.tag)
+        self.taggedTextWidget.setTaggedData(self.tag, 'NN')
 
     def open_text(self):
         dialog = QFileDialog(self)

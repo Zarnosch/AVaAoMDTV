@@ -21,7 +21,9 @@ class TextParser():
         print("The sentence has ", length, "words.")
 
     def output(self):
-        return str(self.bigram_tagger.tag(self.tokens)).strip('[]')
+        # Warum wurde das als String zurueck gegeben????
+        # return str(self.bigram_tagger.tag(self.tokens)).strip('[]')
+        return self.bigram_tagger.tag(self.tokens)
 
 
 class Stanford():
