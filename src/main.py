@@ -1,4 +1,5 @@
 import sys
+import time
 
 from PyQt5.QtWidgets import QApplication
 
@@ -14,11 +15,16 @@ standford_parser = Stanford()
 # function tests
 if test_functions:
     test_sentence = "Why is the rum gone?"
-    print(test_sentence)
+    print("Test sentence: \"", test_sentence, "\"\n")
+    t = time.time()
+
     textp.get_sent_length(test_sentence)
     textp.get_word_length(test_sentence)
     textp.get_sent_voc_complexity(test_sentence)
     standford_parser.get_sent_depth(test_sentence, False)
+
+    print("\nAnalyzing the sentence took", time.time() - t,
+          "seconds.")  # should be < 1 second for now, to be optimized later
 
 # setup qt app
 app = QApplication(sys.argv)
