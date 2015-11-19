@@ -93,6 +93,19 @@ class Stanford():
                 if draw_tree:
                     sentence.draw()
 
-    def get_sent_nomins(self, s):
+    def get_sent_nomins(self, s):  # experimental
+        verb_count = 0
+        noun_count = 0
+        verb_tags = {'NN', 'NNS', 'NNP', 'NNPS'}
+        noun_tags = {'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ'}
+        tokens = nltk.word_tokenize(s)
+        tags = nltk.pos_tag(tokens)
 
+        for word, tag in tags:
+            if tag in verb_tags:
+                verb_count += 1
+            elif tag in noun_tags:
+                noun_count += 1
+
+        print("The sentence has", verb_count, "verb(s) and", noun_count, "noun(s).")
         return
