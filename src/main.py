@@ -17,6 +17,7 @@ if test_functions:
     print(test_sentence)
     textp.get_sent_length(test_sentence)
     textp.get_word_length(test_sentence)
+    textp.get_sent_voc_complexity(test_sentence)
     standford_parser.get_sent_depth(test_sentence, False)
 
 # setup qt app

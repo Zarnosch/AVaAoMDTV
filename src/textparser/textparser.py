@@ -32,6 +32,25 @@ class TextParser():
         print("The average word length is ", average_length, ".")
         return average_length
 
+    def get_sent_voc_complexity(selfself, s):
+        file = open("textparser/wordlist.txt").read()
+        common_words = nltk.word_tokenize(file)
+        tokenizer = RegexpTokenizer(r'\w+')
+        length = len(tokenizer.tokenize(s))
+        tokens = tokenizer.tokenize(s)
+        word_matches = 0
+        for word in common_words:
+            for token in tokens:
+                if token.lower() == word:
+                    word_matches += 1
+
+        complex_word_count = length - word_matches
+        complexity = complex_word_count / length
+
+        print(complex_word_count, " of ", length,
+              " words in this sentence are not common, so the vocabular complexity is ", complexity, ".")
+        return complexity
+
     def tagText(self, text):
         tokens = nltk.word_tokenize(text)
 
