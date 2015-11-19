@@ -13,7 +13,7 @@
  
 \begin{document}
 	\section*{Kriterien für die Lesbarkeitsanalyse}
-	Die folgenden 5 Kriterien sind in der Literatur\footnote{\url{bib.dbvis.de/uploadedFiles/305.pdf}} durch empirische Analyse als für die Lesbarkeit bedeutsam befunden worden. Die Beschreibung enthält jeweils einen Vorschlag zur Berechnung des Kriteriums aus den zu erhebenden Features. 
+	Die folgenden 5 Kriterien sind in der Literatur\footnote{\url{http://bib.dbvis.de/uploadedFiles/305.pdf}} durch empirische Analyse als für die Lesbarkeit bedeutsam befunden worden. Die Beschreibung enthält jeweils einen Vorschlag zur Berechnung des Kriteriums aus den zu erhebenden Features. 
 	
 	Alternativ zur Ad-hoc-Normalisierung könnte analog zu den \textit{Grundwahrheiten} im Paper ein Korpus von etwa 5 besonders leicht bzw. schwer lesbaren Texten analysiert und das resultierende Minimum / Maximum als Grundlage für die Normalisierung genutzt werden. 
 	
@@ -70,7 +70,7 @@
 	\subsection*{Nominalisierungen}
 	Die Nominalisierung ist die Bildung eines Substantivs aus einer anderen Wortart, vor allem aus Verben und Adjektiven (z.B. \textit{das Böse, etwas Hübsches; the evil, something pretty}). Ein Gerundium ist ein substantivierter Infinitiv eines Verbs (z.b. \textit{\textbf{climbing} is dangerous; \textbf{das Klettern} ist gefährlich}).
 	
-	Da Nominalisierungen schwer grundsätzlich vermeidbar sind, die Lesbarkeit des Textes aber auch nicht zwingend schwer unter ihrer Verwendung leidet (z.B. \textit{Es geschah aus \textbf{Versehen}; The \textbf{use} of drugs is dangerous}), muss die Bewertungsskala kontextsensitiv angelegt werden. Bei einem wissenschaftlichen Fachartikel wird die Lesbarkeit bzgl. dieses Kriteriums evtl. zugunsten einer präzisen Formulierung vernachlässigt, in der Unterhaltungsliteratur wiederum als Stilmittel, etwa um eine Gesinnung über eine bestimmte Ausdrucksweise zu transportieren. 
+	Da Nominalisierungen schwer grundsätzlich vermeidbar sind, die Lesbarkeit des Textes aber auch nicht zwingend schwer unter ihrer Verwendung leidet (z.B. \textit{Es geschah aus \textbf{Versehen}; The \textbf{use} of drugs is dangerous}), muss die Bewertungsskala kontextsensitiv angelegt werden\footnote{\url{https://ps.ipd.kit.edu/backend/index.php/veroeffentlichungen-details/items/3801.html}}. Bei einem wissenschaftlichen Fachartikel wird die Lesbarkeit bzgl. dieses Kriteriums evtl. zugunsten einer präzisen Formulierung vernachlässigt, in der Unterhaltungsliteratur wiederum als Stilmittel, etwa um eine Gesinnung über eine bestimmte Ausdrucksweise zu transportieren. 
 	
 	Ein mögliches Maß ist die Anzahl der Nominalisierungen $ |W_{Nominalisierung}| $ geteilt durch die Anzahl der Substantive $ |W_{Substantive}| $ im zu analysierenden Text, also \begin{equation*}
 		\textit{Nominalisierungen}_W=\frac{|W_{Nominalisierungen}|}{|W_{Substantive}|},
