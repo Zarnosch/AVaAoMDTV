@@ -7,6 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from ui.taggedtextwidget import MQTaggedTextWidget
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -135,9 +136,11 @@ class Ui_MainWindow(object):
         self.horizontalScrollBar.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalScrollBar.setObjectName("horizontalScrollBar")
         self.verticalLayout.addWidget(self.horizontalScrollBar)
-        self.plainTextEdit = QtWidgets.QTextBrowser(self.centralwidget)
-        self.plainTextEdit.setObjectName("plainTextEdit")
-        self.verticalLayout.addWidget(self.plainTextEdit)
+#        self.plainTextEdit = QtWidgets.QTextBrowser(self.centralwidget)
+#        self.plainTextEdit.setObjectName("plainTextEdit")
+        self.taggedTextWidget = MQTaggedTextWidget(self)
+        self.taggedTextWidget.setObjectName("taggedTextWidget")
+        self.verticalLayout.addWidget(self.taggedTextWidget)
         self.gridLayout_2.addLayout(self.verticalLayout, 2, 1, 1, 1)
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
         self.verticalLayout_2.setObjectName("verticalLayout_2")
