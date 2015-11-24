@@ -1,12 +1,12 @@
 import sys
-from PyQt5.QtWidgets import QDialog, QFileDialog, QLabel, QApplication
+from PyQt5.QtWidgets import QDialog, QFileDialog, QLabel, QApplication, QMainWindow
 from PyQt5.QtCore import QTextStream, QFile, QIODevice
 from PyQt5.QtGui import QImageReader, QImage, QPalette, QPixmap
 from PyQt5 import QtCore, QtGui
-from ui.ui_dialog import Ui_Dialog
+from ui.ui_dialog import Ui_MainWindow
 from textparser.textparser import TextParser
 
-class MainApplication(QDialog, Ui_Dialog):
+class MainApplication(QMainWindow, Ui_MainWindow):
     def __init__(self, tagged_data):
         super(MainApplication, self).__init__()
 
@@ -15,11 +15,13 @@ class MainApplication(QDialog, Ui_Dialog):
 
         # Set up the user interface from Designer.
         self.setupUi(self)
+        #white background for the main widget
+        #self.setStyleSheet("background-color: white;")
 
         self.tag = tagged_data
-        self.pushButton.clicked.connect(self.show_tagged)
+        self.pushButton_12.clicked.connect(self.show_tagged)
 
-        self.Datei_btn.clicked.connect(self.open_text)
+        self.actionText_ffnen.triggered.connect(self.open_text)
 
     def show_tagged(self):
         self.taggedTextWidget.setTaggedData(self.tag, 'NN')
