@@ -5,6 +5,7 @@ from PyQt5.QtGui import QImageReader, QImage, QPalette, QPixmap
 from PyQt5 import QtCore, QtGui
 from ui.ui_dialog import Ui_MainWindow
 from textparser.textparser import TextParser
+from ui.taggedtextwidget import MQTaggedTextWidget
 
 class MainApplication(QMainWindow, Ui_MainWindow):
     def __init__(self, tagged_data):
@@ -15,8 +16,14 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
         # Set up the user interface from Designer.
         self.setupUi(self)
-        #white background for the main widget
-        #self.setStyleSheet("background-color: white;")
+
+        #setup own textwidget
+        self.verticalLayout.removeWidget(self.plainTextEdit)
+        self.plainTextEdit.close()
+        self.taggedTextWidget = MQTaggedTextWidget(self.centralwidget)
+        self.verticalLayout.addWidget(self.taggedTextWidget)
+        self.verticalLayout.update()
+
 
         self.tag = tagged_data
         self.pushButton_12.clicked.connect(self.show_tagged)
