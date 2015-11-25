@@ -305,45 +305,81 @@
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="1" column="1">
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <widget class="QScrollBar" name="verticalScrollBar">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QLabel" name="label_2">
+       <widget class="QPushButton" name="updateBtn">
         <property name="text">
-         <string>Choose your view? </string>
+         <string>Textfeld aktualisieren</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="Corpus_btn">
+       <widget class="QLabel" name="label">
         <property name="text">
-         <string>Corpus</string>
+         <string>What to analyse?</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="Block_btn_2">
+       <widget class="QPushButton" name="Words_btn">
+        <property name="statusTip">
+         <string>Länge der Wörter pro Satz</string>
+        </property>
         <property name="text">
-         <string>Block</string>
+         <string>Wortlänge</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="Detail_btn">
+       <widget class="QPushButton" name="pushButton">
+        <property name="statusTip">
+         <string>Abhängig von ausgewählten Corpi</string>
+        </property>
         <property name="text">
-         <string>Detail</string>
+         <string>Komplexität der Vokabeln</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="Document_btn_2">
+       <widget class="QPushButton" name="Sentences_btn">
+        <property name="statusTip">
+         <string>Vorkommen von Nominalisierungen im Verhältnis zu Substantiven</string>
+        </property>
         <property name="text">
-         <string>Document</string>
+         <string>Nominalisierung</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Block_btn">
+        <property name="statusTip">
+         <string>Anzahl der Wörter im Satz</string>
+        </property>
+        <property name="text">
+         <string>Satzlänge</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Document_btn">
+        <property name="statusTip">
+         <string>Syntaxbaum umgesetzt mit Stanfordparser (wahrscheinlich)</string>
+        </property>
+        <property name="text">
+         <string>Komplexität der Sätze</string>
         </property>
        </widget>
       </item>
      </layout>
     </item>
-    <item row="2" column="1">
+    <item row="1" column="0">
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QScrollBar" name="horizontalScrollBar">
@@ -356,104 +392,6 @@
        <widget class="QTextBrowser" name="plainTextEdit"/>
       </item>
      </layout>
-    </item>
-    <item row="2" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>How to analyse?</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_12">
-        <property name="text">
-         <string>Show Tagged</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_10">
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_11">
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_9">
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </item>
-    <item row="0" column="1">
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>What to analyse?</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="Words_btn">
-        <property name="text">
-         <string>Words</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="Sentences_btn">
-        <property name="text">
-         <string>Sentences</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="Block_btn">
-        <property name="text">
-         <string>Block</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="Document_btn">
-        <property name="text">
-         <string>Document</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="2" column="2">
-     <widget class="QScrollBar" name="verticalScrollBar">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
     </item>
    </layout>
   </widget>
@@ -472,12 +410,103 @@
     </property>
     <addaction name="actionText_ffnen"/>
    </widget>
+   <widget class="QMenu" name="menuAnsicht">
+    <property name="title">
+     <string>Ansicht</string>
+    </property>
+    <addaction name="actionCorpus_2"/>
+    <addaction name="actionBlock"/>
+    <addaction name="actionDetail"/>
+    <addaction name="actionDocument"/>
+   </widget>
+   <widget class="QMenu" name="menuCorpus_2">
+    <property name="title">
+     <string>Corpus</string>
+    </property>
+    <widget class="QMenu" name="menuBrown">
+     <property name="title">
+      <string>Brown</string>
+     </property>
+     <addaction name="actionThriller"/>
+     <addaction name="actionGesetzestexte"/>
+     <addaction name="actionNachrichten"/>
+    </widget>
+    <addaction name="menuBrown"/>
+    <addaction name="actionKinderb_cher"/>
+   </widget>
+   <widget class="QMenu" name="menuHilfe">
+    <property name="title">
+     <string>Hilfe</string>
+    </property>
+    <addaction name="action_ber"/>
+   </widget>
    <addaction name="menuDatei"/>
+   <addaction name="menuAnsicht"/>
+   <addaction name="menuCorpus_2"/>
+   <addaction name="menuHilfe"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionText_ffnen">
    <property name="text">
     <string>Text öffnen</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionBlock">
+   <property name="text">
+    <string>Block</string>
+   </property>
+  </action>
+  <action name="actionDetail">
+   <property name="text">
+    <string>Detail</string>
+   </property>
+  </action>
+  <action name="actionDocument">
+   <property name="text">
+    <string>Document</string>
+   </property>
+  </action>
+  <action name="actionTest">
+   <property name="text">
+    <string>Test</string>
+   </property>
+  </action>
+  <action name="actionCorpus_2">
+   <property name="text">
+    <string>Corpus</string>
+   </property>
+  </action>
+  <action name="actionKinderb_cher">
+   <property name="text">
+    <string>Kinderbücher</string>
+   </property>
+  </action>
+  <action name="actionThriller">
+   <property name="text">
+    <string>Thriller</string>
+   </property>
+  </action>
+  <action name="actionGesetzestexte">
+   <property name="text">
+    <string>Gesetzestexte</string>
+   </property>
+  </action>
+  <action name="actionNachrichten">
+   <property name="text">
+    <string>Nachrichten</string>
+   </property>
+  </action>
+  <action name="actionKeine_Hilfe_f_r_dich_Swag">
+   <property name="text">
+    <string>Keine Hilfe für dich! Swag!</string>
+   </property>
+  </action>
+  <action name="action_ber">
+   <property name="text">
+    <string>Über</string>
    </property>
   </action>
  </widget>

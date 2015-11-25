@@ -17,7 +17,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         # Set up the user interface from Designer.
         self.setupUi(self)
 
-        #setup own textwidget
+        #remove qttextWidget and setup own textwidget
         self.verticalLayout.removeWidget(self.plainTextEdit)
         self.plainTextEdit.close()
         self.taggedTextWidget = MQTaggedTextWidget(self.centralwidget)
@@ -26,7 +26,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
 
         self.tag = tagged_data
-        self.pushButton_12.clicked.connect(self.show_tagged)
+        self.updateBtn.clicked.connect(self.show_tagged)
 
         self.actionText_ffnen.triggered.connect(self.open_text)
 
@@ -43,6 +43,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         #    QtGui.QMessageBox.information(None, 'info', file.errorString())
         #stream = QtCore.QTextStream(file)
         self.tag = self.textParser.tagText(open(file_name[0]).read())
+        self.show_tagged()
 
 
 
