@@ -24,9 +24,15 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.verticalLayout.addWidget(self.taggedTextWidget)
         self.verticalLayout.update()
 
+        #setup the slider
+        self.ViewSlider.setMaximum(3)
+        self.ViewSlider.actionTriggered.connect(self.updateView)
+
 
         self.tag = tagged_data
-        self.updateBtn.clicked.connect(self.show_tagged)
+
+        # i don´t think, we need an update Button, because we just update after every change we do
+        #self.updateBtn.clicked.connect(self.show_tagged)
 
         self.actionText_ffnen.triggered.connect(self.open_text)
 
@@ -44,6 +50,19 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         #stream = QtCore.QTextStream(file)
         self.tag = self.textParser.tagText(open(file_name[0]).read())
         self.show_tagged()
+
+    def updateView(self):
+        v = self.ViewSlider.sliderPosition()
+        if v == 0:
+            self.ActiveViewText.setText("Document")
+        elif v == 1:
+            self.ActiveViewText.setText("Block")
+        elif v == 2:
+            self.ActiveViewText.setText("Sentence")
+        elif v == 3:
+            self.ActiveViewText.setText("Words - Details")
+        else:
+            self.ActiveViewText.setText("No View available")
 
 
 

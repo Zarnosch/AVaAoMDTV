@@ -304,31 +304,36 @@
     <string notr="true"/>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
-    <item row="1" column="1">
-     <widget class="QScrollBar" name="verticalScrollBar">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QPushButton" name="updateBtn">
-        <property name="text">
-         <string>Textfeld aktualisieren</string>
+       <widget class="QSlider" name="ViewSlider">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="ActiveViewText">
         <property name="text">
-         <string>What to analyse?</string>
+         <string>aktive Ansicht</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="Words_btn">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="statusTip">
          <string>Länge der Wörter pro Satz</string>
         </property>
@@ -339,6 +344,12 @@
       </item>
       <item>
        <widget class="QPushButton" name="pushButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="statusTip">
          <string>Abhängig von ausgewählten Corpi</string>
         </property>
@@ -349,6 +360,12 @@
       </item>
       <item>
        <widget class="QPushButton" name="Sentences_btn">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="statusTip">
          <string>Vorkommen von Nominalisierungen im Verhältnis zu Substantiven</string>
         </property>
@@ -359,6 +376,12 @@
       </item>
       <item>
        <widget class="QPushButton" name="Block_btn">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="statusTip">
          <string>Anzahl der Wörter im Satz</string>
         </property>
@@ -369,6 +392,12 @@
       </item>
       <item>
        <widget class="QPushButton" name="Document_btn">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="statusTip">
          <string>Syntaxbaum umgesetzt mit Stanfordparser (wahrscheinlich)</string>
         </property>
@@ -381,13 +410,6 @@
     </item>
     <item row="1" column="0">
      <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QScrollBar" name="horizontalScrollBar">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
       <item>
        <widget class="QTextBrowser" name="plainTextEdit"/>
       </item>
