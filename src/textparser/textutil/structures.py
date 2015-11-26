@@ -1,3 +1,5 @@
+import re
+
 class Word(object):
     """Describes a word.
     Args:
@@ -63,5 +65,8 @@ class Block(object):
 class Text(object):
     """Describes the whole text."""
 
-    def __init__(self):
-            self.blocks = []
+    def __init__(self, text):
+        self.blocks = split_text(text)
+
+    def split_text(self, text):
+        return re.split(r"\.\s", text)
