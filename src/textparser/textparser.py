@@ -17,12 +17,14 @@ class TextParser():
         self.bigram_tagger = nltk.BigramTagger(brown_tagged_sents, backoff=self.unigram_tagger)
 
     def get_sent_length(self, s):
+        """number of words in sent"""
         tokenizer = RegexpTokenizer(r'\w+')
         length = len(tokenizer.tokenize(s))
         print("The sentence has ", length, "words.")
         return (s, length)
 
     def get_word_length(self, s):
+        """average word length in sent"""
         tokenizer = RegexpTokenizer(r'\w+')
         tokens = tokenizer.tokenize(s)
         length_sum = 0
