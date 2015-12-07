@@ -484,15 +484,20 @@
         </property>
         <item row="0" column="3">
          <widget class="QLabel" name="labelWortlaenge">
-          <property name="text">
-           <string>Wortlänge</string>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
-         </widget>
-        </item>
-        <item row="0" column="4">
-         <widget class="QLabel" name="labelNom">
+          <property name="minimumSize">
+           <size>
+            <width>75</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="text">
-           <string>Nominalisierung</string>
+           <string>Wortlänge </string>
           </property>
          </widget>
         </item>
@@ -568,6 +573,18 @@
         </item>
         <item row="0" column="1">
          <widget class="QLabel" name="labelKompVok">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>75</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="text">
            <string>komp. d. Vok.</string>
           </property>
@@ -588,6 +605,18 @@
         </item>
         <item row="0" column="5">
          <widget class="QLabel" name="labelSatzlaenge">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>75</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="text">
            <string>Satzlänge</string>
           </property>
@@ -621,8 +650,39 @@
         </item>
         <item row="0" column="6">
          <widget class="QLabel" name="labelKompSatz">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>75</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="text">
            <string>komp. d. Sätze</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QLabel" name="labelNom">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>75</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Nominalisierung</string>
           </property>
          </widget>
         </item>

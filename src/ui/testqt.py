@@ -112,7 +112,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
             self.nomWeight = 0
 
         if self.checkBoxSatzlaenge.isChecked():
-            self.checkBoxSatzlaenge.setText(str(self.sliderSatzlaenge.sliderPosition() + "%"))
+            self.checkBoxSatzlaenge.setText(str(self.sliderSatzlaenge.sliderPosition()) + "%")
             self.slenghtIsActive = True
             self.slenghtWeight = self.sliderSatzlaenge.sliderPosition()
         else:
