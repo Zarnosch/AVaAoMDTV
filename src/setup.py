@@ -6,7 +6,7 @@ setup(
     version="0.1.0",
     description="Applied Visualization and Analysis of Multivariate Datasets - Text Visualization",
     url="https://github.com/Zarnosch/AVaAoMDTV",
-    packages=["main", "textparser", "ui", "textutil"],
+    packages=["main", "textparser", "ui", "textutil", "htmlgen"],
     requires=['PyQt5', 'nltk'],
     package_data={"ui": ["ui_files/*.ui"]}
 )
