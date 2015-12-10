@@ -1,5 +1,4 @@
 import os
-from builtins import print
 
 import nltk
 from nltk.corpus import brown
@@ -20,8 +19,8 @@ class TextParser():
         """number of words in sent"""
         tokenizer = RegexpTokenizer(r'\w+')
         length = len(tokenizer.tokenize(s))
-        print("The sentence has ", length, "words.")
-        return (s, length)
+        # print("The sentence has ", length, "words.")
+        return length
 
     def get_word_length(self, s):
         """average word length in sent"""
@@ -31,7 +30,7 @@ class TextParser():
         for word in tokens:
             length_sum += len(word)
         average_length = length_sum / len(tokenizer.tokenize(s))
-        print("The average word length is ", average_length, ".")
+        # print("The average word length is ", average_length, ".")
         return average_length
 
     def get_sent_voc_complexity(selfself, s):
@@ -49,8 +48,10 @@ class TextParser():
         complex_word_count = length - word_matches
         complexity = complex_word_count / length
 
-        print(complex_word_count, " of ", length,
-              " words in this sentence are not common, so the vocabular complexity is ", complexity, ".")
+        # TODO: research impact of quotation marks, use this workaround for now
+        if complexity < 0: complexity = 0
+
+        # print(complex_word_count, " of ", length, " words in this sentence are not common, so the vocabular complexity is ", complexity, ".")
         return complexity
 
     def tagText(self, text):
@@ -91,9 +92,10 @@ class Stanford():
         for line in sentences:
             for sentence in line:
                 depth = str(sentence.height() - 1)
-                print('The depth of the parse tree is ' + depth + '.')
+                # print('The depth of the parse tree is ' + depth + '.')
                 if draw_tree:
                     sentence.draw()
+        return int(depth)
 
     def get_sent_nomins(self, s):  # experimental
         verb_count = 0
@@ -109,5 +111,5 @@ class Stanford():
             elif tag in noun_tags:
                 noun_count += 1
 
-        print("The sentence has", verb_count, "verb(s) and", noun_count, "noun(s).")
+        # print("The sentence has", verb_count, "verb(s) and", noun_count, "noun(s).")
         return

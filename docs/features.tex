@@ -10,6 +10,7 @@
 \usepackage{tikz}
 \usepackage{parskip}
 \usepackage[ngerman]{babel}
+\usepackage{float}
  
 \begin{document}
 	\section*{Kriterien für die Lesbarkeitsanalyse}
@@ -43,6 +44,20 @@
 			\end{axis}
 			\end{tikzpicture}
 		\end{figure}
+		\subsubsection*{Skala}
+	\begin{table}[H]
+			\centering
+			\begin{tabular}{|l|c|c|c|}
+				\hline  & min & max & avg \\ 
+				\hline it\_could\_happen & 3.25 & 5.66 & 4.46 \\ 
+				\hline the\_halloween\_house & 2.0 & 9.0 & 5.5 \\ 
+				\hline the\_little\_gingerbread\_man & 2.5 & 6.33 & 4.42 \\ 
+				\hline who\_did\_patricks\_homework & 2 & 6 & 4 \\ 
+				\hline 
+			\end{tabular} 
+			\caption{Wortlänge: einfache Texte}
+		\end{table}
+		
 	\subsection*{Komplexität der Vokabeln}
 	Hier wird der Prozentanteil eines Absatzes/Satzes gemessen, der nicht in einer Liste häufig verwendeter Wörter vorkommt. Dazu kann entweder Wikipedia\footnote{\url{https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists\#German}} (deutsch/englisch), ein Korpus aus Zeitungsartikeln\footnote{\url{http://wortschatz.uni-leipzig.de/html/wliste.html}} oder evtl. eine fachspezifische Textsammlung ausgewertet werden. Der Anteil der Wörter $ w_i $, die nicht in der Liste $ L $ sind, wird dann durch die Anzahl $ |W| $ der Wörter im zu analysierenden Text $ W $ geteilt, also 
 	\begin{equation*}
@@ -66,6 +81,19 @@
 			\end{axis}
 			\end{tikzpicture}
 		\end{figure}
+	\subsubsection*{Skala}
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{|l|c|c|c|}
+				\hline  & min & max & avg \\ 
+				\hline it\_could\_happen & 0.2 & 0.75 & 0.475 \\ 
+				\hline the\_halloween\_house & 0.0 & 1.0 & 0.5 \\ 
+				\hline the\_little\_gingerbread\_man & 0.0 & 0.75 & 0.375 \\ 
+				\hline who\_did\_patricks\_homework & 0.0 & 0.75 & 0.375 \\ 
+				\hline 
+			\end{tabular} 
+			\caption{Komplexität der Vokabeln: einfache Texte}
+		\end{table}
 		
 	\subsection*{Nominalisierungen}
 	Die Nominalisierung ist die Bildung eines Substantivs aus einer anderen Wortart, vor allem aus Verben und Adjektiven (z.B. \textit{das Böse, etwas Hübsches; the evil, something pretty}). Ein Gerundium ist ein substantivierter Infinitiv eines Verbs (z.b. \textit{\textbf{climbing} is dangerous; \textbf{das Klettern} ist gefährlich}).
@@ -93,7 +121,20 @@
 		\end{axis}
 		\end{tikzpicture}
 	\end{figure}
-	
+	\subsubsection*{Skala}
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{|l|c|c|c|}
+				\hline  & min & max & avg \\ 
+				\hline it\_could\_happen &  &  &  \\ 
+				\hline the\_halloween\_house &  &  &  \\ 
+				\hline the\_little\_gingerbread\_man &  &  &  \\ 
+				\hline who\_did\_patricks\_homework &  &  &  \\ 
+				\hline 
+			\end{tabular} 
+			\caption{Einfache Texte}
+		\end{table}
+		
 	\subsection*{Satzlänge}
 	Hier wird die Anzahl der Wörter in einem Satz gemessen. Sollte kein Katalog an \textit{Grundwahrheiten} (vgl. Einleitung) gebildet werden, könnten entsprechende Werte aus anderer Literatur\footnote{\url{https://de.wikipedia.org/wiki/Satzl\%C3\%A4nge\#Durchschnittliche_Satzl.C3.A4nge}} für die Maßstabsfindung übernommen werden, was jedoch in je nach Kontext (nicht berücksichtige Textarten, Sprachwandel) zu weniger aussagekräftigen Ergebnissen führen könnte.\\
 	
@@ -114,6 +155,19 @@
 			\end{axis}
 			\end{tikzpicture}
 		\end{figure}
+	\subsubsection*{Skala}
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{|l|c|c|c|}
+				\hline  & min & max & avg \\ 
+				\hline it\_could\_happen & 3 & 42 & 22.5 \\ 
+				\hline the\_halloween\_house & 1 & 26 & 13.5 \\ 
+				\hline the\_little\_gingerbread\_man & 1 & 31 & 16 \\ 
+				\hline who\_did\_patricks\_homework & 2 & 21 & 11.5 \\ 
+				\hline 
+			\end{tabular} 
+			\caption{Satzlänge: einfache Texte}
+		\end{table}
 	\subsection*{Komplexität der Satzstruktur}
 	Dieses Kriterium basiert auf der Annahme, dass der für das Verständnis eines Satzes erforderliche mentale Arbeitsaufwand mit dem Grad an Verschachtelung und der Verwendung von Klammern steigt. 
 	
@@ -243,6 +297,19 @@
 		V&	verb&	walked\\
 		P&	preposition&	in
 	\end{tabular}
-
+	
+	\subsubsection*{Skala}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|c|c|c|}
+			\hline  & min & max & avg \\ 
+			\hline it\_could\_happen & 5 & 21 & 13 \\ 
+			\hline the\_halloween\_house & 3 & 17 & 10 \\ 
+			\hline the\_little\_gingerbread\_man & 3 & 19 & 11 \\ 
+			\hline who\_did\_patricks\_homework & 4 & 17 & 10.5 \\ 
+			\hline 
+		\end{tabular} 
+		\caption{Komplexität der Satzstruktur: einfache Texte}
+	\end{table}
 		
 \end{document}
