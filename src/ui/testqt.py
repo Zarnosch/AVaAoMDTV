@@ -5,7 +5,9 @@ from PyQt5.QtGui import QImageReader, QImage, QPalette, QPixmap
 from PyQt5 import QtCore, QtGui
 from ui.ui_dialog import Ui_MainWindow
 from textparser.textparser import TextParser
+from textparser.textutil.structures import Text
 from ui.taggedtextwidget import MQTaggedTextWidget
+
 
 class MainApplication(QMainWindow, Ui_MainWindow):
     def __init__(self, tagged_data):
@@ -63,16 +65,16 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
         self.updateFeatureWeights()
 
-    def show_tagged(self):
-        self.taggedTextWidget.setTaggedData(self.tag, 'NN')
+    def show_data(self):
+        self.taggedTextWidget.showData(self.tag)
 
     def open_text(self):
         dialog = QFileDialog(self)
         dialog.setNameFilters([self.tr('Text Files (*.txt)'), self.tr('All Files (*)')])
         dialog.setDefaultSuffix('.txt')
         file_name = dialog.getOpenFileName(self, 'Open file')
-        self.tag = self.textParser.tagText(open(file_name[0]).read())
-        self.show_tagged()
+        self.tag = Text(open(file_name[0]).read())
+        self.show_data()
 
     def updateView(self):
         v = self.ViewSlider.sliderPosition()

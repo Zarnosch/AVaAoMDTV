@@ -19,7 +19,7 @@ class Sentence(object):
         self.sent_len = self.Parser.get_sent_length(self.Text)
         self.avg_word_len = self.Parser.get_word_length(self.Text)
         self.voc_complexity = self.Parser.get_sent_voc_complexity(self.Text)
-        self.depth = self.StanfordParser.get_sent_depth(self.Text, False)
+        self.depth = 0.0 # self.StanfordParser.get_sent_depth(self.Text, False)
         self.nominals = self.StanfordParser.get_sent_nomins(self.Text)
 
 class Text(object):
@@ -38,3 +38,5 @@ class Text(object):
         for token in tokens:
             sentences.append(Sentence(token, count))
             count += 1
+
+        return sentences

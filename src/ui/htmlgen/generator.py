@@ -1,5 +1,7 @@
+from textparser.textutil.structures import *
+
 class HTMLGenerator(object):
-    header = """<html>
+    header = """
     <head>
         <meta charset="utf-8">
         <title>AVAMD</title>
@@ -9,8 +11,7 @@ class HTMLGenerator(object):
     </head>
 """
 
-    body = """    <body>
-        <div class="container">
+    body = """<div class="container">
             <div class="row">
                 <div class="column xs-seven">
                     {text}
@@ -31,9 +32,7 @@ class HTMLGenerator(object):
                     {feature5}
                 </div>
             </div>
-        </div>
-    </body>
-</html>"""
+        </div>"""
 
     def __init__(self):
         self.sample_data = {
@@ -45,8 +44,8 @@ class HTMLGenerator(object):
             "feature5": 0.5
         }
 
-        self.body_filled = self.fill_template(self.body, self.sample_data)
-        self.full = self.header + self.body_filled
+        self.body_filled = """<body>""" + self.fill_template(self.body, self.sample_data) + """</body>"""
+        self.full = """<html>""" + self.header + self.body_filled + """</html>"""
 
         with open("generated_html/index.html", "w") as file:
             file.write(self.full)
@@ -54,6 +53,28 @@ class HTMLGenerator(object):
 
     def fill_template(self, template, data):
         return template.format(**data)
+
+    def generate(self, text):
+        self.body_filled = """<body>"""
+
+        for sent in text.Sentences:
+            data_set = {}
+            data_set["text"] = sent.Text
+            data_set["feature1"] = sent.sent_len
+            data_set["feature2"] = sent.avg_word_len
+            data_set["feature3"] = sent.voc_complexity
+            data_set["feature4"] = sent.depth
+            data_set["feature5"] = sent.nominals
+
+            self.body_filled += self.fill_template(self.body, data_set)
+
+        self.body_filled += """</body>"""
+
+        self.full = """<html>""" + self.header + self.body_filled + """</html>"""
+
+        with open("generated_html/index.html", "w") as file:
+            file.write(self.full)
+             
 
 class CSSGenerator(object):
 
@@ -82,3 +103,11 @@ class CSSGenerator(object):
 
         with open("generated_html/style.css", "w") as file:
             file.write(self.full)
+
+    def generate(self, text):
+        data_set = {}
+        data_set["feature1"] = sent.sent_len
+        data_set["feature2"] = sent.avg_word_len
+        data_set["feature3"] = sent.voc_complexity
+        data_set["feature4"] = sent.depth
+        data_set["feature5"] = sent.nominals
