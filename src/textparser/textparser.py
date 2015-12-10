@@ -5,6 +5,8 @@ from nltk.corpus import brown
 from nltk.parse.stanford import StanfordParser
 from nltk.tokenize import RegexpTokenizer
 
+from os.path import expanduser
+home = expanduser("~")
 
 class TextParser():
     def __init__(self):
@@ -80,8 +82,8 @@ class Stanford():
             os.environ['JAVA_HOME'] = '/usr/lib/jvm/java-1.8.0-openjdk-amd64'
             # insert path to the directory containing stanford-parser.ja and stanford-parser-3.5.2-models.jar
             self.english_parser = StanfordParser(
-                '/lib/stanford-parser-full-2015-04-20/stanford-parser.jar',
-                '/lib/stanford-parser-full-2015-04-20/stanford-parser-3.5.2-models.jar')
+                expanduser("~") + '/lib/stanford-parser-full-2015-12-09/stanford-parser.jar',
+                expanduser("~") + '/lib/stanford-parser-full-2015-12-09/stanford-parser-3.6.0-models.jar')
 
     def get_sent_depth(self, s, draw_tree):
         sentences = self.english_parser.raw_parse_sents((s,))

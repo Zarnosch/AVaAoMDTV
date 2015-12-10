@@ -48,7 +48,7 @@ class HTMLGenerator(object):
         self.body_filled = self.fill_template(self.body, self.sample_data)
         self.full = self.header + self.body_filled
 
-        with open("index.html", "w") as file:
+        with open("generated_html/index.html", "w") as file:
             file.write(self.full)
 
 
@@ -80,5 +80,5 @@ class CSSGenerator(object):
 
         self.full = self.css_template.format(**self.sample_data)
 
-        with open("style.css", "w") as file:
+        with open("generated_html/style.css", "w") as file:
             file.write(self.full)

@@ -1,72 +1,40 @@
 import re
+from nltk.tokenize import sent_tokenize
+from textparser.textparser import *
 
-class Word(object):
-    """Describes a word.
-    Args:
-        one word
-    """
-
-    """this variable is shared across all instaces"""
-    all_words
-
-    def __init__(self, word):
-        if all_words is None:
-            all_words = 0
-        else:
-            all_words += 1
-
-        self.id = all_words
-        self.value = word
-        self.word_length = len(word)
-        self.tag = ""
-
-    def __len__(self):
-        return self.word_length
-
-class Sent(object):
+class Sentence(object):
     """Describes one sentence.
     Args:
         one sentence
     """
 
-    all_sents
+    def __init__(self, textpart, my_id):
+        self.id = my_id
+        self.Text = textpart
 
-    def __init__(self, sent):
-        if all_sents is None:
-            all_sents = 0
-        else:
-            all_sents += 1
-
-        self.id = all_sents
-        self.words = []
-        self.syntax_trees = []
+        self.Parser = TextParser()
+        self.StanfordParser = Stanford()
 
         """features"""
-        self.sent_len = 0
-        self.avg_word_len = 0
-        self.voc_complexity = 0
-        self.depth = 0
-        self.nominals = 0
-
-class Block(object):
-    """Describes one block."""
-
-    all_blocks
-
-    def __init__(self):
-        if all_blocks is None:
-            all_blocks = 0
-        else:
-            all_blocks += 1
-
-        self.id = all_blocks
-        self.sents = []
+        self.sent_len = self.Parser.get_sent_length(self.Text)
+        self.avg_word_len = self.Parser.get_word_length(self.Text)
+        self.voc_complexity = self.Parser.get_sent_voc_complexity(self.Text)
+        self.depth = self.StanfordParser.get_sent_depth(self.Text, False)
+        self.nominals = self.StanfordParser.get_sent_nomins(self.Text)
 
 class Text(object):
     """Describes the whole text."""
 
     def __init__(self, text):
-        self.blocks = split_text(text)
+        self.Sentences = self.split_text(text)
 
     def split_text(self, text):
-        return re.split(r"\.\s", text)
+        tokens = sent_tokenize(text)
+
+        sentences = []
+	
+        count = 0
+
+        for token in tokens:
+            sentences.append(Sentence(token, count))
+            count += 1
