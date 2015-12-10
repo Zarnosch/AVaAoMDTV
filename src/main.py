@@ -7,7 +7,7 @@ from textparser.textparser import *
 from ui.testqt import MainApplication
 
 # turn feature tests on/off
-test_features = False
+test_features = True
 
 # setup nltk text parsing
 textp = TextParser()
@@ -16,10 +16,11 @@ stanford_parser = Stanford()
 # function tests
 if test_features:
     t = time.time()
-    text = open('../kindertexte/en/it_could_happen.txt').read()
+
+    # text = open('../kindertexte/en/it_could_happen.txt').read()
     # text = open('../kindertexte/en/the_halloween_house.txt').read()
     # text = open('../kindertexte/en/the_little_gingerbread_man.txt').read()
-    # text = open('../kindertexte/en/who_did_patricks_homework.txt').read()
+    text = open('../kindertexte/en/who_did_patricks_homework.txt').read()
 
     sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
     sentences_ntlk = sent_detector.tokenize(text.strip())
@@ -48,28 +49,28 @@ if test_features:
 
     min_wlength = min(wlength_lst)
     max_wlength = max(wlength_lst)
-    avg_wlength = (min_wlength + max_wlength) / 2
+    avg_wlength = sum(wlength_lst) / float(len(wlength_lst))
     print('The min word length of the texttext is ' + str(min_wlength) + '.')
     print('The max word length of the texttext is ' + str(max_wlength) + '.')
     print('The avg word length of the texttext is ' + str(avg_wlength) + '.')
 
     min_compl = min(compl_lst)
     max_compl = max(compl_lst)
-    avg_compl = (min_compl + max_compl) / 2
+    avg_compl = sum(compl_lst) / float(len(compl_lst))
     print('The min complexity of the text is ' + str(min_compl) + '.')
     print('The max complexity of the text is ' + str(max_compl) + '.')
     print('The avg complexity of the text is ' + str(avg_compl) + '.')
 
     min_slength = min(slength_lst)
     max_slength = max(slength_lst)
-    avg_slength = (min_slength + max_slength) / 2
+    avg_slength = sum(slength_lst) / float(len(compl_lst))
     print('The min sentence length of the text is ' + str(min_slength) + '.')
     print('The max sentence length of the text is ' + str(max_slength) + '.')
     print('The avg sentence length of the text is ' + str(avg_slength) + '.')
 
     min_depth = min(depth_lst)
     max_depth = max(depth_lst)
-    avg_depth = (min_depth + max_depth) / 2
+    avg_depth = sum(depth_lst) / float(len(depth_lst))
     print('The min depth of the parse tree is ' + str(min_depth) + '.')
     print('The max depth of the parse tree is ' + str(max_depth) + '.')
     print('The avg depth of the parse tree is ' + str(avg_depth) + '.')
