@@ -92,11 +92,11 @@ class CSSGenerator(object):
 
     def __init__(self):
         self.sample_data = {
-            "feature1": "{background-color: rgb(255, 0, 0); color: rgb(255, 0, 0);}",
-            "feature2": "{background-color: rgb(200, 55, 0); color: rgb(200, 55, 0);}",
-            "feature3": "{background-color: rgb(100, 155, 0); color: rgb(100, 155, 0);}",
-            "feature4": "{background-color: rgb(55, 200, 0); color: rgb(55, 200, 0);}",
-            "feature5": "{background-color: rgb(0, 255, 0); color: rgb(0, 255, 0);}",
+            "feature1": "{background-color: rgb(255, 0, 0); color: rgb(0, 0, 0);}",
+            "feature2": "{background-color: rgb(200, 55, 0); color: rgb(0, 0, 0);}",
+            "feature3": "{background-color: rgb(100, 155, 0); color: rgb(0, 0, 0);}",
+            "feature4": "{background-color: rgb(55, 200, 0); color: rgb(0, 0, 0);}",
+            "feature5": "{background-color: rgb(0, 255, 0); color: rgb(0, 0, 0);}",
         }
 
         self.full = self.css_template.format(**self.sample_data)
