@@ -77,23 +77,6 @@
 	\textit{Komplexität}_W= \frac{|w_i\not\in L|}{|W|}.
 	\end{equation*}
 	
-		\begin{figure}[h]
-			\centering
-			\begin{tikzpicture}
-			\begin{axis}[
-			colormap={lolmap}{[1cm] 
-				rgb255(0cm)=(32,62,181) color(5cm)=(white) rgb255(10cm)=(186,57,44)}, colorbar horizontal, colorbar/width=.5cm, 
-			colorbar style={xtick={0,.5,1},
-				xlabel near ticks, 
-				extra x ticks={0,1},
-				extra x tick labels={wenige komplexe Wörter, viele komplexe Wörter}, 
-				extra x tick style={ticklabel pos=right}   
-			},
-			hide axis
-			]
-			\end{axis}
-			\end{tikzpicture}
-		\end{figure}
 	\subsubsection*{Skala}
 	\begin{table}[H]
 		\centering
@@ -119,15 +102,6 @@
 		\end{tabular}\right\}$ obere Grenze: 
 		\caption{Komplexität der Vokabeln: schwere Texte}
 	\end{table}
-	\subsection*{Nominalisierungen}
-	Die Nominalisierung ist die Bildung eines Substantivs aus einer anderen Wortart, vor allem aus Verben und Adjektiven (z.B. \textit{das Böse, etwas Hübsches; the evil, something pretty}). Ein Gerundium ist ein substantivierter Infinitiv eines Verbs (z.b. \textit{\textbf{climbing} is dangerous; \textbf{das Klettern} ist gefährlich}).
-	
-	Da Nominalisierungen schwer grundsätzlich vermeidbar sind, die Lesbarkeit des Textes aber auch nicht zwingend schwer unter ihrer Verwendung leidet (z.B. \textit{Es geschah aus \textbf{Versehen}; The \textbf{use} of drugs is dangerous}), muss die Bewertungsskala kontextsensitiv angelegt werden\footnote{\url{https://ps.ipd.kit.edu/backend/index.php/veroeffentlichungen-details/items/3801.html}}. Bei einem wissenschaftlichen Fachartikel wird die Lesbarkeit bzgl. dieses Kriteriums evtl. zugunsten einer präzisen Formulierung vernachlässigt, in der Unterhaltungsliteratur wiederum als Stilmittel, etwa um eine Gesinnung über eine bestimmte Ausdrucksweise zu transportieren. 
-	
-	Ein mögliches Maß ist die Anzahl der Nominalisierungen $ |W_{Nominalisierung}| $ geteilt durch die Anzahl der Substantive $ |W_{Substantive}| $ im zu analysierenden Text, also \begin{equation*}
-		\textit{Nominalisierungen}_W=\frac{|W_{Nominalisierungen}|}{|W_{Substantive}|},
-	\end{equation*}wobei $ W_{Nominalisierungen}\subseteq W_{Substantive} $. Der resultierende Wert kann wie beim Kriterium Wortlänge normalisiert und farbkodiert werden.\\
-	
 	\begin{figure}[h]
 		\centering
 		\begin{tikzpicture}
@@ -137,7 +111,7 @@
 		colorbar style={xtick={0,.5,1},
 			xlabel near ticks, 
 			extra x ticks={0,1},
-			extra x tick labels={wenige Nominalisierungen, viele Nominalisierungen}, 
+			extra x tick labels={wenige komplexe Wörter, viele komplexe Wörter}, 
 			extra x tick style={ticklabel pos=right}   
 		},
 		hide axis
@@ -146,15 +120,26 @@
 		\end{tikzpicture}
 	\end{figure}
 	
+	\subsection*{Nominalisierungskomplexität (experimentell)}
+	Die Nominalisierung ist die Bildung eines Substantivs aus einer anderen Wortart, vor allem aus Verben und Adjektiven (z.B. \textit{das Böse, etwas Hübsches; the evil, something pretty}). Ein Gerundium ist ein substantivierter Infinitiv eines Verbs (z.b. \textit{\textbf{climbing} is dangerous; \textbf{das Klettern} ist gefährlich}).
+	
+	Da Nominalisierungen schwer grundsätzlich vermeidbar sind, die Lesbarkeit des Textes aber auch nicht zwingend schwer unter ihrer Verwendung leidet (z.B. \textit{Es geschah aus \textbf{Versehen}; The \textbf{use} of drugs is dangerous}), muss die Bewertungsskala kontextsensitiv angelegt werden\footnote{\url{https://ps.ipd.kit.edu/backend/index.php/veroeffentlichungen-details/items/3801.html}}. Bei einem wissenschaftlichen Fachartikel wird die Lesbarkeit bzgl. dieses Kriteriums evtl. zugunsten einer präzisen Formulierung vernachlässigt, in der Unterhaltungsliteratur wiederum als Stilmittel, etwa um eine Gesinnung über eine bestimmte Ausdrucksweise zu transportieren. Generell sind Texte mit vielen Verben leichter verständlich als Sätze mit wenigen.
+	
+	Die \textbf{experimentelle} Berechnung der Nominalisierungskomplexität ergibt sich aus dem Verhältnis von Verben zu Nomen und der geschätzten Anzahl Nominalisierungen. Diese wird anhand der Endung des Wortes (z.B. -tion, -ity, \dots) ermittelt. Das entsprechende Nomen wird doppelt gezählt (Anzahl der Nominalisierungen wird zur Anzahl der Nomen addiert), um ihm mehr Gewicht zu verleihen.
+	
+	\begin{equation*}
+		\textit{Nominalisierungskomplexität}=\frac{|Verben|}{|Nomen|+|Nominalisierungen|}
+	\end{equation*}
+	
 	\subsubsection*{Skala}
 	\begin{table}[H]
 		\centering
 		$\left.\begin{tabular}{|l|r|r|r|}
 			\hline Text & min & max & avg \\ 
-			\hline\hline it\_could\_happen &  &  &  \\ 
-			\hline the\_halloween\_house &  &  &  \\ 
-			\hline the\_little\_gingerbread\_man &  &  &  \\ 
-			\hline who\_did\_patricks\_homework &  &  &  \\ 
+			\hline\hline it\_could\_happen & 0 & 5 & 0.93 \\ 
+			\hline the\_halloween\_house & 0 & 4 & 0.71 \\ 
+			\hline the\_little\_gingerbread\_man & 0 & 4 & 1.16 \\ 
+			\hline who\_did\_patricks\_homework & 0 & 3 & 1.00 \\ 
 			\hline 
 		\end{tabular}\right\}$ untere Grenze: 
 		\caption{Nominalisierungen: einfache Texte}
@@ -171,27 +156,28 @@
 		\end{tabular}\right\}$ obere Grenze: 
 		\caption{Nominalisierungen: schwere Texte}
 	\end{table}
-		
+	
+	\textbf{Achtung!} Hier ist ausnahmsweise ein höherer Wert besser als ein kleiner!
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}
+		\begin{axis}[
+		colormap={lolmap}{[1cm] 
+			rgb255(0cm)=(186,57,44) color(5cm)=(white) rgb255(10cm)=(32,62,181)}, colorbar horizontal, colorbar/width=.5cm, 
+		colorbar style={xtick={0,.5,1},
+			xlabel near ticks, 
+			extra x ticks={0,1},
+			extra x tick labels={hohe Nominalisierungskomplexität, niedrige Nominalisierungskomplexität}, 
+			extra x tick style={ticklabel pos=right}   
+		},
+		hide axis
+		]
+		\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+	
 	\subsection*{Satzlänge}
 	Hier wird die Anzahl der Wörter in einem Satz gemessen. Sollte kein Katalog an \textit{Grundwahrheiten} (vgl. Einleitung) gebildet werden, könnten entsprechende Werte aus anderer Literatur\footnote{\url{https://de.wikipedia.org/wiki/Satzl\%C3\%A4nge\#Durchschnittliche_Satzl.C3.A4nge}} für die Maßstabsfindung übernommen werden, was jedoch in je nach Kontext (nicht berücksichtige Textarten, Sprachwandel) zu weniger aussagekräftigen Ergebnissen führen könnte.\\
-	
-		\begin{figure}[h]
-			\centering
-			\begin{tikzpicture}
-			\begin{axis}[
-			colormap={lolmap}{[1cm] 
-				rgb255(0cm)=(32,62,181) color(5cm)=(white) rgb255(10cm)=(186,57,44)}, colorbar horizontal, colorbar/width=.5cm, 
-			colorbar style={xtick={0,.5,1},
-				xlabel near ticks, 
-				extra x ticks={0,1},
-				extra x tick labels={kurze Sätze, lange Sätze}, 
-				extra x tick style={ticklabel pos=right}   
-			},
-			hide axis
-			]
-			\end{axis}
-			\end{tikzpicture}
-		\end{figure}
 		
 	\subsubsection*{Skala}
 	\begin{table}[H]
@@ -218,29 +204,28 @@
 		\end{tabular}\right\}$ obere Grenze: 
 		\caption{Satzlänge: schwere Texte}
 	\end{table}
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}
+		\begin{axis}[
+		colormap={lolmap}{[1cm] 
+			rgb255(0cm)=(32,62,181) color(5cm)=(white) rgb255(10cm)=(186,57,44)}, colorbar horizontal, colorbar/width=.5cm, 
+		colorbar style={xtick={0,.5,1},
+			xlabel near ticks, 
+			extra x ticks={0,1},
+			extra x tick labels={kurze Sätze, lange Sätze}, 
+			extra x tick style={ticklabel pos=right}   
+		},
+		hide axis
+		]
+		\end{axis}
+		\end{tikzpicture}
+	\end{figure}
 	
 	\subsection*{Komplexität der Satzstruktur}
 	Dieses Kriterium basiert auf der Annahme, dass der für das Verständnis eines Satzes erforderliche mentale Arbeitsaufwand mit dem Grad an Verschachtelung und der Verwendung von Klammern steigt. 
 	
-		\begin{figure}[h]
-			\centering
-			\begin{tikzpicture}
-			\begin{axis}[
-			colormap={lolmap}{[1cm] 
-				rgb255(0cm)=(32,62,181) color(5cm)=(white) rgb255(10cm)=(186,57,44)}, colorbar horizontal, colorbar/width=.5cm, 
-			colorbar style={xtick={0,.5,1},
-				xlabel near ticks, 
-				extra x ticks={0,1},
-				extra x tick labels={einfache Sätze, komplexe Sätze}, 
-				extra x tick style={ticklabel pos=right}   
-			},
-			hide axis
-			]
-			\end{axis}
-			\end{tikzpicture}
-		\end{figure}
-		
-		Der dem Maßstab zugrundeliegende Verzweigungsfaktor des Satzstruktur-Baums muss zunächst experimentell ermittelt werden. Um Mehrdeutigkeiten aufzulösen, wird der Stanford Parser\footnote{\url{http://nlp.stanford.edu/software/lex-parser.shtml}} verwendet. Dieser hat auch eine eingebaute Visualisierungsmöglichkeit für den entstehenden Syntaxbaum.
+	Der dem Maßstab zugrundeliegende Verzweigungsfaktor des Satzstruktur-Baums muss zunächst experimentell ermittelt werden. Um Mehrdeutigkeiten aufzulösen, wird der Stanford Parser\footnote{\url{http://nlp.stanford.edu/software/lex-parser.shtml}} verwendet. Dieser hat auch eine eingebaute Visualisierungsmöglichkeit für den entstehenden Syntaxbaum.
 		
 	\begin{figure}[h]
 		\centering
@@ -378,5 +363,22 @@
 		\end{tabular}\right\}$ untere Grenze: 
 		\caption{Satzlänge: schwere Texte}
 	\end{table}
-			
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}
+		\begin{axis}[
+		colormap={lolmap}{[1cm] 
+			rgb255(0cm)=(32,62,181) color(5cm)=(white) rgb255(10cm)=(186,57,44)}, colorbar horizontal, colorbar/width=.5cm, 
+		colorbar style={xtick={0,.5,1},
+			xlabel near ticks, 
+			extra x ticks={0,1},
+			extra x tick labels={einfache Sätze, komplexe Sätze}, 
+			extra x tick style={ticklabel pos=right}   
+		},
+		hide axis
+		]
+		\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+	
 \end{document}

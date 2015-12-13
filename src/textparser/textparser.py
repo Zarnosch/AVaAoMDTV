@@ -1,12 +1,13 @@
 import os
+from os.path import expanduser
 
 import nltk
 from nltk.corpus import brown
 from nltk.parse.stanford import StanfordParser
 from nltk.tokenize import RegexpTokenizer
 
-from os.path import expanduser
 home = expanduser("~")
+
 
 class TextParser():
     def __init__(self):
@@ -73,7 +74,7 @@ class Stanford():
         # The Stanford Parser is required, download from http://nlp.stanford.edu/software/lex-parser.shtml and unpack somewhere
         # insert path to java home
         if os.name != "posix":
-            os.environ['JAVAHOME'] = 'C:/Program Files (x86)/Java/jdk1.8.0_60/bin/java.exe'
+            os.environ['JAVAHOME'] = 'C:/Program Files (x86)/Java/jdk1.8.0_66/bin/java.exe'
             # insert path to the directory containing stanford-parser.jar and stanford-parser-3.5.2-models.jar
             self.english_parser = StanfordParser(
                 'C:/Python34/Lib/site-packages/stanford-parser-full-2015-04-20/stanford-parser.jar',
@@ -102,9 +103,12 @@ class Stanford():
     def get_sent_nomins(self, s):  # experimental
         verb_count = 0
         noun_count = 0
-        verb_tags = {'NN', 'NNS', 'NNP', 'NNPS'}
-        noun_tags = {'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ'}
+        nomin_count = 0
+
+        noun_tags = {'NN', 'NNS', 'NNP', 'NNPS'}
+        verb_tags = {'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ'}
         tokens = nltk.word_tokenize(s)
+        # TODO: test if stanford tagger does a better job than nltk for counting nouns/verbs
         tags = nltk.pos_tag(tokens)
 
         for word, tag in tags:
@@ -112,6 +116,19 @@ class Stanford():
                 verb_count += 1
             elif tag in noun_tags:
                 noun_count += 1
+                # count potential nominalized nouns via possible endings of nominalized words
+                if word.endswith(('tion', 'sion', 'ment', 'ity', 'ness', 'cy')) \
+                        and len(word) > 4:  # make sure short words are ignored, e.g. 'pity'
+                    nomin_count += 1
 
-        # print("The sentence has", verb_count, "verb(s) and", noun_count, "noun(s).")
-        return
+        # add number of potential nominalizations to noun count, giving them more weight, so bigger is better
+        nomin_compl = 1 if noun_count == 0 else (verb_count / (noun_count + nomin_count))
+
+        # print("The sentence has", verb_count, "verb(s) and", noun_count, "noun(s), \nverb/noun ratio: ",
+        #       verb_noun_ratio, ", \nnominalizations: ", nomin_count)
+        # if verb_noun_ratio == 0:
+        #     print(s, ": ", verb_count, " verbs, ", noun_count, " nouns, ", nomin_count, " nominalisations.")
+        #     sent = nltk.word_tokenize(s)
+        #     print(nltk.pos_tag(sent))
+
+        return nomin_compl
