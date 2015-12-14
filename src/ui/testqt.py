@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QDialog, QFileDialog, QLabel, QApplication, QMainWindow
+from PyQt5.QtWidgets import QDialog, QFileDialog, QLabel, QApplication, QMainWindow, QSizePolicy
 from PyQt5.QtCore import QTextStream, QFile, QIODevice
 from PyQt5.QtGui import QImageReader, QImage, QPalette, QPixmap
 from PyQt5 import QtCore, QtGui
@@ -23,6 +23,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.verticalLayout.removeWidget(self.plainTextEdit)
         self.plainTextEdit.close()
         self.taggedTextWidget = MQTaggedTextWidget(self.centralwidget)
+        self.taggedTextWidget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.verticalLayout.addWidget(self.taggedTextWidget)
         self.verticalLayout.update()
 
@@ -32,9 +33,6 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
 
         self.tag = tagged_data
-
-        # i don´t think, we need an update Button, because we just update after every change we do
-        #self.updateBtn.clicked.connect(self.show_tagged)
 
         self.actionText_ffnen.triggered.connect(self.open_text)
 
