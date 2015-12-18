@@ -1,8 +1,8 @@
-from textparser.textutil.structures import *
+#from textparser.textutil.structures import *
 from string import Template
 import os
 
-class HTMLGenerator(object):
+class ViewGenerator(object):
 
     barebone_element = """<tr>
                     <td>${text}</td>
@@ -13,32 +13,6 @@ class HTMLGenerator(object):
                     <td class="feature-body f5-${id}">${f5}</td>
                 </tr>
                 """
-
-    def generate(self, text):
-        self.filled_txt = ""
-
-        for sent in text.Sentences:
-            data_set = {}
-            data_set["id"] = sent.id
-            data_set["text"] = sent.Text
-            data_set["f1"] = sent.sent_len
-            data_set["f2"] = sent.avg_word_len
-            data_set["f3"] = sent.voc_complexity
-            data_set["f4"] = sent.depth
-            data_set["f5"] = sent.nominals
-
-            self.filled_txt += Template(self.barebone_element).substitute(data_set)
-
-        self.filled_template = ""
-        with open("../../generated_html/index_template.html", "r") as f:
-            for line in f:
-                self.filled_template += Template(line).substitute(fill_me=self.filled_txt)
-
-        with open("../../generated_html/index.html", "w") as f:
-            f.write(self.filled_template)
-
-
-class CSSGenerator(object):
 
     barebone_css = """
 .feature-body.f1-${id} {
@@ -58,8 +32,35 @@ class CSSGenerator(object):
 }
 """
 
-    def generate(self, text):
-        self.filled_style = ""
+    @staticmethod
+    def generate_html(text):
+        filled_txt = ""
+
+        for sent in text.Sentences:
+            data_set = {}
+            data_set["id"] = sent.id
+            data_set["text"] = sent.Text
+            data_set["f1"] = sent.sent_len
+            data_set["f2"] = sent.avg_word_len
+            data_set["f3"] = sent.voc_complexity
+            data_set["f4"] = sent.depth
+            data_set["f5"] = sent.nominals
+
+            filled_txt += Template(ViewGenerator.barebone_element).substitute(data_set)
+
+        filled_template = ""
+        with open("../../generated_html/index_template.html", "r") as f:
+            for line in f:
+                filled_template += Template(line).substitute(fill_me=filled_txt)
+
+        with open("../../generated_html/index.html", "w") as f:
+            f.write(filled_template)
+
+
+
+    @staticmethod
+    def generate_css(text):
+        filled_style = ""
 
         for sent in text.Sentences:
             data_set = {}
@@ -70,15 +71,15 @@ class CSSGenerator(object):
             data_set["f4"] = "yellow"#sent.depth
             data_set["f5"] = "pink"#sent.nominals
 
-            self.filled_style += Template(self.barebone_css).substitute(data_set)
+            filled_style += Template(ViewGenerator.barebone_css).substitute(data_set)
 
-        self.filled_template = ""
+        filled_template = ""
         with open("../../generated_html/style_template.css", "r") as f:
             for line in f:
-                self.filled_template += Template(line).substitute(fill_me=self.filled_style)
+                filled_template += Template(line).substitute(fill_me=filled_style)
 
         with open("../../generated_html/style.css", "w") as f:
-            f.write(self.filled_template)
+            f.write(filled_template)
 
 # class SampleText(object):
 #     def __init__(self):
@@ -96,9 +97,8 @@ class CSSGenerator(object):
 #         self.nominals = 0.4
 #
 # if __name__ == '__main__':
-#     htmlgen = HTMLGenerator()
-#     cssgen = CSSGenerator()
-#     text = SampleText()
 #
-#     htmlgen.generate(text)
-#     cssgen.generate(text)
+#     stext = SampleText()
+#
+#     ViewGenerator.generate_css(stext)
+#     ViewGenerator.generate_html(stext)
