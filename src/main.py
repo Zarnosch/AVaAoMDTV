@@ -103,7 +103,7 @@ if test_features:
     print("\nAnalyzing the text took", time.time() - t, "seconds.")
 
 # setup qt app
-# app = QApplication(sys.argv)
-# frame = MainApplication(textp.output())
-# frame.show()
-# app.exec_()
+app = QApplication(sys.argv)
+frame = MainApplication(textp.output())
+frame.show()
+app.exec_()
