@@ -1,10 +1,52 @@
+table {
+    width: 100%;
+    border-spacing: 0;
+}
 
-.column.xs-one.feature-1 {background-color: rgb(255, 0, 0); color: rgb(0, 0, 0);}
+.feature-head {
+    width: 75px;
+    height: 75px;
+}
 
-.column.xs-one.feature-2 {background-color: rgb(200, 55, 0); color: rgb(0, 0, 0);}
+.feature-body {
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    background-color: orange;
+}
 
-.column.xs-one.feature-3 {background-color: rgb(100, 155, 0); color: rgb(0, 0, 0);}
+/* Generated */
 
-.column.xs-one.feature-4 {background-color: rgb(55, 200, 0); color: rgb(0, 0, 0);}
 
-.column.xs-one.feature-5 {background-color: rgb(0, 255, 0); color: rgb(0, 0, 0);}
+.feature-body.f1-0 {
+    background-color: red;
+}
+.feature-body.f2-0 {
+    background-color: green;
+}
+.feature-body.f3-0 {
+    background-color: blue;
+}
+.feature-body.f4-0 {
+    background-color: yellow;
+}
+.feature-body.f5-0 {
+    background-color: pink;
+}
+
+.feature-body.f1-1 {
+    background-color: red;
+}
+.feature-body.f2-1 {
+    background-color: green;
+}
+.feature-body.f3-1 {
+    background-color: blue;
+}
+.feature-body.f4-1 {
+    background-color: yellow;
+}
+.feature-body.f5-1 {
+    background-color: pink;
+}
+

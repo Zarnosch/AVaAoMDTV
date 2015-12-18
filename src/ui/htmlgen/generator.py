@@ -1,113 +1,104 @@
 from textparser.textutil.structures import *
+from string import Template
+import os
 
 class HTMLGenerator(object):
-    header = """
-    <head>
-        <meta charset="utf-8">
-        <title>AVAMD</title>
 
-        <link rel="stylesheet" href="skeleton.css" media="screen" title="no title" charset="utf-8">
-        <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
-    </head>
-"""
-
-    body = """<div class="container">
-            <div class="row">
-                <div class="column xs-seven">
-                    {text}
-                </div>
-                <div class="column xs-one feature-1">
-                    {feature1}
-                </div>
-                <div class="column xs-one feature-2">
-                    {feature2}
-                </div>
-                <div class="column xs-one feature-3">
-                    {feature3}
-                </div>
-                <div class="column xs-one feature-4">
-                    {feature4}
-                </div>
-                <div class="column xs-one feature-5">
-                    {feature5}
-                </div>
-            </div>
-        </div>"""
-
-    def __init__(self):
-        self.sample_data = {
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "feature1": 1,
-            "feature2": 0.8,
-            "feature3": 0.6,
-            "feature4": 0.4,
-            "feature5": 0.5
-        }
-
-        self.body_filled = """<body>""" + self.fill_template(self.body, self.sample_data) + """</body>"""
-        self.full = """<html>""" + self.header + self.body_filled + """</html>"""
-
-        with open("generated_html/index.html", "w") as file:
-            file.write(self.full)
-
-
-    def fill_template(self, template, data):
-        return template.format(**data)
+    barebone_element = """<tr>
+                    <td>${text}</td>
+                    <td class="feature-body f1-${id}">${f1}</td>
+                    <td class="feature-body f2-${id}">${f2}</td>
+                    <td class="feature-body f3-${id}">${f3}</td>
+                    <td class="feature-body f4-${id}">${f4}</td>
+                    <td class="feature-body f5-${id}">${f5}</td>
+                </tr>
+                """
 
     def generate(self, text):
-        self.body_filled = """<body>"""
+        self.filled_txt = ""
 
         for sent in text.Sentences:
             data_set = {}
+            data_set["id"] = sent.id
             data_set["text"] = sent.Text
-            data_set["feature1"] = sent.sent_len
-            data_set["feature2"] = sent.avg_word_len
-            data_set["feature3"] = sent.voc_complexity
-            data_set["feature4"] = sent.depth
-            data_set["feature5"] = sent.nominals
+            data_set["f1"] = sent.sent_len
+            data_set["f2"] = sent.avg_word_len
+            data_set["f3"] = sent.voc_complexity
+            data_set["f4"] = sent.depth
+            data_set["f5"] = sent.nominals
 
-            self.body_filled += self.fill_template(self.body, data_set)
+            self.filled_txt += Template(self.barebone_element).substitute(data_set)
 
-        self.body_filled += """</body>"""
+        self.filled_template = ""
+        with open("../../generated_html/index_template.html", "r") as f:
+            for line in f:
+                self.filled_template += Template(line).substitute(fill_me=self.filled_txt)
 
-        self.full = """<html>""" + self.header + self.body_filled + """</html>"""
+        with open("../../generated_html/index.html", "w") as f:
+            f.write(self.filled_template)
 
-        with open("generated_html/index.html", "w") as file:
-            file.write(self.full)
-             
 
 class CSSGenerator(object):
 
-    css_template = """
-.column.xs-one.feature-1 {feature1}
-
-.column.xs-one.feature-2 {feature2}
-
-.column.xs-one.feature-3 {feature3}
-
-.column.xs-one.feature-4 {feature4}
-
-.column.xs-one.feature-5 {feature5}
+    barebone_css = """
+.feature-body.f1-${id} {
+    background-color: ${f1};
+}
+.feature-body.f2-${id} {
+    background-color: ${f2};
+}
+.feature-body.f3-${id} {
+    background-color: ${f3};
+}
+.feature-body.f4-${id} {
+    background-color: ${f4};
+}
+.feature-body.f5-${id} {
+    background-color: ${f5};
+}
 """
 
-    def __init__(self):
-        self.sample_data = {
-            "feature1": "{background-color: rgb(255, 0, 0); color: rgb(0, 0, 0);}",
-            "feature2": "{background-color: rgb(200, 55, 0); color: rgb(0, 0, 0);}",
-            "feature3": "{background-color: rgb(100, 155, 0); color: rgb(0, 0, 0);}",
-            "feature4": "{background-color: rgb(55, 200, 0); color: rgb(0, 0, 0);}",
-            "feature5": "{background-color: rgb(0, 255, 0); color: rgb(0, 0, 0);}",
-        }
-
-        self.full = self.css_template.format(**self.sample_data)
-
-        with open("generated_html/style.css", "w") as file:
-            file.write(self.full)
-
     def generate(self, text):
-        data_set = {}
-        data_set["feature1"] = sent.sent_len
-        data_set["feature2"] = sent.avg_word_len
-        data_set["feature3"] = sent.voc_complexity
-        data_set["feature4"] = sent.depth
-        data_set["feature5"] = sent.nominals
+        self.filled_style = ""
+
+        for sent in text.Sentences:
+            data_set = {}
+            data_set["id"] = sent.id
+            data_set["f1"] = "red"#sent.sent_len
+            data_set["f2"] = "green"#sent.avg_word_len
+            data_set["f3"] = "blue"#sent.voc_complexity
+            data_set["f4"] = "yellow"#sent.depth
+            data_set["f5"] = "pink"#sent.nominals
+
+            self.filled_style += Template(self.barebone_css).substitute(data_set)
+
+        self.filled_template = ""
+        with open("../../generated_html/style_template.css", "r") as f:
+            for line in f:
+                self.filled_template += Template(line).substitute(fill_me=self.filled_style)
+
+        with open("../../generated_html/style.css", "w") as f:
+            f.write(self.filled_template)
+
+# class SampleText(object):
+#     def __init__(self):
+#         self.Sentences = [SampleSent(0), SampleSent(1)]
+#
+#
+# class SampleSent(object):
+#     def __init__(self, id):
+#         self.id = id
+#         self.Text = "Construction started in 1963, and the freeway opened on December 18, 1970."
+#         self.sent_len = 0.5
+#         self.avg_word_len = 0.3
+#         self.voc_complexity = 0.9
+#         self.depth = 0.2
+#         self.nominals = 0.4
+#
+# if __name__ == '__main__':
+#     htmlgen = HTMLGenerator()
+#     cssgen = CSSGenerator()
+#     text = SampleText()
+#
+#     htmlgen.generate(text)
+#     cssgen.generate(text)
