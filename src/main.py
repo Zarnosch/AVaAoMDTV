@@ -7,7 +7,7 @@ from textparser.textparser import *
 from ui.testqt import MainApplication
 
 # turn feature tests on/off
-test_features = False
+test_features = True
 
 test_wlength = False
 test_compl = False
@@ -23,10 +23,21 @@ stanford_parser = Stanford()
 if test_features:
     t = time.time()
 
-    # text = open('../kindertexte/en/it_could_happen.txt').read()
-    # text = open('../kindertexte/en/the_halloween_house.txt').read()
-    # text = open('../kindertexte/en/the_little_gingerbread_man.txt').read()
-    text = open('../kindertexte/en/who_did_patricks_homework.txt').read()
+    # easy texts
+    text = open('../texts/easy/it_could_happen.txt').read()
+    # text = open('../texts/easy/the_halloween_house.txt').read()
+    # text = open('../texts/easy/the_little_gingerbread_man.txt').read()
+    # text = open('../texts/easy/who_did_patricks_homework.txt').read()
+
+    # hard texts
+    # text = open('../texts/hard/black_and_white_and_everything_in_between.txt').read()
+    # text = open('../texts/hard/fight_terrorism.txt').read()
+    # text = open('../texts/hard/jura_paper.txt').read()
+    # text = open('../texts/hard/paper_medicine.txt').read()
+    # text = open('../texts/hard/poems.txt').read()
+    # text = open('../texts/hard/political_english_text.txt').read()
+
+
 
     sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
     sentences_ntlk = sent_detector.tokenize(text.strip())
@@ -92,7 +103,7 @@ if test_features:
     print("\nAnalyzing the text took", time.time() - t, "seconds.")
 
 # setup qt app
-app = QApplication(sys.argv)
-frame = MainApplication(textp.output())
-frame.show()
-app.exec_()
+# app = QApplication(sys.argv)
+# frame = MainApplication(textp.output())
+# frame.show()
+# app.exec_()

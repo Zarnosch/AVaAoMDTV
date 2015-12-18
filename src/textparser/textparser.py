@@ -122,7 +122,7 @@ class Stanford():
                     nomin_count += 1
 
         # add number of potential nominalizations to noun count, giving them more weight, so bigger is better
-        nomin_compl = 1 if noun_count == 0 else (verb_count / (noun_count + nomin_count))
+        nomin_compl = verb_count if noun_count == 0 else (verb_count / (noun_count + nomin_count))
 
         # print("The sentence has", verb_count, "verb(s) and", noun_count, "noun(s), \nverb/noun ratio: ",
         #       verb_noun_ratio, ", \nnominalizations: ", nomin_count)

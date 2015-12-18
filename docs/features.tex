@@ -136,10 +136,10 @@
 		\centering
 		$\left.\begin{tabular}{|l|r|r|r|}
 			\hline Text & min & max & avg \\ 
-			\hline\hline it\_could\_happen & 0 & 5 & 0.93 \\ 
-			\hline the\_halloween\_house & 0 & 4 & 0.71 \\ 
-			\hline the\_little\_gingerbread\_man & 0 & 4 & 1.16 \\ 
-			\hline who\_did\_patricks\_homework & 0 & 3 & 1.00 \\ 
+			\hline\hline it\_could\_happen & 0 & 5 & 1.00 \\ 
+			\hline the\_halloween\_house & 0 & 4 & 0.76 \\ 
+			\hline the\_little\_gingerbread\_man & 0 & 5 & 1.29 \\ 
+			\hline who\_did\_patricks\_homework & 0 & 3 & 1.10 \\ 
 			\hline 
 		\end{tabular}\right\}$ untere Grenze: 
 		\caption{Nominalisierungen: einfache Texte}
@@ -157,17 +157,17 @@
 		\caption{Nominalisierungen: schwere Texte}
 	\end{table}
 	
-	\textbf{Achtung!} Hier ist ausnahmsweise ein höherer Wert besser als ein kleiner!
+	\textbf{Achtung!} Hier ist ausnahmsweise ein höherer Wert besser als ein kleiner! Für die Visualisierung wird daher der normierte Kehrwert zurückgegeben.
 	\begin{figure}[h]
 		\centering
 		\begin{tikzpicture}
 		\begin{axis}[
 		colormap={lolmap}{[1cm] 
-			rgb255(0cm)=(186,57,44) color(5cm)=(white) rgb255(10cm)=(32,62,181)}, colorbar horizontal, colorbar/width=.5cm, 
+			rgb255(0cm)=(32,62,181) color(5cm)=(white) rgb255(10cm)=(186,57,44)}, colorbar horizontal, colorbar/width=.5cm, 
 		colorbar style={xtick={0,.5,1},
 			xlabel near ticks, 
 			extra x ticks={0,1},
-			extra x tick labels={hohe Nominalisierungskomplexität, niedrige Nominalisierungskomplexität}, 
+			extra x tick labels={niedrige Nominalisierungskomplexität, hohe Nominalisierungskomplexität}, 
 			extra x tick style={ticklabel pos=right}   
 		},
 		hide axis

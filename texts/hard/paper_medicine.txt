@@ -1,0 +1,145 @@
+Hematopoiesis is a tightly regulated process that leads
+to the well-balanced production of myeloid, erythroid,
+and lymphoid cells from a small number of highly proliferative  hematopoietic  stem  and  progenitor  cells
+(HSCs and HPCs). During steady-state conditions,
+hematopoiesis is controlled by the coordinated action
+of a complex interplay of supporting growth factors
+and the signals they deliver through hematopoietic
+cytokine receptors expressed at the surface of HSPCs. 
+These growth factors are produced in the bone
+marrow (BM) microenvironment or at multiple sites
+throughout the body from where they reach their target
+cells in the BM via the bloodstream. Broadly acting
+early cytokines, including interleukin (IL)-1, IL2, IL-3, IL-6,
+and IL-11, enhance the initial stages of hematopoietic development and can be distinguished from more late-acting
+hematopoietic differentiation-inducing cytokines like granulocyte colony-stimulatin
+g factor (G-CSF), macrophage
+colony-stimulating  factor  (M-CSF),  and  granulocytemacrophage colony-stimulating factor (GM-CSF).
+Pattern recognition receptors like Toll-like receptors
+(especially TLRs 4, 7, and 9) recognize conserved microbial products derived from exogenous pathogens.
+Inflammatory conditions like bacterial or viral infections
+increase the production and release of early- and lateacting hematopoietic cytokines, and these cytokines
+contribute to the rapid replenishment of consumed
+innate immune effector cells like granulocytes and
+macrophages.Asaresult,earlyhematopoiesisinthe
+BM is significantly skewed towards myeloid cell differentiation and output, leading to an increase of myeloid
+colony-forming progenitor cells as well as granulocytes in
+the circulation, a process that is described as emergency
+myelopoiesis. In response to gram-negative infections, emergency myelopoiesis is mediated by 
+TLR4-expressing non-hematopoietic cells, which sense systemic
+lipopolysaccharide and by secreting myeloid cytokines
+such as G-CSF, induce an adequate myelopoietic response
+within the BM.
+The involvement of different cytokines such as G-CSF,
+GM-CSF, or IL-6 in regulating hematopoiesis during
+steady states as well as during emergency situations has
+been shown: respective knockout mice have defects both
+in production and function of myelopoietic effector cells. 
+However, alternative pathways are likely to exist
+as mice with single or combined deficiencies for G-CSF,
+GM-CSF, and IL-6 or G-CSF and GM-CSF are still able
+to mount reactive myelopoietic responses during inflammatory conditions.
+The goal of this study was the identification of novel
+cytokines with yet unknown function in the hematopoietic
+system. We therefore analyzed the BM of lipopolysaccharide (LPS)- and vehicle-injected wild-type (WT) mice by
+gene expression microarray. Among the known candidates, we identified angiopoietin-like 4 (Angptl4) as a
+predominantly upregulated protein in the BM during
+inflammatory conditions. Angptl4 has a broad range
+of activities on hematopoi
+esis acting both on early
+hematopoietic progenitors as well as on immature
+CD61+CD41low-expressing megakaryocytes (MKs). Furthermore, Angptl4 is a potent stimulator of megakaryopoiesis
+after myelosuppressive therapy.
+For the isolation of RNA, tissue samples were homogenized in TRIzol reagent using a bead beater homogenizer
+(PEQLAB, Erlangen, Germany). All cell samples were
+lysed in TRIzol reagent, and RNA was purified according
+to the manufacturer’s instructions (Invitrogen, Carlsbad,
+USA). All RNA samples were subjected to DNAse I treatment. cDNA was synthesized using random hexamers primer and Superscript III reverse transcriptase according to
+the manufacturer’s instructions (Invitrogen, Carlsbad, CA,
+USA). For all expression experiments, 100 ng cDNA each
+was analyzed. Real-time PCR for Angptl4 and G-CSF
+mRNA expression in the murine BM, liver, spleen, lung,
+and bone marrow stromal cells, as well as PCR for friend
+leukemia integration 1 (Fli-1), signal transducer and activator of transcription 3 (STAT3), and nuclear factor
+erythroid-derived 2 (NF-E2) mRNA in MK cultures was
+performed using a sequence detector (7500 Fast Real-Time PCR System; Invitrogen) and TaqMan target mixes
+(Assay-on-Demand Gene expression reagents; Invitrogen).
+Measurement of mouse G-CSF and Angptl4 was done in
+serum of LPS vs. control mice according to the manufacturer’s instructions (G-CSF, R&D Systems, Minneapolis,
+MN, USA; Angptl4, USCN Life Science, USA). BM
+plasma from the control and LPS-injected mice was prepared by flushing both femurs and tibia with 300µl of
+cold PBS into Eppendorf-type centrifuge tubes. Cells/debris 
+were removed by centrifugation at 3000 g for
+10 min at 4 °C; BM plasma was stored at -20 °C. 
+Control and LPS-stimulated bone marrow stromal cells
+(BMSCs) at passage 1 were grown to confluence in a
+T75 flask and kept for 48 h in 7 ml of Iscove’s Modified
+Dulbecco’s Medium (IMDM) (GIBCO; Life Technologies,
+Carlsbad, CA, USA) supplemented with 20 % FCS, 2 mM L-glutamine, 50 nM 2-mercaptoethanol 
+(all reagents from Sigma-Aldrich, St. Louis, MO, USA), antibiotics (GIBCO;
+Life Technologies, Carlsbad, CA, USA), and with or
+without LPS (10µg/ml) stimulation. Supernatants were
+harvested, cleared by centrifugation, and passed through a0.45µm filter. Culture supernat
+ants were analyzed for G-CSF and Angptl4.
+To assess colony-forming unit (CFU) stimulation of
+murine cytokines, freshly isolated mononuclear BM cells
+(3 × 10^4) resuspended in IMDM and supplemented with
+20 % FCS, 2 mM L-glutamine, 50µM 2-mercaptoethanol,
+stem cell factor (SCF; 10 ng/ml), fms-related tyrosine
+kinase 3 (FLT3; 10 ng/ml), and thrombopoietin (TPO;
+50 ng/ml) were mixed with methylcellulose (Methocult
+M3231,  2.6  %,  StemCell  Technologies,  Vancouver,
+Canada) to yield a final concentration of 0.9 % methylcellulose. Additional factors were added in the following concentrations as indicated within the figure: IL-3
+(20 ng/ml), GM-CSF (50 ng/ml), G-CSF (50 ng/ml), and
+Angptl4 (50 ng/ml). For estimation of CFU frequency after
+Angptl4 stimulation in vivo, 3×10^4 cells were plated
+in methylcellulose mixed with IMDM (30 % FCS,
+2mML-glutamine,50µM 2-mercaptoethanol) including the following factors: mIL-3 (10 ng/ml), hIL-6
+(10 ng/ml), mSCF (10 ng/ml), mGM-CSF (10 ng/ml),
+mTPO (50 ng/ml), and huEPO (2 U/ml) (all R&D Systems,
+Minneapolis, MN, USA).
+Six-  to  ten-week-old  female  B6.SJL-PtprcaPep3b/BoyJ
+mice were lethally irradiated with 2 × 6.5 Gy in a 4-h interval and transplanted with 5 × 10^5
+BM mononuclear cells
+derived from syngeneic PBS, Angptl4, or non-injected
+donor mice. All mice were maintained at the animal facility of the university clinic in Aachen, Germany. All animal
+experiments were approved by the Federal Ministry for
+Nature, Environment and Consumers’
+Protection of the
+state of North Rhine-Westphalia and were performed in
+accordance to the respective national, federal, and institutional regulations.
+For microarray and mRNA analysis, the mice were
+injected once i.p. with 50µg LPS 
+(1:1 mixture ofEscheri-chia  coli K12 andSalmonella  minnesota) 
+and analyzed 8h later. For detection of BM plasma and blood serum
+G-CSF and Angptl4 levels, the mice were injected twice
+i.p. with 50µg LPS in a 48-h interval and analyzed 24 h
+later. Murine recombinant Angptl4 (250
+µg/kg bodyweight in 100µl PBS) was injected i.p. for five consecutive days, and the mice were analyzed 48 h later.
+MKs were developed from lineage-depleted BM cells. Lin+
+was depleted from mononuclear cells using a lineage cell
+depletion kit (Miltenyi, Bergisch Gladbach, Germany)
+according to the manufacturer’s instructions. Lin-cells
+were seeded at 1 × 10^5
+cells per 1 ml in 48-well plates.
+Cells were cultured in IMDM containing bovine serum
+albumin, insulin, transferrin, SCF (25 ng/ml), and antibiotics.
+Where indicated, Angptl4 (30 ng/ml), TPO (30 ng/ml),
+or both were added. Cultures were performed at 37 °C
+in a fully humidified atmosphere of 5 % CO2. 
+After5 days of culture, cells were subjected to flow cytometry
+analysis using CD41 (eBioMWReg30) and CD61 (209.G3)
+antibodies, or smear preparations were prepared using
+cytospin and stained by the Wright-Giemsa method.
+Cells were counted using flow cytometry and Flow-Count
+fluorospheres (Beckman Coulter, Brea, CA, USA). After
+washing, harvested cells were resuspended in PBS containing 10 % FCS, 2 mM EDTA, and 7-aminoactinomycin D.
+Immediately prior to analysis, 50µl of Flow-Count
+fluorospheres were added. A
+bsolute cell counts were
+automatically  determined  using  a  Gallios  FACS
+analyzer (Beckman Coulter, Brea, CA, USA). The
+system software calculated cell numbers using the
+following formula: cells per microliter = [(viable cells
+counted)/(fluorospheres  counted)]  ×  fluorospheres/
+microliter (see Additional file 1 for supplementary methods).
