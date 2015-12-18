@@ -19,34 +19,34 @@ table {
 
 
 .feature-body.f1-0 {
-    background-color: red;
+    background-color: hsl(228, 50%, 40%);
 }
 .feature-body.f2-0 {
-    background-color: green;
+    background-color: hsl(228, 50%, 76.0%);
 }
 .feature-body.f3-0 {
-    background-color: blue;
+    background-color: hsl(8, 70%, 40.0%);
 }
 .feature-body.f4-0 {
-    background-color: yellow;
+    background-color: hsl(8, 70%, 76.0%);
 }
 .feature-body.f5-0 {
-    background-color: pink;
+    background-color: hsl(8, 70%, 100.0%);
 }
 
 .feature-body.f1-1 {
-    background-color: red;
+    background-color: hsl(228, 50%, 40%);
 }
 .feature-body.f2-1 {
-    background-color: green;
+    background-color: hsl(228, 50%, 76.0%);
 }
 .feature-body.f3-1 {
-    background-color: blue;
+    background-color: hsl(8, 70%, 40.0%);
 }
 .feature-body.f4-1 {
-    background-color: yellow;
+    background-color: hsl(8, 70%, 76.0%);
 }
 .feature-body.f5-1 {
-    background-color: pink;
+    background-color: hsl(8, 70%, 100.0%);
 }
 
