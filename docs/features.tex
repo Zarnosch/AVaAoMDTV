@@ -4,7 +4,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage{a4wide}
+\usepackage[left=25mm, right=25mm, bottom=20mm, top=25mm]{geometry}
 \usepackage{pgfplots}
 \usepackage{hyperref}
 \usepackage{tikz}
@@ -26,6 +26,35 @@
 	
 	Der Lesbarkeitswert jedes Wortes wird normiert durch $ \frac{|w_i|}{|w_i|_{max}}$ und der summierte Wert der Wörter des entsprechenden Satzes durch die Anzahl der Wörter $ |W| $ geteilt. Anschließend wird der Wert z.B. auf Farbwerte zwischen blau $ (32,62,181) $, weiß und rot $ (186,57,44) $ abgetragen.
 		
+	\begin{equation*}
+		\text{Wortlänge-Wert: }\frac{1}{|W|}\cdot\sum\limits_i \frac{|w_i|}{8}
+	\end{equation*}
+		
+	\subsubsection*{Skala}
+	\begin{table}[H]
+		$\left.\begin{tabular}{|l|r|r|r|}
+			\hline Text & min & max & avg \\ 
+			\hline\hline it\_could\_happen & 3.25 & 5.66 & 4.29 \\ 
+			\hline the\_halloween\_house & 2.00 & 9.00 & 4.10 \\ 
+			\hline the\_little\_gingerbread\_man & 2.50 & 6.33 & 4.17 \\ 
+			\hline who\_did\_patricks\_homework & 2.00 & 6.00 & 3.84 \\ 
+			\hline 
+		\end{tabular}\right\}$ untere Grenze: 2.00
+		\caption{Wortlänge: einfache Texte}
+	\end{table}
+	\begin{table}[H]
+		$\left.\begin{tabular}{|l|r|r|r|}
+			\hline Text & min & max & avg \\ 
+			\hline\hline black\_and\_white & 3.50 & 6.15 & 5.00 \\ 
+			\hline fight\_terrorism & 3.72 & 6.50 & 5.04 \\ 
+			\hline jura\_paper & 4.52 & 6.94 & 5.55 \\ 
+			\hline paper\_medicine & 3.06 & 7.55 & 5.13 \\ 
+			\hline poems & 2.00 & 4.86 & 3.47 \\ 
+			\hline political\_english\_text & 3.50 & 5.91 & 4.85 \\ 
+			\hline 
+		\end{tabular}\right\}$ obere Grenze: $ 7.55\approx 8.00 $
+		\caption{Wortlänge: schwere Texte}
+	\end{table}
 	\pgfplotsset{compat=1.10}
 		\begin{figure}[h]
 			\centering
@@ -45,41 +74,17 @@
 			\end{tikzpicture}
 		\end{figure}
 		
-	\subsubsection*{Skala}
-	\begin{table}[H]
-		\centering
-		$\left.\begin{tabular}{|l|r|r|r|}
-			\hline Text & min & max & avg \\ 
-			\hline\hline it\_could\_happen & 3.25 & 5.66 & 4.29 \\ 
-			\hline the\_halloween\_house & 2.00 & 9.00 & 4.10 \\ 
-			\hline the\_little\_gingerbread\_man & 2.50 & 6.33 & 4.17 \\ 
-			\hline who\_did\_patricks\_homework & 2.00 & 6.00 & 3.84 \\ 
-			\hline 
-		\end{tabular}\right\}$ untere Grenze: 2.00
-		\caption{Wortlänge: einfache Texte}
-	\end{table}
-	\begin{table}[H]
-		\centering
-		$\left.\begin{tabular}{|l|r|r|r|}
-			\hline Text & min & max & avg \\ 
-			\hline\hline  &  &  &  \\ 
-			\hline  &  &  &  \\ 
-			\hline  &  &  &  \\ 
-			\hline  &  &  &  \\ 
-			\hline 
-		\end{tabular}\right\}$ obere Grenze: 
-		\caption{Wortlänge: schwere Texte}
-	\end{table}
-		
 	\subsection*{Komplexität der Vokabeln}
-	Hier wird der Prozentanteil eines Absatzes/Satzes gemessen, der nicht in einer Liste häufig verwendeter Wörter vorkommt. Dazu kann entweder Wikipedia\footnote{\url{https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists\#German}} (deutsch/englisch), ein Korpus aus Zeitungsartikeln\footnote{\url{http://wortschatz.uni-leipzig.de/html/wliste.html}} oder evtl. eine fachspezifische Textsammlung ausgewertet werden. Der Anteil der Wörter $ w_i $, die nicht in der Liste $ L $ sind, wird dann durch die Anzahl $ |W| $ der Wörter im zu analysierenden Text $ W $ geteilt, also 
+	Hier wird der Prozentanteil eines Absatzes/Satzes gemessen, der nicht in einer Liste häufig verwendeter Wörter vorkommt. Dazu kann entweder Wikipedia\footnote{\url{https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists\#German}} (deutsch/englisch), ein Korpus aus Zeitungsartikeln\footnote{\url{http://wortschatz.uni-leipzig.de/html/wliste.html}} oder evtl. eine fachspezifische Textsammlung ausgewertet werden. Der Anteil der Wörter $ w_i $, die nicht in der Liste $ L $ sind, wird dann durch die Anzahl $ |W| $ der Wörter im zu analysierenden Text $ W $ geteilt. 
+	
+	Das Ergebnis ist also \textbf{inhärent normiert}, die Tests dienen nur der subjektiven Überprüfung der Güte der Aussagekraft des entsprechenden Wertes.
+	
 	\begin{equation*}
-	\textit{Komplexität}_W= \frac{|w_i\not\in L|}{|W|}.
+	\text{Vokabelkomplexitäts-Wert: } \frac{|w_i\not\in L|}{|W|}
 	\end{equation*}
 	
 	\subsubsection*{Skala}
 	\begin{table}[H]
-		\centering
 		$\left.\begin{tabular}{|l|r|r|r|}
 			\hline Text & min & max & avg \\ 
 			\hline\hline it\_could\_happen & 0.20 & 0.75 & 0.41 \\ 
@@ -91,15 +96,16 @@
 		\caption{Komplexität der Vokabeln: einfache Texte}
 	\end{table}
 	\begin{table}[H]
-		\centering
 		$\left.\begin{tabular}{|l|r|r|r|}
 			\hline Text & min & max & avg \\ 
-			\hline\hline  &  &  &  \\ 
-			\hline  &  &  &  \\ 
-			\hline  &  &  &  \\ 
-			\hline  &  &  &  \\ 
+			\hline\hline black\_and\_white & 0.08 & 0.75 & 0.54 \\ 
+			\hline fight\_terrorism & 0.14 & 0.71 & 0.49 \\ 
+			\hline jura\_paper & 0.24 & 0.68 & 0.50 \\ 
+			\hline paper\_medicine & 0.47 & 0.93 & 0.73 \\ 
+			\hline poems & 0.00 & 0.64 & 0.32 \\ 
+			\hline political\_english\_text & 0.16 & 0.64 & 0.45 \\ 
 			\hline 
-		\end{tabular}\right\}$ obere Grenze: 
+			\end{tabular}\right\}$ obere Grenze: 1.00
 		\caption{Komplexität der Vokabeln: schwere Texte}
 	\end{table}
 	\begin{figure}[h]
@@ -119,21 +125,27 @@
 		\end{axis}
 		\end{tikzpicture}
 	\end{figure}
-	
-	\subsection*{Nominalisierungskomplexität (experimentell)}
+	\newpage
+	\subsection*{Nominalisierungskomplexität}
 	Die Nominalisierung ist die Bildung eines Substantivs aus einer anderen Wortart, vor allem aus Verben und Adjektiven (z.B. \textit{das Böse, etwas Hübsches; the evil, something pretty}). Ein Gerundium ist ein substantivierter Infinitiv eines Verbs (z.b. \textit{\textbf{climbing} is dangerous; \textbf{das Klettern} ist gefährlich}).
 	
 	Da Nominalisierungen schwer grundsätzlich vermeidbar sind, die Lesbarkeit des Textes aber auch nicht zwingend schwer unter ihrer Verwendung leidet (z.B. \textit{Es geschah aus \textbf{Versehen}; The \textbf{use} of drugs is dangerous}), muss die Bewertungsskala kontextsensitiv angelegt werden\footnote{\url{https://ps.ipd.kit.edu/backend/index.php/veroeffentlichungen-details/items/3801.html}}. Bei einem wissenschaftlichen Fachartikel wird die Lesbarkeit bzgl. dieses Kriteriums evtl. zugunsten einer präzisen Formulierung vernachlässigt, in der Unterhaltungsliteratur wiederum als Stilmittel, etwa um eine Gesinnung über eine bestimmte Ausdrucksweise zu transportieren. Generell sind Texte mit vielen Verben leichter verständlich als Sätze mit wenigen.
 	
-	Die \textbf{experimentelle} Berechnung der Nominalisierungskomplexität ergibt sich aus dem Verhältnis von Verben zu Nomen und der geschätzten Anzahl Nominalisierungen. Diese wird anhand der Endung des Wortes (z.B. -tion, -ity, \dots) ermittelt. Das entsprechende Nomen wird doppelt gezählt (Anzahl der Nominalisierungen wird zur Anzahl der Nomen addiert), um ihm mehr Gewicht zu verleihen.
+	Die Berechnung der Nominalisierungskomplexität ergibt sich aus dem Verhältnis von Verben zu Nomen und der geschätzten Anzahl Nominalisierungen. Diese wird anhand der Endung des Wortes (z.B. -tion, -ity, \dots) ermittelt. Das entsprechende Nomen wird doppelt gezählt (Anzahl der Nominalisierungen wird zur Anzahl der Nomen addiert), um ihm mehr Gewicht zu verleihen.
 	
 	\begin{equation*}
-		\textit{Nominalisierungskomplexität}=\frac{|Verben|}{|Nomen|+|Nominalisierungen|}
+		\text{Nominalisierungskomplexität: }\frac{|Verben|}{|Nomen|+|Nominalisierungen|}
 	\end{equation*}
+	
+	\textbf{Achtung!} Hier ist ausnahmsweise ein höherer Wert besser als ein kleiner! Für die Visualisierung wird daher der normierte Kehrwert zurückgegeben.
+	
+	\begin{equation*}
+	\text{Nominalisierungskomplexitäts-Wert: } 1-\frac{1}{5}\cdot\frac{|Verben|}{|Nomen|+|Nominalisierungen|}
+	\end{equation*}
+		
 	
 	\subsubsection*{Skala}
 	\begin{table}[H]
-		\centering
 		$\left.\begin{tabular}{|l|r|r|r|}
 			\hline Text & min & max & avg \\ 
 			\hline\hline it\_could\_happen & 0 & 5 & 1.00 \\ 
@@ -141,23 +153,25 @@
 			\hline the\_little\_gingerbread\_man & 0 & 5 & 1.29 \\ 
 			\hline who\_did\_patricks\_homework & 0 & 3 & 1.10 \\ 
 			\hline 
-		\end{tabular}\right\}$ untere Grenze: 
+		\end{tabular}\right\}$ obere Grenze: 5.00
 		\caption{Nominalisierungen: einfache Texte}
 	\end{table}
 	\begin{table}[H]
-		\centering
 		$\left.\begin{tabular}{|l|r|r|r|}
 			\hline Text & min & max & avg \\ 
-			\hline\hline  &  &  &  \\ 
-			\hline  &  &  &  \\ 
-			\hline  &  &  &  \\ 
-			\hline  &  &  &  \\ 
+			\hline\hline black\_and\_white & 0 & 3 & 0.45 \\ 
+			\hline fight\_terrorism & 0.14 & 2.00 & 0.58 \\ 
+			\hline jura\_paper & 0.00 & 1.40 & 0.49 \\ 
+			\hline paper\_medicine & 0.00 & 0.75 & 0.33 \\ 
+			\hline poems & 0.00 & 3.00 & 1.08 \\ 
+			\hline political\_english\_text & 0.00 & 1.33 & 0.46 \\ 
 			\hline 
-		\end{tabular}\right\}$ obere Grenze: 
+			\end{tabular}\right\}$ untere Grenze: 0.00
 		\caption{Nominalisierungen: schwere Texte}
 	\end{table}
 	
-	\textbf{Achtung!} Hier ist ausnahmsweise ein höherer Wert besser als ein kleiner! Für die Visualisierung wird daher der normierte Kehrwert zurückgegeben.
+
+	
 	\begin{figure}[h]
 		\centering
 		\begin{tikzpicture}
@@ -177,11 +191,14 @@
 	\end{figure}
 	
 	\subsection*{Satzlänge}
-	Hier wird die Anzahl der Wörter in einem Satz gemessen. Sollte kein Katalog an \textit{Grundwahrheiten} (vgl. Einleitung) gebildet werden, könnten entsprechende Werte aus anderer Literatur\footnote{\url{https://de.wikipedia.org/wiki/Satzl\%C3\%A4nge\#Durchschnittliche_Satzl.C3.A4nge}} für die Maßstabsfindung übernommen werden, was jedoch in je nach Kontext (nicht berücksichtige Textarten, Sprachwandel) zu weniger aussagekräftigen Ergebnissen führen könnte.\\
+	Hier wird die Anzahl der Wörter $ |W| $ in einem Satz gemessen. Sollte kein Katalog an \textit{Grundwahrheiten} (vgl. Einleitung) gebildet werden, könnten entsprechende Werte aus anderer Literatur\footnote{\url{https://de.wikipedia.org/wiki/Satzl\%C3\%A4nge\#Durchschnittliche_Satzl.C3.A4nge}} für die Maßstabsfindung übernommen werden, was jedoch in je nach Kontext (nicht berücksichtige Textarten, Sprachwandel) zu weniger aussagekräftigen Ergebnissen führen könnte.
 		
+	\begin{equation*}
+		\text{Satzlänge-Wert: }\frac{|W|}{100}
+	\end{equation*}	
+	
 	\subsubsection*{Skala}
 	\begin{table}[H]
-		\centering
 		$\left.\begin{tabular}{|l|r|r|r|}
 			\hline Text & min & max & avg \\ 
 			\hline\hline it\_could\_happen & 3 & 42 & 18.00 \\ 
@@ -193,15 +210,16 @@
 		\caption{Satzlänge: einfache Texte}
 	\end{table}
 	\begin{table}[H]
-		\centering
 		$\left.\begin{tabular}{|l|r|r|r|}
 			\hline Text & min & max & avg \\ 
-			\hline\hline  &  &  &  \\ 
-			\hline  &  &  &  \\ 
-			\hline  &  &  &  \\ 
-			\hline  &  &  &  \\ 
+			\hline\hline black\_and\_white & 4 & 81 & 26.65 \\ 
+			\hline fight\_terrorism & 11 & 52 & 25.49 \\ 
+			\hline jura\_paper & 6 & 74 & 29.60 \\ 
+			\hline paper\_medicine & 8 & 101 & 28.83 \\ 
+			\hline poems & 2 & 54 & 17.22 \\ 
+			\hline political\_english\_text & 6 & 39 & 19.15 \\ 
 			\hline 
-		\end{tabular}\right\}$ obere Grenze: 
+			\end{tabular}\right\}$ {obere Grenze: 100.00 weil schöner zu rechnen}
 		\caption{Satzlänge: schwere Texte}
 	\end{table}
 	\begin{figure}[h]
@@ -221,13 +239,63 @@
 		\end{axis}
 		\end{tikzpicture}
 	\end{figure}
-	
+	\newpage
 	\subsection*{Komplexität der Satzstruktur}
 	Dieses Kriterium basiert auf der Annahme, dass der für das Verständnis eines Satzes erforderliche mentale Arbeitsaufwand mit dem Grad an Verschachtelung und der Verwendung von Klammern steigt. 
 	
 	Der dem Maßstab zugrundeliegende Verzweigungsfaktor des Satzstruktur-Baums muss zunächst experimentell ermittelt werden. Um Mehrdeutigkeiten aufzulösen, wird der Stanford Parser\footnote{\url{http://nlp.stanford.edu/software/lex-parser.shtml}} verwendet. Dieser hat auch eine eingebaute Visualisierungsmöglichkeit für den entstehenden Syntaxbaum.
+	
+	\begin{equation*}
+		\text{Verschachtelungswert: } \frac{Baumtiefe-3}{23}
+	\end{equation*}
 		
+	
+	\subsubsection*{Skala}
+	\begin{table}[H]
+		$\left.\begin{tabular}{|l|r|r|r|}
+			\hline Text & min & max & avg \\ 
+			\hline\hline it\_could\_happen & 5 & 21 & 10.00 \\ 
+			\hline the\_halloween\_house & 3 & 17 & 6.74 \\ 
+			\hline the\_little\_gingerbread\_man & 3 & 19 & 8.08 \\ 
+			\hline who\_did\_patricks\_homework & 4 & 17 & 7.36 \\ 
+			\hline 
+		\end{tabular}\right\}$ untere Grenze: 3.00
+		\caption{Komplexität der Satzstruktur: einfache Texte}
+	\end{table}
+	\begin{table}[H]
+		$\left.\begin{tabular}{|l|r|r|r|}
+			\hline Text & min & max & avg \\ 
+			\hline\hline black\_and\_white & 4 & 23 & 11.84 \\ 
+			\hline fight\_terrorism & 7 & 25 & 13.00 \\ 
+			\hline jura\_paper & 3 & 26 & 14.00 \\ 
+			\hline paper\_medicine & 3 & 11 & 5.83 \\ 
+			\hline poems & 3 & 10 & 5.78 \\ 
+			\hline political\_english\_text & 5 & 19 & 11.12 \\ 
+			\hline 
+			\end{tabular}\right\}$ obere Grenze: 26.00
+		\caption{Komplexität der Satzstruktur: schwere Texte}
+	\end{table}
 	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}
+		\begin{axis}[
+		colormap={lolmap}{[1cm] 
+			rgb255(0cm)=(32,62,181) color(5cm)=(white) rgb255(10cm)=(186,57,44)}, colorbar horizontal, colorbar/width=.5cm, 
+		colorbar style={xtick={0,.5,1},
+			xlabel near ticks, 
+			extra x ticks={0,1},
+			extra x tick labels={einfache Sätze, komplexe Sätze}, 
+			extra x tick style={ticklabel pos=right}   
+		},
+		hide axis
+		]
+		\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+	
+	\subsubsection*{Erläuterung}
+	
+	\begin{figure}[H]
 		\centering
 		\begin{tikzpicture}[
 		scale=0.75,
@@ -274,7 +342,7 @@
 		\end{tikzpicture}
 		\caption{Beispiel 1 für Mehrdeutigkeit, 6 Level}
 	\end{figure}
-		\begin{figure}[h]
+		\begin{figure}[H]
 			\centering
 			\begin{tikzpicture}[
 			scale=0.75,
@@ -337,48 +405,5 @@
 			P&	preposition&	in
 		\end{tabular}
 	\end{table}
-	
-	\subsubsection*{Skala}
-	\begin{table}[H]
-		\centering
-		$\left.\begin{tabular}{|l|r|r|r|}
-			\hline Text & min & max & avg \\ 
-			\hline\hline it\_could\_happen & 5 & 21 & 10.00 \\ 
-			\hline the\_halloween\_house & 3 & 17 & 6.74 \\ 
-			\hline the\_little\_gingerbread\_man & 3 & 19 & 8.08 \\ 
-			\hline who\_did\_patricks\_homework & 4 & 17 & 7.36 \\ 
-			\hline 
-		\end{tabular}\right\}$ untere Grenze: 3.00
-		\caption{Komplexität der Satzstruktur: einfache Texte}
-	\end{table}
-	\begin{table}[H]
-		\centering
-		$\left.\begin{tabular}{|l|r|r|r|}
-			\hline Text & min & max & avg \\ 
-			\hline\hline  &  &  &  \\ 
-			\hline  &  &  &  \\ 
-			\hline  &  &  &  \\ 
-			\hline  &  &  &  \\ 
-			\hline 
-		\end{tabular}\right\}$ untere Grenze: 
-		\caption{Satzlänge: schwere Texte}
-	\end{table}
-	\begin{figure}[h]
-		\centering
-		\begin{tikzpicture}
-		\begin{axis}[
-		colormap={lolmap}{[1cm] 
-			rgb255(0cm)=(32,62,181) color(5cm)=(white) rgb255(10cm)=(186,57,44)}, colorbar horizontal, colorbar/width=.5cm, 
-		colorbar style={xtick={0,.5,1},
-			xlabel near ticks, 
-			extra x ticks={0,1},
-			extra x tick labels={einfache Sätze, komplexe Sätze}, 
-			extra x tick style={ticklabel pos=right}   
-		},
-		hide axis
-		]
-		\end{axis}
-		\end{tikzpicture}
-	\end{figure}
 	
 \end{document}

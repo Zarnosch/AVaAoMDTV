@@ -7,7 +7,7 @@ from textparser.textparser import *
 from ui.testqt import MainApplication
 
 # turn feature tests on/off
-test_features = True
+test_features = False
 
 test_wlength = False
 test_compl = False
