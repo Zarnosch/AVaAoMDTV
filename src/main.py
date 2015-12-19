@@ -1,8 +1,6 @@
 import sys
 import time
-
 from PyQt5.QtWidgets import QApplication
-
 from textparser.textparser import *
 from ui.testqt import MainApplication
 
@@ -88,7 +86,7 @@ if test_features:
     if test_slength:
         min_slength = min(slength_lst)
         max_slength = max(slength_lst)
-        avg_slength = sum(slength_lst) / float(len(compl_lst))
+        avg_slength = sum(slength_lst) / float(len(slength_lst))
         print('The min sentence length of the text is ' + str(min_slength) + '.')
         print('The max sentence length of the text is ' + str(max_slength) + '.')
         print('The avg sentence length of the text is ' + str(avg_slength) + '.')

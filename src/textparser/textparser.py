@@ -1,6 +1,5 @@
 import os
 from os.path import expanduser
-
 import nltk
 from nltk.corpus import brown
 from nltk.parse.stanford import StanfordParser
@@ -23,7 +22,12 @@ class TextParser():
         tokenizer = RegexpTokenizer(r'\w+')
         length = len(tokenizer.tokenize(s))
         # print("The sentence has ", length, "words.")
-        return length
+
+        sent_length_feature_value = length / 100
+
+        if sent_length_feature_value < 0: return 0
+        if sent_length_feature_value > 1: return 1
+        return round(sent_length_feature_value, 2)
 
     def get_word_length(self, s):
         """average word length in sent"""
@@ -34,7 +38,12 @@ class TextParser():
             length_sum += len(word)
         average_length = length_sum / len(tokenizer.tokenize(s))
         # print("The average word length is ", average_length, ".")
-        return average_length
+
+        word_length_feature_value = (average_length - 2) / 6
+
+        if word_length_feature_value < 0: return 0
+        if word_length_feature_value > 1: return 1
+        return round(word_length_feature_value, 2)
 
     def get_sent_voc_complexity(selfself, s):
         file = open("textparser/wordlist.txt").read()
@@ -52,10 +61,11 @@ class TextParser():
         complexity = complex_word_count / length
 
         # TODO: research impact of quotation marks, use this workaround for now
-        if complexity < 0: complexity = 0
-
         # print(complex_word_count, " of ", length, " words in this sentence are not common, so the vocabular complexity is ", complexity, ".")
-        return complexity
+
+        if complexity < 0: return 0
+        if complexity > 1: return 1
+        return round(complexity, 2)
 
     def tagText(self, text):
         tokens = nltk.word_tokenize(text)
@@ -90,15 +100,19 @@ class Stanford():
         sentences = self.english_parser.raw_parse_sents((s,))
         # print(sentences)  # only prints <listiterator object> in this version
 
-        # display the tree
-
+        # TODO: performance
         for line in sentences:
             for sentence in line:
-                depth = str(sentence.height() - 1)
+                depth = sentence.height() - 1
                 # print('The depth of the parse tree is ' + depth + '.')
                 if draw_tree:
                     sentence.draw()
-        return int(depth)
+
+        sent_depth_feature_value = (depth - 3) / 23
+
+        if sent_depth_feature_value < 0: return 0
+        if sent_depth_feature_value > 1: return 1
+        return round(sent_depth_feature_value, 2)
 
     def get_sent_nomins(self, s):  # experimental
         verb_count = 0
@@ -108,6 +122,7 @@ class Stanford():
         noun_tags = {'NN', 'NNS', 'NNP', 'NNPS'}
         verb_tags = {'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ'}
         tokens = nltk.word_tokenize(s)
+
         # TODO: test if stanford tagger does a better job than nltk for counting nouns/verbs
         tags = nltk.pos_tag(tokens)
 
@@ -122,13 +137,14 @@ class Stanford():
                     nomin_count += 1
 
         # add number of potential nominalizations to noun count, giving them more weight, so bigger is better
-        nomin_compl = verb_count if noun_count == 0 else (verb_count / (noun_count + nomin_count))
+        nomin_compl = 5 if noun_count == 0 else (verb_count / (noun_count + nomin_count))
 
         # print("The sentence has", verb_count, "verb(s) and", noun_count, "noun(s), \nverb/noun ratio: ",
         #       verb_noun_ratio, ", \nnominalizations: ", nomin_count)
-        # if verb_noun_ratio == 0:
-        #     print(s, ": ", verb_count, " verbs, ", noun_count, " nouns, ", nomin_count, " nominalisations.")
-        #     sent = nltk.word_tokenize(s)
-        #     print(nltk.pos_tag(sent))
 
-        return nomin_compl
+
+        nomin_compl_feature_value = 1 - (0.2 * nomin_compl)
+
+        if nomin_compl_feature_value < 0: return 0
+        if nomin_compl_feature_value > 1: return 1
+        return round(nomin_compl_feature_value, 2)
