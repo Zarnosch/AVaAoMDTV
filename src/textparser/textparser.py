@@ -18,7 +18,6 @@ class TextParser():
         self.bigram_tagger = nltk.BigramTagger(brown_tagged_sents, backoff=self.unigram_tagger)
 
     def get_sent_length(self, s):
-        """number of words in sent"""
         tokenizer = RegexpTokenizer(r'\w+')
         length = len(tokenizer.tokenize(s))
         # print("The sentence has ", length, "words.")
@@ -30,7 +29,6 @@ class TextParser():
         return round(sent_length_feature_value, 2)
 
     def get_word_length(self, s):
-        """average word length in sent"""
         tokenizer = RegexpTokenizer(r'\w+')
         tokens = tokenizer.tokenize(s)
         length_sum = 0
@@ -67,11 +65,6 @@ class TextParser():
         if complexity > 1: return 1
         return round(complexity, 2)
 
-    def tagText(self, text):
-        tokens = nltk.word_tokenize(text)
-
-        return self.bigram_tagger.tag(tokens)
-
     def output(self):
         # Warum wurde das als String zurueck gegeben????
         # YOLO
@@ -97,16 +90,14 @@ class Stanford():
                 expanduser("~") + '/lib/stanford-parser-full-2015-12-09/stanford-parser-3.6.0-models.jar')
 
     def get_sent_depth(self, s, draw_tree):
-        sentences = self.english_parser.raw_parse_sents((s,))
-        # print(sentences)  # only prints <listiterator object> in this version
+        sentence = self.english_parser.raw_parse(s)
 
-        # TODO: performance
-        for line in sentences:
-            for sentence in line:
-                depth = sentence.height() - 1
-                # print('The depth of the parse tree is ' + depth + '.')
-                if draw_tree:
-                    sentence.draw()
+        for i in sentence:
+            depth = i.height() - 1
+            # print('The depth of the parse tree is ' + depth + '.')
+
+            if draw_tree:
+                i.draw()
 
         sent_depth_feature_value = (depth - 3) / 23
 
@@ -114,7 +105,7 @@ class Stanford():
         if sent_depth_feature_value > 1: return 1
         return round(sent_depth_feature_value, 2)
 
-    def get_sent_nomins(self, s):  # experimental
+    def get_sent_nomins(self, s):
         verb_count = 0
         noun_count = 0
         nomin_count = 0
@@ -141,7 +132,6 @@ class Stanford():
 
         # print("The sentence has", verb_count, "verb(s) and", noun_count, "noun(s), \nverb/noun ratio: ",
         #       verb_noun_ratio, ", \nnominalizations: ", nomin_count)
-
 
         nomin_compl_feature_value = 1 - (0.2 * nomin_compl)
 
