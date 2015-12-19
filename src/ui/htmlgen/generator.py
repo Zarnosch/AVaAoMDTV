@@ -48,12 +48,16 @@ class ViewGenerator(object):
 
             filled_txt += Template(ViewGenerator.barebone_element).substitute(data_set)
 
+        file = os.path.dirname(__file__)
+        index_template = os.path.join(file, '../../generated_html/index_template.html')
+
         filled_template = ""
-        with open("../../generated_html/index_template.html", "r") as f:
+        with open(index_template, "r") as f:
             for line in f:
                 filled_template += Template(line).substitute(fill_me=filled_txt)
 
-        with open("../../generated_html/index.html", "w") as f:
+        index = os.path.join(file, '../../generated_html/index.html')
+        with open(index, "w") as f:
             f.write(filled_template)
 
 
@@ -73,12 +77,16 @@ class ViewGenerator(object):
 
             filled_style += Template(ViewGenerator.barebone_css).substitute(data_set)
 
+        file = os.path.dirname(__file__)
+        style_template = os.path.join(file, '../../generated_html/style_template.css')
+
         filled_template = ""
-        with open("../../generated_html/style_template.css", "r") as f:
+        with open(style_template, "r") as f:
             for line in f:
                 filled_template += Template(line).substitute(fill_me=filled_style)
 
-        with open("../../generated_html/style.css", "w") as f:
+        style = os.path.join(file, '../../generated_html/style.css')
+        with open(style, "w") as f:
             f.write(filled_template)
 
 class GenScale(object):
