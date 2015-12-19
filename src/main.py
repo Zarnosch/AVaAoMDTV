@@ -49,7 +49,7 @@ if test_features:
     for sentence in sentences_ntlk:
         if test_wlength: wlength_lst.append(textp.get_word_length(sentence))
         if test_compl: compl_lst.append(textp.get_sent_voc_complexity(sentence))
-        if test_nomi: nomi_lst.append(stanford_parser.get_sent_nomins(sentence))
+        if test_nomi: nomi_lst.append(textp.get_sent_nomins(sentence))
         if test_slength: slength_lst.append(textp.get_sent_length(sentence))
         if test_depth: depth_lst.append(stanford_parser.get_sent_depth(sentence, False))
 
