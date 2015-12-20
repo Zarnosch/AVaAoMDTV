@@ -17,6 +17,9 @@ class TextParser():
         self.unigram_tagger = nltk.UnigramTagger(brown_tagged_sents)
         self.bigram_tagger = nltk.BigramTagger(brown_tagged_sents, backoff=self.unigram_tagger)
 
+        file = open("textparser/wordlist.txt").read()
+        self.common_words = nltk.word_tokenize(file)
+
     def get_sent_length(self, s):
         tokenizer = RegexpTokenizer(r'\w+')
         length = len(tokenizer.tokenize(s))
@@ -43,14 +46,12 @@ class TextParser():
         if word_length_feature_value > 1: return 1
         return round(word_length_feature_value, 2)
 
-    def get_sent_voc_complexity(selfself, s):
-        file = open("textparser/wordlist.txt").read()
-        common_words = nltk.word_tokenize(file)
+    def get_sent_voc_complexity(self, s):
         tokenizer = RegexpTokenizer(r'\w+')
         tokens = tokenizer.tokenize(s)
         length = len(tokens)
         word_matches = 0
-        for word in common_words:
+        for word in self.common_words:
             for token in tokens:
                 if token.lower() == word:
                     word_matches += 1
