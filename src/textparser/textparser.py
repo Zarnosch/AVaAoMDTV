@@ -18,11 +18,16 @@ class TextParser():
         self.bigram_tagger = nltk.BigramTagger(brown_tagged_sents, backoff=self.unigram_tagger)
 
         file = open("textparser/wordlist.txt").read()
-        self.common_words = nltk.word_tokenize(file)
+        self.common_words = set(nltk.word_tokenize(file))
+
+        self.noun_tags = set(['NN', 'NNS', 'NNP', 'NNPS'])
+        self.verb_tags = set(['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ'])
+
+        self.tokenizer = RegexpTokenizer(r'\w+')
+
 
     def get_sent_length(self, s):
-        tokenizer = RegexpTokenizer(r'\w+')
-        length = len(tokenizer.tokenize(s))
+        length = len(self.tokenizer.tokenize(s))
         # print("The sentence has ", length, "words.")
 
         sent_length_feature_value = length / 100
@@ -32,8 +37,7 @@ class TextParser():
         return round(sent_length_feature_value, 2)
 
     def get_word_length(self, s):
-        tokenizer = RegexpTokenizer(r'\w+')
-        tokens = tokenizer.tokenize(s)
+        tokens = self.tokenizer.tokenize(s)
         length_sum = 0
         for word in tokens:
             length_sum += len(word)
@@ -47,8 +51,7 @@ class TextParser():
         return round(word_length_feature_value, 2)
 
     def get_sent_voc_complexity(self, s):
-        tokenizer = RegexpTokenizer(r'\w+')
-        tokens = tokenizer.tokenize(s)
+        tokens = self.tokenizer.tokenize(s)
         length = len(tokens)
         word_matches = 0
         for word in self.common_words:
@@ -70,15 +73,13 @@ class TextParser():
         noun_count = 0
         nomin_count = 0
 
-        noun_tags = {'NN', 'NNS', 'NNP', 'NNPS'}
-        verb_tags = {'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ'}
         tokens = nltk.word_tokenize(s)
         tags = nltk.pos_tag(tokens)
 
         for word, tag in tags:
-            if tag in verb_tags:
+            if tag in self.verb_tags:
                 verb_count += 1
-            elif tag in noun_tags:
+            elif tag in self.noun_tags:
                 noun_count += 1
                 # count potential nominalized nouns via possible endings of nominalized words
                 # TODO: research most common nominalization endings
