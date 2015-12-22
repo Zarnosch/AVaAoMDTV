@@ -407,14 +407,14 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Our Tool"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "DocumentView"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Detail View"))
         self.ActiveViewText.setText(_translate("MainWindow", "hier vllt nen Button zum updaten nach Slider Veränderung + Progress, des taggens"))
         self.labelWortlaenge.setText(_translate("MainWindow", "Wortlänge "))
         self.labelKompVok.setText(_translate("MainWindow", "komp. d. Vok."))
         self.labelSatzlaenge.setText(_translate("MainWindow", "Satzlänge"))
         self.labelKompSatz.setText(_translate("MainWindow", "komp. d. Sätze"))
         self.labelNom.setText(_translate("MainWindow", "Nominalisierung"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "DetailView"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Document View"))
         self.menuDatei.setTitle(_translate("MainWindow", "Datei"))
         self.menuAnsicht.setTitle(_translate("MainWindow", "Ansicht"))
         self.menuCorpus_2.setTitle(_translate("MainWindow", "Corpus"))

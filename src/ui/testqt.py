@@ -19,6 +19,11 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         # Set up the user interface from Designer.
         self.setupUi(self)
 
+        #progressBar
+        self.progress = 100
+        self.progressBar.setValue(self.progress)
+        print(self.progressBar.value)
+
         #remove qttextWidget and setup own textwidget (detailview)
         self.verticalLayout.removeWidget(self.plainTextEdit)
         self.plainTextEdit.close()
@@ -137,6 +142,8 @@ class MainApplication(QMainWindow, Ui_MainWindow):
             self.wlengthIsActive = False
             self.wlengthWeight = 0
 
+    def updateProgressBar(self, int_value):
+        self.progressBar.setValue(int_value)
 
 
 
