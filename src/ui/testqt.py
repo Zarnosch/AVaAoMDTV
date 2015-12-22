@@ -19,7 +19,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         # Set up the user interface from Designer.
         self.setupUi(self)
 
-        #remove qttextWidget and setup own textwidget
+        #remove qttextWidget and setup own textwidget (detailview)
         self.verticalLayout.removeWidget(self.plainTextEdit)
         self.plainTextEdit.close()
         self.taggedTextWidget = MQTaggedTextWidget(self.centralwidget)
@@ -27,9 +27,17 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.verticalLayout.addWidget(self.taggedTextWidget)
         self.verticalLayout.update()
 
+        #remove qttextWidget and setup own textwidget (documentview)
+        self.gridLayout_9.removeWidget(self.textBrowser)
+        self.textBrowser.close()
+        self.taggedDocumentWidget = MQTaggedTextWidget(self.centralwidget)
+        self.taggedDocumentWidget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        self.gridLayout_9.addWidget(self.taggedDocumentWidget)
+        self.gridLayout_9.update()
+
         #setup the slider
-        self.ViewSlider.setMaximum(1)
-        self.ViewSlider.actionTriggered.connect(self.updateView)
+        #self.ViewSlider.setMaximum(1)
+        #self.ViewSlider.actionTriggered.connect(self.updateView)
 
 
         self.tag = tagged_data

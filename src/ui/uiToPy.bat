@@ -1,0 +1,1 @@
+C:\Python34\Lib\site-packages\PyQt5\pyuic5.bat %1 -o %2
