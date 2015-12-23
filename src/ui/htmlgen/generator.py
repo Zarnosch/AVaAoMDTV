@@ -31,6 +31,14 @@ class ViewGenerator(object):
     background-color: ${f5};
 }
 """
+    barebone_document_css = """
+.feature-block-${id} {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: ${color};
+}
+"""
 
     @staticmethod
     def generate_html(text):
@@ -89,6 +97,32 @@ class ViewGenerator(object):
         with open(style, "w") as f:
             f.write(filled_template)
 
+    @staticmethod
+    def generate_document_view(text):
+        gen_html = ""
+        gen_css = ""
+
+        for sent in text.Sentences:
+            gen_html += Template("""            <div class="feature-block-${id}"></div>\n""").substitute(id=sent.id)
+            gen_css += Template(ViewGenerator.barebone_document_css).substitute(id=sent.id, color=GenScale.get_color(sent.sent_len))
+
+        file = os.path.dirname(__file__)
+        html_template = os.path.join(file, '../../generated_html/document_view_template.html')
+
+        filled_template = ""
+        with open(html_template, "r") as f:
+            for line in f:
+                filled_template += Template(line).substitute(html=gen_html)
+
+        html = os.path.join(file, '../../generated_html/document_view.html')
+        with open(html, "w") as f:
+            f.write(filled_template)
+
+        style = os.path.join(file, '../../generated_html/document_view.css')
+        with open(style, "w") as f:
+            f.write(gen_css)
+
+
 class GenScale(object):
 
     light_percent_min = 40
@@ -128,9 +162,6 @@ class GenScale(object):
 #         self.nominals = 0.5
 #
 # if __name__ == '__main__':
-#
-#     GenerateColorScale.get_color(0.33333)
 #     stext = SampleText()
 #
-#     ViewGenerator.generate_css(stext)
-#     ViewGenerator.generate_html(stext)
+#     ViewGenerator.generate_document_view(stext)
