@@ -24,6 +24,20 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.progressBar.setValue(self.progress)
         print(self.progressBar.value)
 
+        #numWords
+        self.numWords.setText("0")
+
+        #numSent
+        self.numSent.setText("0")
+
+        #Corpora
+        self.CorporaBox.addItem("Thriller") #0
+        self.CorporaBox.addItem("Kindertext") #1
+        self.CorporaBox.addItem("Nachrichten") #2
+        self.CorporaBox.addItem("Gesetzestexte") #3
+        self.activeCorporaIndex = 0
+        self.CorporaBox.activated.connect(self.updateCorpora)
+
         #remove qttextWidget and setup own textwidget (detailview)
         self.verticalLayout.removeWidget(self.plainTextEdit)
         self.plainTextEdit.close()
@@ -145,5 +159,12 @@ class MainApplication(QMainWindow, Ui_MainWindow):
     def updateProgressBar(self, int_value):
         self.progressBar.setValue(int_value)
 
+    def updateNumSent(self, int_value):
+        self.numSent.setText(str(int_value))
 
+    def updateNumWords(self, int_value):
+        self.numWords.sentText(str(int_value))
+
+    def updateCorpora(self):
+        self.activeCorporaIndex = self.CorporaBox.currentIndex()
 
