@@ -22,7 +22,8 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         #progressBar
         self.progress = 100
         self.progressBar.setValue(self.progress)
-        print(self.progressBar.value)
+        self.progressBar_2.setValue(self.progress)
+        #print(self.progressBar.value)
 
         #numWords
         self.numWords.setText("0")
@@ -47,8 +48,8 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.verticalLayout.update()
 
         #remove qttextWidget and setup own textwidget (documentview)
-        self.gridLayout_9.removeWidget(self.textBrowser)
-        self.textBrowser.close()
+        self.verticalLayout_3.removeWidget(self.plainTextEdit_2)
+        self.plainTextEdit_2.close()
         self.taggedDocumentWidget = MQTaggedTextWidget(self.centralwidget)
         self.taggedDocumentWidget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.gridLayout_9.addWidget(self.taggedDocumentWidget)
@@ -158,6 +159,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
     def updateProgressBar(self, int_value):
         self.progressBar.setValue(int_value)
+        self.progressBar_2.setValue(int_value)
 
     def updateNumSent(self, int_value):
         self.numSent.setText(str(int_value))
