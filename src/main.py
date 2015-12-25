@@ -14,8 +14,11 @@ test_slength = False
 test_depth = False
 
 # setup nltk text parsing
-textp = TextParser()
-stanford_parser = Stanford()
+# textp = TextParser()
+# stanford_parser = Stanford()
+
+textp = None
+stanford_parser = None
 
 # function tests
 if test_features:
@@ -102,6 +105,6 @@ if test_features:
 
 # setup qt app
 app = QApplication(sys.argv)
-frame = MainApplication(textp.output())
+frame = MainApplication()
 frame.show()
 app.exec_()

@@ -120,8 +120,8 @@ class Stanford():
             os.environ['JAVA_HOME'] = '/usr/lib/jvm/java-1.8.0-openjdk-amd64'
             # insert path to the directory containing stanford-parser.ja and stanford-parser-3.5.2-models.jar
             self.english_parser = StanfordParser(
-                expanduser("~") + '/lib/stanford-parser-full-2015-12-09/stanford-parser.jar',
-                expanduser("~") + '/lib/stanford-parser-full-2015-12-09/stanford-parser-3.6.0-models.jar')
+                expanduser("~") + '/lib/stanford-parser-full-2015-04-20/stanford-parser.jar',
+                expanduser("~") + '/lib/stanford-parser-full-2015-04-20/stanford-parser-3.5.2-models.jar')
 
     def get_sent_depth(self, s, draw_tree):
         sentence = self.english_parser.raw_parse(s)

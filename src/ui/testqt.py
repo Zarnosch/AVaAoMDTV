@@ -10,7 +10,7 @@ from ui.taggedtextwidget import MQTaggedTextWidget
 
 
 class MainApplication(QMainWindow, Ui_MainWindow):
-    def __init__(self, tagged_data):
+    def __init__(self):
         super(MainApplication, self).__init__()
 
         # Load TextParser
@@ -59,8 +59,6 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         #self.ViewSlider.setMaximum(1)
         #self.ViewSlider.actionTriggered.connect(self.updateView)
 
-
-        self.tag = tagged_data
 
         self.actionText_ffnen.triggered.connect(self.open_text)
 
