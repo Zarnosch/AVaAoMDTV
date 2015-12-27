@@ -1,12 +1,13 @@
 import sys
 from PyQt5.QtWidgets import QDialog, QFileDialog, QLabel, QApplication, QMainWindow, QSizePolicy
-from PyQt5.QtCore import QTextStream, QFile, QIODevice
+from PyQt5.QtCore import QTextStream, QFile, QIODevice, QThread
 from PyQt5.QtGui import QImageReader, QImage, QPalette, QPixmap
 from PyQt5 import QtCore, QtGui
 from ui.ui_dialog import Ui_MainWindow
 from textparser.textparser import TextParser
 from textparser.textutil.structures import Text
 from ui.taggedtextwidget import MQTaggedTextWidget
+from ui.text_worker import TextWorker
 
 
 class MainApplication(QMainWindow, Ui_MainWindow):
@@ -92,13 +93,37 @@ class MainApplication(QMainWindow, Ui_MainWindow):
     def show_data(self):
         self.taggedTextWidget.showData(self.tag)
 
+    def finishOpen(self):
+        self.tag = self.tag[0].FinishedText
+        self.show_data()
+ 
+    def updateWorkerInfo(self, value):
+        self.updateProgressBar(value * 100.0)
+
     def open_text(self):
+        # Show loading page
+        self.taggedTextWidget.showLoading()
+
         dialog = QFileDialog(self)
         dialog.setNameFilters([self.tr('Text Files (*.txt)'), self.tr('All Files (*)')])
         dialog.setDefaultSuffix('.txt')
         file_name = dialog.getOpenFileName(self, 'Open file')
-        self.tag = Text(open(file_name[0]).read())
-        self.show_data()
+        text = open(file_name[0]).read()
+
+        # We need to create new TextWorker
+        self.tag = (TextWorker(), QtCore.QThread())
+        self.tag[0].TextToParse = text
+
+        # Create Thread
+        self.tag[1].objThread = QtCore.QThread()
+        self.tag[0].moveToThread(self.tag[1])
+        self.tag[0].finished.connect(self.tag[1].quit)
+        self.tag[0].updated.connect(self.updateWorkerInfo);
+        # self.tag[0].finished.connect(self.finishOpen)
+        self.tag[1].started.connect(self.tag[0].longRunning)
+        self.tag[1].finished.connect(self.finishOpen)    
+
+        self.tag[1].start()
 
     def updateView(self):
         v = self.ViewSlider.sliderPosition()

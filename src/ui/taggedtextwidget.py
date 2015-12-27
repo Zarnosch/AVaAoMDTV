@@ -4,6 +4,8 @@ from textparser.textutil.structures import *
 
 import os
 
+import time
+
 class MQTaggedTextWidget(QtWebKitWidgets.QWebView):
 
     def __init__(self, parent):
@@ -26,4 +28,11 @@ class MQTaggedTextWidget(QtWebKitWidgets.QWebView):
         ViewGenerator.generate_css(data)
         ViewGenerator.generate_html(data)
 
+        time.sleep(2)
+
         self.load(QtCore.QUrl('file:///'+os.getcwd()+"/generated_html/index.html"))
+        time.sleep(1)
+        self.reload()
+
+    def showLoading(self):
+        self.load(QtCore.QUrl('file:///'+os.getcwd()+"/resources/loading.html"))
