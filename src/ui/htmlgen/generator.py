@@ -48,11 +48,11 @@ class ViewGenerator(object):
             data_set = {}
             data_set["id"] = sent.id
             data_set["text"] = sent.Text
-            data_set["f1"] = sent.sent_len
+            data_set["f1"] = sent.voc_complexity
             data_set["f2"] = sent.avg_word_len
-            data_set["f3"] = sent.voc_complexity
-            data_set["f4"] = sent.depth
-            data_set["f5"] = sent.nominals
+            data_set["f3"] = sent.nominals
+            data_set["f4"] = sent.sent_len
+            data_set["f5"] = sent.depth
 
             filled_txt += Template(ViewGenerator.barebone_element).substitute(data_set)
 
@@ -77,11 +77,11 @@ class ViewGenerator(object):
         for sent in text.Sentences:
             data_set = {}
             data_set["id"] = sent.id
-            data_set["f1"] = GenScale.get_color(sent.sent_len)
+            data_set["f1"] = GenScale.get_color(sent.voc_complexity)
             data_set["f2"] = GenScale.get_color(sent.avg_word_len)
-            data_set["f3"] = GenScale.get_color(sent.voc_complexity)
-            data_set["f4"] = GenScale.get_color(sent.depth)
-            data_set["f5"] = GenScale.get_color(sent.nominals)
+            data_set["f3"] = GenScale.get_color(sent.nominals)
+            data_set["f4"] = GenScale.get_color(sent.sent_len)
+            data_set["f5"] = GenScale.get_color(sent.depth)
 
             filled_style += Template(ViewGenerator.barebone_css).substitute(data_set)
 
