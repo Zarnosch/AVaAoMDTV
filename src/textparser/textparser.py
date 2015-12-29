@@ -110,7 +110,16 @@ class Stanford():
     def __init__(self):
         # The Stanford Parser is required, download from http://nlp.stanford.edu/software/lex-parser.shtml and unpack somewhere
         # insert path to java home
-        if os.name != "posix":
+        if os.name == "nt":
+            #print("fu1")
+            os.environ['JAVAHOME'] = 'C:\Program Files\Java\jdk1.8.0_66\bin\java.exe'
+            #print("fu2")
+            # insert path to the directory containing stanford-parser.jar and stanford-parser-3.5.2-models.jar
+            self.english_parser = StanfordParser(
+                'C:/Python34/Lib/site-packages/stanford-parser-full-2015-04-20/stanford-parser.jar',
+                'C:/Python34/Lib/site-packages/stanford-parser-full-2015-04-20/stanford-parser-3.5.2-models.jar')
+            #print("fu3")
+        elif os.name != "posix":
             os.environ['JAVAHOME'] = 'C:/Program Files (x86)/Java/jdk1.8.0_65/bin/java.exe'
             # insert path to the directory containing stanford-parser.jar and stanford-parser-3.5.2-models.jar
             self.english_parser = StanfordParser(
