@@ -22,7 +22,7 @@ class MQTaggedTextWidget(QtWebKitWidgets.QWebView):
         # self.TextEdit.setMinimumSize(300, 300)
         # self.TextEdit.setReadOnly(True)
 
-        self.load(QtCore.QUrl('file:///'+os.getcwd()+"/generated_html/index.html"))
+        # self.load(QtCore.QUrl('file:///'+os.getcwd()+"/generated_html/index.html"))
 
     def showData(self, data):
         ViewGenerator.generate_css(data)
@@ -31,8 +31,11 @@ class MQTaggedTextWidget(QtWebKitWidgets.QWebView):
         time.sleep(2)
 
         self.load(QtCore.QUrl('file:///'+os.getcwd()+"/generated_html/index.html"))
-        time.sleep(1)
-        self.reload()
+
+    def showDataNoGeneration(self, data):
+        time.sleep(2)
+          
+        self.load(QtCore.QUrl('file:///'+os.getcwd()+"/generated_html/index.html"))
 
     def showLoading(self):
         self.load(QtCore.QUrl('file:///'+os.getcwd()+"/resources/loading.html"))

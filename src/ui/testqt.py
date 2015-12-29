@@ -91,7 +91,11 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.updateFeatureWeights()
 
     def show_data(self):
+        self.taggedTextWidget.stop()
         self.taggedTextWidget.showData(self.tag)
+
+        self.taggedDocumentWidget.stop()
+        self.taggedDocumentWidget.showDataNoGeneration(self.tag)
 
     def finishOpen(self):
         self.tag = self.tag[0].FinishedText
@@ -102,7 +106,11 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
     def open_text(self):
         # Show loading page
+        self.taggedTextWidget.stop()
         self.taggedTextWidget.showLoading()
+
+        self.taggedDocumentWidget.stop()
+        self.taggedDocumentWidget.showLoading()
 
         dialog = QFileDialog(self)
         dialog.setNameFilters([self.tr('Text Files (*.txt)'), self.tr('All Files (*)')])
