@@ -426,7 +426,7 @@
    </palette>
   </property>
   <property name="windowTitle">
-   <string>Our Tool</string>
+   <string>Not Our Tool</string>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -649,9 +649,6 @@
          </widget>
         </item>
        </layout>
-       <zorder>plainTextEdit</zorder>
-       <zorder>gridLayoutWidget</zorder>
-       <zorder>gridWidget_2</zorder>
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
@@ -750,7 +747,7 @@
                 <enum>Qt::Horizontal</enum>
                </property>
                <property name="sizeType">
-                <enum>QSizePolicy::Preferred</enum>
+                <enum>QSizePolicy::Expanding</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
@@ -817,7 +814,7 @@
                  </property>
                  <property name="minimumSize">
                   <size>
-                   <width>75</width>
+                   <width>85</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -836,7 +833,7 @@
                  </property>
                  <property name="minimumSize">
                   <size>
-                   <width>75</width>
+                   <width>85</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -868,7 +865,7 @@
                  </property>
                  <property name="minimumSize">
                   <size>
-                   <width>75</width>
+                   <width>85</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -887,7 +884,7 @@
                  </property>
                  <property name="minimumSize">
                   <size>
-                   <width>75</width>
+                   <width>85</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -953,7 +950,7 @@
                  </property>
                  <property name="minimumSize">
                   <size>
-                   <width>75</width>
+                   <width>85</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -1000,15 +997,6 @@
          </widget>
         </item>
        </layout>
-       <zorder>numWords</zorder>
-       <zorder>plainTextEdit</zorder>
-       <zorder></zorder>
-       <zorder>plainTextEdit</zorder>
-       <zorder>numWords</zorder>
-       <zorder></zorder>
-       <zorder></zorder>
-       <zorder>gridWidget</zorder>
-       <zorder></zorder>
       </widget>
      </widget>
     </item>
