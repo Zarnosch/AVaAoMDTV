@@ -41,3 +41,7 @@ class MQTaggedTextWidget(QtWebKitWidgets.QWebView):
 
     def showLoading(self):
         self.load(QtCore.QUrl('file:///'+os.getcwd()+"/resources/loading.html"))
+
+    def showDataNoWait(self, data):
+        ViewGenerator.generate_document_view(data)
+        self.load(QtCore.QUrl('file:///'+os.getcwd()+"/generated_html/document_view.html"))

@@ -88,6 +88,12 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.sliderKompSatz.actionTriggered.connect(self.updateFeatureWeights)
         self.sliderNom.actionTriggered.connect(self.updateFeatureWeights)
 
+        self.sliderKompVok.sliderReleased.connect(self.sliderChanged)
+        self.sliderWortlaenge.sliderReleased.connect(self.sliderChanged)
+        self.sliderSatzlaenge.sliderReleased.connect(self.sliderChanged)
+        self.sliderKompSatz.sliderReleased.connect(self.sliderChanged)
+        self.sliderNom.sliderReleased.connect(self.sliderChanged)
+
         self.setAllWeights(100)
 
     def show_data(self):
@@ -188,6 +194,8 @@ class MainApplication(QMainWindow, Ui_MainWindow):
             self.wlengthIsActive = False
             self.wlengthWeight = 0
 
+
+
     def updateProgressBar(self, int_value):
         self.progressBar.setValue(int_value)
         self.progressBar_2.setValue(int_value)
@@ -217,5 +225,8 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.sliderNom.setValue(int_weight)
 
         self.updateFeatureWeights()
+
+    def sliderChanged(self):
+        print("Slider Changed. load new html")
 
 
