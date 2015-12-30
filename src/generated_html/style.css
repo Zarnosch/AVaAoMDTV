@@ -19,34 +19,66 @@ table {
 
 
 .feature-body.f1-0 {
-    background-color: hsl(228, 50%, 47.2%);
+    background-color: hsl(8, 70%, 40.0%);
 }
 .feature-body.f2-0 {
-    background-color: hsl(228, 50%, 77.2%);
+    background-color: hsl(228, 50%, 76.0%);
 }
 .feature-body.f3-0 {
-    background-color: hsl(228, 50%, 60.4%);
+    background-color: hsl(8, 70%, 100.0%);
 }
 .feature-body.f4-0 {
-    background-color: hsl(228, 50%, 50.800000000000004%);
+    background-color: hsl(228, 50%, 88.0%);
 }
 .feature-body.f5-0 {
-    background-color: hsl(8, 70%, 52.0%);
+    background-color: hsl(8, 70%, 76.0%);
 }
 
 .feature-body.f1-1 {
-    background-color: hsl(228, 50%, 59.199999999999996%);
+    background-color: hsl(8, 70%, 40.0%);
 }
 .feature-body.f2-1 {
-    background-color: hsl(228, 50%, 90.4%);
-}
-.feature-body.f3-1 {
-    background-color: hsl(228, 50%, 77.2%);
-}
-.feature-body.f4-1 {
     background-color: hsl(228, 50%, 76.0%);
 }
-.feature-body.f5-1 {
+.feature-body.f3-1 {
     background-color: hsl(8, 70%, 100.0%);
+}
+.feature-body.f4-1 {
+    background-color: hsl(228, 50%, 88.0%);
+}
+.feature-body.f5-1 {
+    background-color: hsl(8, 70%, 76.0%);
+}
+
+.feature-body.f1-2 {
+    background-color: hsl(8, 70%, 40.0%);
+}
+.feature-body.f2-2 {
+    background-color: hsl(228, 50%, 76.0%);
+}
+.feature-body.f3-2 {
+    background-color: hsl(8, 70%, 100.0%);
+}
+.feature-body.f4-2 {
+    background-color: hsl(228, 50%, 88.0%);
+}
+.feature-body.f5-2 {
+    background-color: hsl(8, 70%, 76.0%);
+}
+
+.feature-body.f1-3 {
+    background-color: hsl(8, 70%, 40.0%);
+}
+.feature-body.f2-3 {
+    background-color: hsl(228, 50%, 76.0%);
+}
+.feature-body.f3-3 {
+    background-color: hsl(8, 70%, 100.0%);
+}
+.feature-body.f4-3 {
+    background-color: hsl(228, 50%, 88.0%);
+}
+.feature-body.f5-3 {
+    background-color: hsl(8, 70%, 76.0%);
 }
 

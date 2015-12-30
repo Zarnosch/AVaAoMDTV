@@ -25,16 +25,18 @@ class MQTaggedTextWidget(QtWebKitWidgets.QWebView):
         # self.load(QtCore.QUrl('file:///'+os.getcwd()+"/generated_html/index.html"))
 
     def showData(self, data):
+        ViewGenerator.generate_document_view(data)
+
+        time.sleep(2)
+
+        self.load(QtCore.QUrl('file:///'+os.getcwd()+"/generated_html/document_view.html"))
+
+    def showDataNoGeneration(self, data):
         ViewGenerator.generate_css(data)
         ViewGenerator.generate_html(data)
 
         time.sleep(2)
 
-        self.load(QtCore.QUrl('file:///'+os.getcwd()+"/generated_html/index.html"))
-
-    def showDataNoGeneration(self, data):
-        time.sleep(2)
-          
         self.load(QtCore.QUrl('file:///'+os.getcwd()+"/generated_html/index.html"))
 
     def showLoading(self):
