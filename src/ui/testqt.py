@@ -88,7 +88,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.sliderKompSatz.actionTriggered.connect(self.updateFeatureWeights)
         self.sliderNom.actionTriggered.connect(self.updateFeatureWeights)
 
-        self.updateFeatureWeights()
+        self.setAllWeights(100)
 
     def show_data(self):
         self.taggedTextWidget.stop()
@@ -200,4 +200,22 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
     def updateCorpora(self):
         self.activeCorporaIndex = self.CorporaBox.currentIndex()
+
+    def setAllWeights(self, int_weight):
+        if int_weight > 100 or int_weight < 0:
+            int_weight = 0
+        self.checkBoxKompVok.setChecked(True)
+        self.checkBoxWortlaenge.setChecked(True)
+        self.checkBoxSatzlaenge.setChecked(True)
+        self.checkBoxNom.setChecked(True)
+        self.checkBoxKompSatz.setChecked(True)
+
+        self.sliderKompVok.setValue(int_weight)
+        self.sliderWortlaenge.setValue(int_weight)
+        self.sliderSatzlaenge.setValue(int_weight)
+        self.sliderKompSatz.setValue(int_weight)
+        self.sliderNom.setValue(int_weight)
+
+        self.updateFeatureWeights()
+
 

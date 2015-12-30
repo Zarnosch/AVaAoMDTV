@@ -451,7 +451,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -533,7 +533,7 @@
                 <number>0</number>
                </property>
                <property name="spacing">
-                <number>6</number>
+                <number>0</number>
                </property>
                <item row="0" column="4">
                 <widget class="QLabel" name="labelWortlaenge_5">
@@ -672,6 +672,9 @@
           <layout class="QGridLayout" name="gridLayout_4">
            <item row="1" column="0">
             <layout class="QHBoxLayout" name="horizontalLayout">
+             <property name="spacing">
+              <number>6</number>
+             </property>
              <item>
               <layout class="QGridLayout" name="gridLayout_11">
                <item row="3" column="0">
@@ -772,7 +775,7 @@
                 <number>0</number>
                </property>
                <property name="spacing">
-                <number>6</number>
+                <number>0</number>
                </property>
                <item row="1" column="2">
                 <widget class="QCheckBox" name="checkBoxKompVok">
@@ -785,12 +788,18 @@
                  <property name="text">
                   <string/>
                  </property>
+                 <property name="checked">
+                  <bool>false</bool>
+                 </property>
                 </widget>
                </item>
                <item row="1" column="4">
                 <widget class="QCheckBox" name="checkBoxWortlaenge">
                  <property name="text">
                   <string/>
+                 </property>
+                 <property name="checked">
+                  <bool>false</bool>
                  </property>
                 </widget>
                </item>
@@ -801,6 +810,9 @@
                    <horstretch>0</horstretch>
                    <verstretch>0</verstretch>
                   </sizepolicy>
+                 </property>
+                 <property name="maximum">
+                  <number>100</number>
                  </property>
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
@@ -853,6 +865,9 @@
                    <verstretch>0</verstretch>
                   </sizepolicy>
                  </property>
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
@@ -901,6 +916,9 @@
                  <property name="text">
                   <string/>
                  </property>
+                 <property name="checked">
+                  <bool>false</bool>
+                 </property>
                 </widget>
                </item>
                <item row="1" column="5">
@@ -908,12 +926,18 @@
                  <property name="text">
                   <string/>
                  </property>
+                 <property name="checked">
+                  <bool>false</bool>
+                 </property>
                 </widget>
                </item>
                <item row="1" column="6">
                 <widget class="QCheckBox" name="checkBoxSatzlaenge">
                  <property name="text">
                   <string/>
+                 </property>
+                 <property name="checked">
+                  <bool>false</bool>
                  </property>
                 </widget>
                </item>
@@ -924,6 +948,9 @@
                    <horstretch>0</horstretch>
                    <verstretch>0</verstretch>
                   </sizepolicy>
+                 </property>
+                 <property name="maximum">
+                  <number>100</number>
                  </property>
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
@@ -972,6 +999,9 @@
                    <horstretch>0</horstretch>
                    <verstretch>0</verstretch>
                   </sizepolicy>
+                 </property>
+                 <property name="maximum">
+                  <number>100</number>
                  </property>
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
