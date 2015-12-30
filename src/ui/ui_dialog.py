@@ -425,6 +425,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.sliderKompSatz.sizePolicy().hasHeightForWidth())
         self.sliderKompSatz.setSizePolicy(sizePolicy)
+        self.sliderKompSatz.setMaximum(100)
         self.sliderKompSatz.setOrientation(QtCore.Qt.Vertical)
         self.sliderKompSatz.setObjectName("sliderKompSatz")
         self.gridLayout.addWidget(self.sliderKompSatz, 2, 7, 1, 1)
