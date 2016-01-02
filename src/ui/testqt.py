@@ -43,7 +43,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         #remove qttextWidget and setup own textwidget (detailview)
         self.verticalLayout.removeWidget(self.plainTextEdit)
         self.plainTextEdit.close()
-        self.taggedTextWidget = MQTaggedTextWidget(self.centralwidget)
+        self.taggedTextWidget = MQTaggedTextWidget(self.centralwidget, self)
         self.taggedTextWidget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.verticalLayout.addWidget(self.taggedTextWidget)
         self.verticalLayout.update()
@@ -51,7 +51,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         #remove qttextWidget and setup own textwidget (documentview)
         self.verticalLayout_3.removeWidget(self.plainTextEdit_2)
         self.plainTextEdit_2.close()
-        self.taggedDocumentWidget = MQTaggedTextWidget(self.centralwidget)
+        self.taggedDocumentWidget = MQTaggedTextWidget(self.centralwidget, self)
         self.taggedDocumentWidget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.gridLayout_9.addWidget(self.taggedDocumentWidget)
         self.gridLayout_9.update()
@@ -88,6 +88,13 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.sliderKompSatz.actionTriggered.connect(self.updateFeatureWeights)
         self.sliderNom.actionTriggered.connect(self.updateFeatureWeights)
 
+        # updating the css
+        self.checkBoxKompVok.clicked.connect(self.sliderChanged)
+        self.checkBoxWortlaenge.clicked.connect(self.sliderChanged)
+        self.checkBoxSatzlaenge.clicked.connect(self.sliderChanged)
+        self.checkBoxNom.clicked.connect(self.sliderChanged)
+        self.checkBoxKompSatz.clicked.connect(self.sliderChanged)
+
         self.sliderKompVok.sliderReleased.connect(self.sliderChanged)
         self.sliderWortlaenge.sliderReleased.connect(self.sliderChanged)
         self.sliderSatzlaenge.sliderReleased.connect(self.sliderChanged)
@@ -106,7 +113,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
     def finishOpen(self):
         self.tag = self.tag[0].FinishedText
         self.show_data()
- 
+
     def updateWorkerInfo(self, value):
         self.updateProgressBar(value * 100.0)
 
@@ -135,7 +142,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.tag[0].updated.connect(self.updateWorkerInfo);
         # self.tag[0].finished.connect(self.finishOpen)
         self.tag[1].started.connect(self.tag[0].longRunning)
-        self.tag[1].finished.connect(self.finishOpen)    
+        self.tag[1].finished.connect(self.finishOpen)
 
         self.tag[1].start()
 
@@ -227,6 +234,4 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.updateFeatureWeights()
 
     def sliderChanged(self):
-        print("Slider Changed. load new html")
-
-
+        self.taggedTextWidget.showDataNoWait(self.tag)

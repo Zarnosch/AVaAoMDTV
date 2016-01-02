@@ -8,8 +8,9 @@ import time
 
 class MQTaggedTextWidget(QtWebKitWidgets.QWebView):
 
-    def __init__(self, parent):
+    def __init__(self, parent, app):
         self.taggedData = None
+        self.app = app
 
         super().__init__(parent)
         self.initUI()
@@ -25,7 +26,7 @@ class MQTaggedTextWidget(QtWebKitWidgets.QWebView):
         # self.load(QtCore.QUrl('file:///'+os.getcwd()+"/generated_html/index.html"))
 
     def showData(self, data):
-        ViewGenerator.generate_document_view(data)
+        ViewGenerator.generate_document_view(data, self.app)
 
         time.sleep(2)
 
@@ -43,5 +44,5 @@ class MQTaggedTextWidget(QtWebKitWidgets.QWebView):
         self.load(QtCore.QUrl('file:///'+os.getcwd()+"/resources/loading.html"))
 
     def showDataNoWait(self, data):
-        ViewGenerator.generate_document_view(data)
-        self.load(QtCore.QUrl('file:///'+os.getcwd()+"/generated_html/document_view.html"))
+        ViewGenerator.generate_document_view(data, self.app)
+        self.reload()

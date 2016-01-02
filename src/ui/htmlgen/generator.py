@@ -98,13 +98,37 @@ class ViewGenerator(object):
             f.write(filled_template)
 
     @staticmethod
-    def generate_document_view(text):
+    def generate_document_view(text, app):
         gen_html = ""
         gen_css = ""
 
         for sent in text.Sentences:
             gen_html += Template("""            <div class="feature-block-${id}"></div>\n""").substitute(id=sent.id)
-            gen_css += Template(ViewGenerator.barebone_document_css).substitute(id=sent.id, color=GenScale.get_color(sent.sent_len))
+
+            avg_color = 0
+            active_count = 0
+            if app.kompVokIsActive:
+                avg_color += sent.voc_complexity * (app.kompVokWeight/100)
+                active_count += 1;
+            if app.wlengthIsActive:
+                avg_color += sent.avg_word_len * (app.wlengthWeight/100)
+                active_count += 1;
+            if app.nomIsActive:
+                avg_color += sent.nominals * (app.nomWeight/100)
+                active_count += 1;
+            if app.slenghtIsActive:
+                avg_color += sent.sent_len * (app.slenghtWeight/100)
+                active_count += 1;
+            if app.kompSatzIsActive:
+                avg_color += sent.depth * (app.kompSatzWeight/100)
+                active_count += 1;
+
+            if active_count > 0:
+                avg_color /= active_count
+            else:
+                avg_color = 0.5
+
+            gen_css += Template(ViewGenerator.barebone_document_css).substitute(id=sent.id, color=GenScale.get_color(avg_color))
 
         file = os.path.dirname(__file__)
         html_template = os.path.join(file, '../../generated_html/document_view_template.html')
