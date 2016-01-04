@@ -477,13 +477,6 @@
             <layout class="QHBoxLayout" name="horizontalLayout_4">
              <item>
               <layout class="QGridLayout" name="gridLayout_12">
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_4">
-                 <property name="text">
-                  <string>Tagging Progress:</string>
-                 </property>
-                </widget>
-               </item>
                <item row="0" column="1">
                 <widget class="QProgressBar" name="progressBar_2">
                  <property name="sizePolicy">
@@ -500,6 +493,13 @@
                  </property>
                  <property name="value">
                   <number>24</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QPushButton" name="openButton_2">
+                 <property name="text">
+                  <string>Open</string>
                  </property>
                 </widget>
                </item>
@@ -535,101 +535,6 @@
                <property name="spacing">
                 <number>0</number>
                </property>
-               <item row="0" column="4">
-                <widget class="QLabel" name="labelWortlaenge_5">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>85</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Wortlänge </string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="labelKompVok_5">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>85</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>komp. d. Vok.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="7">
-                <widget class="QLabel" name="labelKompSatz_5">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>85</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>komp. d. Sätze</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="labelSatzlaenge_5">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>85</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Satzlänge</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="labelNom_5">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>85</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Nominalisierung</string>
-                 </property>
-                </widget>
-               </item>
               </layout>
              </item>
             </layout>
@@ -680,7 +585,7 @@
                <item row="3" column="0">
                 <widget class="QLabel" name="label_5">
                  <property name="text">
-                  <string>Gewählter Corpus:</string>
+                  <string>Choosen Corpus:</string>
                  </property>
                 </widget>
                </item>
@@ -717,24 +622,17 @@
                  </property>
                 </widget>
                </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label">
-                 <property name="text">
-                  <string>Tagging Progress:</string>
-                 </property>
-                </widget>
-               </item>
                <item row="2" column="0">
                 <widget class="QLabel" name="label_3">
                  <property name="text">
-                  <string>Sätze:</string>
+                  <string>Sentences:</string>
                  </property>
                 </widget>
                </item>
                <item row="1" column="0">
                 <widget class="QLabel" name="label_2">
                  <property name="text">
-                  <string>Wörter:</string>
+                  <string>Wordsr:</string>
                  </property>
                 </widget>
                </item>
@@ -742,6 +640,13 @@
                 <widget class="QLabel" name="numSent">
                  <property name="text">
                   <string>output NumSent</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QPushButton" name="openButton_1">
+                 <property name="text">
+                  <string>Open</string>
                  </property>
                 </widget>
                </item>
@@ -837,7 +742,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>Satzlänge</string>
+                  <string>Sentencelength</string>
                  </property>
                 </widget>
                </item>
@@ -856,7 +761,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>Nominalisierung</string>
+                  <string>Nominalization</string>
                  </property>
                 </widget>
                </item>
@@ -891,7 +796,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>komp. d. Vok.</string>
+                  <string>comp. Word</string>
                  </property>
                 </widget>
                </item>
@@ -910,7 +815,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>komp. d. Sätze</string>
+                  <string>comp. Sentence</string>
                  </property>
                 </widget>
                </item>
@@ -991,7 +896,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>Wortlänge </string>
+                  <string>Wordlength</string>
                  </property>
                 </widget>
                </item>
@@ -1041,6 +946,7 @@
     </item>
    </layout>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -1052,16 +958,9 @@
    </property>
    <widget class="QMenu" name="menuDatei">
     <property name="title">
-     <string>Datei</string>
+     <string>File</string>
     </property>
     <addaction name="actionText_ffnen"/>
-   </widget>
-   <widget class="QMenu" name="menuAnsicht">
-    <property name="title">
-     <string>Ansicht</string>
-    </property>
-    <addaction name="actionMinimal"/>
-    <addaction name="actionExtended"/>
    </widget>
    <widget class="QMenu" name="menuCorpus_2">
     <property name="title">
@@ -1080,19 +979,25 @@
    </widget>
    <widget class="QMenu" name="menuHilfe">
     <property name="title">
-     <string>Hilfe</string>
+     <string>Help</string>
     </property>
     <addaction name="action_ber"/>
+   </widget>
+   <widget class="QMenu" name="menuAnsicht">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionDocumentView"/>
+    <addaction name="actionDetailView"/>
    </widget>
    <addaction name="menuDatei"/>
    <addaction name="menuAnsicht"/>
    <addaction name="menuCorpus_2"/>
    <addaction name="menuHilfe"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionText_ffnen">
    <property name="text">
-    <string>Text öffnen</string>
+    <string>Open</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
@@ -1150,17 +1055,17 @@
   </action>
   <action name="action_ber">
    <property name="text">
-    <string>Über</string>
+    <string>About</string>
    </property>
   </action>
-  <action name="actionMinimal">
+  <action name="actionDocumentView">
    <property name="text">
-    <string>Minimal</string>
+    <string>Document View</string>
    </property>
   </action>
-  <action name="actionExtended">
+  <action name="actionDetailView">
    <property name="text">
-    <string>Extended</string>
+    <string>Detail View</string>
    </property>
   </action>
  </widget>

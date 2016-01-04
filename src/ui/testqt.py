@@ -19,6 +19,9 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
         # Set up the user interface from Designer.
         self.setupUi(self)
+        # open Buttons
+        self.openButton_1.clicked.connect(self.open_text)
+        self.openButton_2.clicked.connect(self.open_text)
 
         #progressBar
         self.progress = 100
@@ -129,22 +132,23 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         dialog.setNameFilters([self.tr('Text Files (*.txt)'), self.tr('All Files (*)')])
         dialog.setDefaultSuffix('.txt')
         file_name = dialog.getOpenFileName(self, 'Open file')
-        text = open(file_name[0]).read()
+        print(file_name)
+        if file_name[0] != '':
+            text = open(file_name[0]).read()
+            # We need to create new TextWorker
+            self.tag = (TextWorker(), QtCore.QThread())
+            self.tag[0].TextToParse = text
 
-        # We need to create new TextWorker
-        self.tag = (TextWorker(), QtCore.QThread())
-        self.tag[0].TextToParse = text
+            # Create Thread
+            self.tag[1].objThread = QtCore.QThread()
+            self.tag[0].moveToThread(self.tag[1])
+            self.tag[0].finished.connect(self.tag[1].quit)
+            self.tag[0].updated.connect(self.updateWorkerInfo);
+            # self.tag[0].finished.connect(self.finishOpen)
+            self.tag[1].started.connect(self.tag[0].longRunning)
+            self.tag[1].finished.connect(self.finishOpen)
 
-        # Create Thread
-        self.tag[1].objThread = QtCore.QThread()
-        self.tag[0].moveToThread(self.tag[1])
-        self.tag[0].finished.connect(self.tag[1].quit)
-        self.tag[0].updated.connect(self.updateWorkerInfo);
-        # self.tag[0].finished.connect(self.finishOpen)
-        self.tag[1].started.connect(self.tag[0].longRunning)
-        self.tag[1].finished.connect(self.finishOpen)
-
-        self.tag[1].start()
+            self.tag[1].start()
 
     def updateView(self):
         v = self.ViewSlider.sliderPosition()
