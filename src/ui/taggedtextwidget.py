@@ -31,8 +31,8 @@ class MQTaggedTextWidget(QtWebKitWidgets.QWebView):
 
     def showData(self, data):
         QWebSettings.clearMemoryCaches()
-        QWebSettings.clearIconDatabase()            
- 
+        QWebSettings.clearIconDatabase()
+
         ViewGenerator.generate_document_view(data, self.app)
 
         time.sleep(2)
@@ -49,6 +49,9 @@ class MQTaggedTextWidget(QtWebKitWidgets.QWebView):
         time.sleep(2)
 
         self.load(QtCore.QUrl('file:///'+os.getcwd()+"/generated_html/index.html"))
+
+        self.app.numSent.setText(str(len(data.Sentences)))
+        #self.app.numWords.setText(str(len(data.Tokens)))
 
     def showLoading(self):
         QWebSettings.clearMemoryCaches()
