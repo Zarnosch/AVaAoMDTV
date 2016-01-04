@@ -17,18 +17,23 @@ class ViewGenerator(object):
     barebone_css = """
 .feature-body.f1-${id} {
     background-color: ${f1};
+    color: ${f1};
 }
 .feature-body.f2-${id} {
     background-color: ${f2};
+    color: ${f2};
 }
 .feature-body.f3-${id} {
     background-color: ${f3};
+    color: ${f3};
 }
 .feature-body.f4-${id} {
     background-color: ${f4};
+    color: ${f4};
 }
 .feature-body.f5-${id} {
     background-color: ${f5};
+    color: ${f5};
 }
 """
     barebone_document_css = """
