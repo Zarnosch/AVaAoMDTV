@@ -3,12 +3,1328 @@
     width: 100px;
     height: 100px;
     float: left;
-    background-color: hsl(228, 50%, 47.2%);
+    background-color: hsl(228, 50%, 78.88%);
 }
 
 .feature-block-1 {
     width: 100px;
     height: 100px;
     float: left;
-    background-color: hsl(228, 50%, 59.199999999999996%);
+    background-color: hsl(228, 50%, 94.47999999999999%);
+}
+
+.feature-block-2 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 73.36000000000001%);
+}
+
+.feature-block-3 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 77.92%);
+}
+
+.feature-block-4 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 98.08%);
+}
+
+.feature-block-5 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 84.16%);
+}
+
+.feature-block-6 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 67.6%);
+}
+
+.feature-block-7 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 80.32%);
+}
+
+.feature-block-8 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 85.60000000000002%);
+}
+
+.feature-block-9 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 94.0%);
+}
+
+.feature-block-10 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 91.84%);
+}
+
+.feature-block-11 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 94.0%);
+}
+
+.feature-block-12 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 86.32%);
+}
+
+.feature-block-13 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 95.43999999999998%);
+}
+
+.feature-block-14 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 95.91999999999999%);
+}
+
+.feature-block-15 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 87.27999999999999%);
+}
+
+.feature-block-16 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 86.8%);
+}
+
+.feature-block-17 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 99.75999999999999%);
+}
+
+.feature-block-18 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 82.0%);
+}
+
+.feature-block-19 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 93.04%);
+}
+
+.feature-block-20 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 98.56%);
+}
+
+.feature-block-21 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 86.32000000000001%);
+}
+
+.feature-block-22 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 91.12%);
+}
+
+.feature-block-23 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 77.67999999999999%);
+}
+
+.feature-block-24 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 92.32%);
+}
+
+.feature-block-25 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 91.36%);
+}
+
+.feature-block-26 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 94.47999999999999%);
+}
+
+.feature-block-27 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 90.64%);
+}
+
+.feature-block-28 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 89.2%);
+}
+
+.feature-block-29 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 88.0%);
+}
+
+.feature-block-30 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 67.36000000000001%);
+}
+
+.feature-block-31 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 94.72000000000001%);
+}
+
+.feature-block-32 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 89.44%);
+}
+
+.feature-block-33 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 97.11999999999999%);
+}
+
+.feature-block-34 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 92.80000000000001%);
+}
+
+.feature-block-35 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 92.55999999999999%);
+}
+
+.feature-block-36 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 88.24000000000001%);
+}
+
+.feature-block-37 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 69.76%);
+}
+
+.feature-block-38 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 96.39999999999999%);
+}
+
+.feature-block-39 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 92.55999999999999%);
+}
+
+.feature-block-40 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 86.32000000000001%);
+}
+
+.feature-block-41 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 94.0%);
+}
+
+.feature-block-42 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 88.24000000000001%);
+}
+
+.feature-block-43 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 87.28%);
+}
+
+.feature-block-44 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 87.28%);
+}
+
+.feature-block-45 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 85.36%);
+}
+
+.feature-block-46 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 95.92%);
+}
+
+.feature-block-47 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 88.48%);
+}
+
+.feature-block-48 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 93.27999999999999%);
+}
+
+.feature-block-49 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 92.32%);
+}
+
+.feature-block-50 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 90.15999999999998%);
+}
+
+.feature-block-51 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 96.64000000000001%);
+}
+
+.feature-block-52 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 98.32%);
+}
+
+.feature-block-53 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 90.64%);
+}
+
+.feature-block-54 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 94.24%);
+}
+
+.feature-block-55 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 80.56000000000002%);
+}
+
+.feature-block-56 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 81.52%);
+}
+
+.feature-block-57 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 83.44%);
+}
+
+.feature-block-58 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 82.48%);
+}
+
+.feature-block-59 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 91.36%);
+}
+
+.feature-block-60 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 93.75999999999999%);
+}
+
+.feature-block-61 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 99.75999999999999%);
+}
+
+.feature-block-62 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 99.28%);
+}
+
+.feature-block-63 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 86.56%);
+}
+
+.feature-block-64 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 85.36%);
+}
+
+.feature-block-65 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 87.52%);
+}
+
+.feature-block-66 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 97.11999999999999%);
+}
+
+.feature-block-67 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 96.88000000000001%);
+}
+
+.feature-block-68 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 98.80000000000001%);
+}
+
+.feature-block-69 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 85.6%);
+}
+
+.feature-block-70 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 89.2%);
+}
+
+.feature-block-71 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 91.12%);
+}
+
+.feature-block-72 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 93.28%);
+}
+
+.feature-block-73 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 99.28%);
+}
+
+.feature-block-74 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 86.56%);
+}
+
+.feature-block-75 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 95.68%);
+}
+
+.feature-block-76 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 84.4%);
+}
+
+.feature-block-77 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 88.96000000000001%);
+}
+
+.feature-block-78 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 96.4%);
+}
+
+.feature-block-79 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 85.84%);
+}
+
+.feature-block-80 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 98.08%);
+}
+
+.feature-block-81 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 90.4%);
+}
+
+.feature-block-82 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 97.84%);
+}
+
+.feature-block-83 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 99.28%);
+}
+
+.feature-block-84 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 93.76%);
+}
+
+.feature-block-85 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 96.39999999999999%);
+}
+
+.feature-block-86 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 76.0%);
+}
+
+.feature-block-87 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 88.48%);
+}
+
+.feature-block-88 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 98.08%);
+}
+
+.feature-block-89 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 83.67999999999999%);
+}
+
+.feature-block-90 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 84.16%);
+}
+
+.feature-block-91 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 86.56%);
+}
+
+.feature-block-92 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 93.27999999999999%);
+}
+
+.feature-block-93 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 72.16%);
+}
+
+.feature-block-94 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 89.2%);
+}
+
+.feature-block-95 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 80.32%);
+}
+
+.feature-block-96 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 89.44%);
+}
+
+.feature-block-97 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 94.72000000000001%);
+}
+
+.feature-block-98 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 97.59999999999998%);
+}
+
+.feature-block-99 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 95.68%);
+}
+
+.feature-block-100 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 98.8%);
+}
+
+.feature-block-101 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 98.56%);
+}
+
+.feature-block-102 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 89.92%);
+}
+
+.feature-block-103 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 98.08%);
+}
+
+.feature-block-104 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 95.92%);
+}
+
+.feature-block-105 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 96.63999999999999%);
+}
+
+.feature-block-106 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 97.6%);
+}
+
+.feature-block-107 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 92.32000000000001%);
+}
+
+.feature-block-108 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 93.03999999999999%);
+}
+
+.feature-block-109 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 97.83999999999999%);
+}
+
+.feature-block-110 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 96.63999999999999%);
+}
+
+.feature-block-111 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 97.83999999999999%);
+}
+
+.feature-block-112 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 93.76%);
+}
+
+.feature-block-113 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 93.27999999999999%);
+}
+
+.feature-block-114 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 98.80000000000001%);
+}
+
+.feature-block-115 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 72.16%);
+}
+
+.feature-block-116 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 85.12%);
+}
+
+.feature-block-117 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 92.56%);
+}
+
+.feature-block-118 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 93.52%);
+}
+
+.feature-block-119 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 98.08%);
+}
+
+.feature-block-120 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 96.88%);
+}
+
+.feature-block-121 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 83.2%);
+}
+
+.feature-block-122 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 100.0%);
+}
+
+.feature-block-123 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 87.03999999999999%);
+}
+
+.feature-block-124 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 93.28%);
+}
+
+.feature-block-125 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 80.32%);
+}
+
+.feature-block-126 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 91.6%);
+}
+
+.feature-block-127 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 84.88%);
+}
+
+.feature-block-128 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 99.99999999999999%);
+}
+
+.feature-block-129 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 95.2%);
+}
+
+.feature-block-130 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 86.56%);
+}
+
+.feature-block-131 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 92.79999999999998%);
+}
+
+.feature-block-132 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 84.88%);
+}
+
+.feature-block-133 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 95.92%);
+}
+
+.feature-block-134 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 72.16%);
+}
+
+.feature-block-135 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 93.04%);
+}
+
+.feature-block-136 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 81.76%);
+}
+
+.feature-block-137 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 96.63999999999999%);
+}
+
+.feature-block-138 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 94.24000000000001%);
+}
+
+.feature-block-139 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 95.44%);
+}
+
+.feature-block-140 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 84.88000000000001%);
+}
+
+.feature-block-141 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 98.56%);
+}
+
+.feature-block-142 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 99.04%);
+}
+
+.feature-block-143 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 71.68%);
+}
+
+.feature-block-144 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 90.16000000000001%);
+}
+
+.feature-block-145 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 84.4%);
+}
+
+.feature-block-146 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 88.71999999999998%);
+}
+
+.feature-block-147 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 95.92%);
+}
+
+.feature-block-148 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 99.28%);
+}
+
+.feature-block-149 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 99.52000000000001%);
+}
+
+.feature-block-150 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 97.84%);
+}
+
+.feature-block-151 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 76.0%);
+}
+
+.feature-block-152 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 79.36000000000001%);
+}
+
+.feature-block-153 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 88.48%);
+}
+
+.feature-block-154 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 58.480000000000004%);
+}
+
+.feature-block-155 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 95.68%);
+}
+
+.feature-block-156 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 82.24000000000001%);
+}
+
+.feature-block-157 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 75.28%);
+}
+
+.feature-block-158 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 82.72%);
+}
+
+.feature-block-159 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 90.16000000000001%);
+}
+
+.feature-block-160 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 95.92%);
+}
+
+.feature-block-161 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 99.76%);
+}
+
+.feature-block-162 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 88.24000000000001%);
+}
+
+.feature-block-163 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 88.0%);
+}
+
+.feature-block-164 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 87.28%);
+}
+
+.feature-block-165 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 81.76%);
+}
+
+.feature-block-166 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 90.63999999999999%);
+}
+
+.feature-block-167 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 79.36000000000001%);
+}
+
+.feature-block-168 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 86.56%);
+}
+
+.feature-block-169 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 81.28%);
+}
+
+.feature-block-170 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 79.36000000000001%);
+}
+
+.feature-block-171 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 95.43999999999998%);
+}
+
+.feature-block-172 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 92.79999999999998%);
+}
+
+.feature-block-173 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 82.96%);
+}
+
+.feature-block-174 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 82.48%);
+}
+
+.feature-block-175 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 89.67999999999999%);
+}
+
+.feature-block-176 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 88.72%);
+}
+
+.feature-block-177 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 87.76%);
+}
+
+.feature-block-178 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 90.39999999999999%);
+}
+
+.feature-block-179 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 82.96%);
+}
+
+.feature-block-180 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 94.47999999999999%);
+}
+
+.feature-block-181 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(8, 70%, 91.6%);
+}
+
+.feature-block-182 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 72.88%);
+}
+
+.feature-block-183 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 84.88%);
+}
+
+.feature-block-184 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 98.08%);
+}
+
+.feature-block-185 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 87.28%);
+}
+
+.feature-block-186 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 66.88%);
+}
+
+.feature-block-187 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 95.68%);
+}
+
+.feature-block-188 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 98.80000000000001%);
+}
+
+.feature-block-189 {
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-color: hsl(228, 50%, 90.16000000000001%);
 }
