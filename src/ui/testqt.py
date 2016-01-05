@@ -1,5 +1,6 @@
 import sys
-from PyQt5.QtWidgets import QDialog, QFileDialog, QLabel, QApplication, QMainWindow, QSizePolicy, QWidget
+from PyQt5.QtWidgets import QDialog, QFileDialog, QLabel, QApplication, QMainWindow, QSizePolicy, QWidget, QMessageBox, QComboBox, QAbstractButton, QRadioButton, QBoxLayout
+from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QTextStream, QFile, QIODevice, QThread
 from PyQt5.QtGui import QImageReader, QImage, QPalette, QPixmap
 from PyQt5 import QtCore, QtGui
@@ -8,6 +9,7 @@ from textparser.textparser import TextParser
 from textparser.textutil.structures import Text
 from ui.taggedtextwidget import MQTaggedTextWidget
 from ui.text_worker import TextWorker
+import pkg_resources
 
 
 class MainApplication(QMainWindow, Ui_MainWindow):
@@ -69,6 +71,8 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.actionDocumentView.triggered.connect(self.setActiveTabDocumentView)
         self.actionDetailView.triggered.connect(self.setActiveTabDetailView)
         self.actionChangeView.triggered.connect(self.changeView)
+
+        #statusbar
 
         # initilize features
         self.kompVokIsActive = False
@@ -138,6 +142,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         file_name = dialog.getOpenFileName(self, 'Open file')
         if file_name[0] != '':
             text = open(file_name[0]).read()
+            self.chooseCorpus()
             # We need to create new TextWorker
             self.tag = (TextWorker(), QtCore.QThread())
             self.tag[0].TextToParse = text
@@ -250,7 +255,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.tabWidget.setCurrentIndex(0)
 
     def changeView(self):
-        print(self.tabWidget.currentIndex())
+        #print(self.tabWidget.currentIndex())
         if self.tabWidget.currentIndex() == 0:
             self.tabWidget.setCurrentIndex(1)
         elif self.tabWidget.currentIndex() == 1:
@@ -258,20 +263,45 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
 
     def showAbout(self):
-        z = About(self)
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        #msg.setTextFormat(QLabel.openExternalLinks);   #this is what makes the links clickable
+        msg.setText("Applied Visualization and Analysis of Multivariate Datasets - Text Visualization")
+        msg.setInformativeText("Git repository: " + "https://github.com/Zarnosch/AVaAoMDTV")
+        msg.setWindowTitle("About")
+        msg.setDetailedText("Version: " + "0.1.0" +"\n \n" + "This Project is done in the context of Applied Visualization and Analysis of Multivariate Datasets at the"
+                                                    "OVGU University." + "\n \n" + "This tool can load .txt files and shows the readability difficulty.")
+        msg.setStandardButtons(QMessageBox.Ok)
+        retval = msg.exec_()
 
+    def chooseCorpus(self):
+        #msg = CorpusChooser()
 
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        msg.setWindowTitle("Choose a Corpus")
+        msg.setText("Please choose a Corpus, which is needed to calculate the complexity of the Words in your text")
+        #msg.addButton(QMessageBox.Accepted())
 
+        retval = msg.exec_()
 
-
-class About(QWidget):
-    def __init__( self, parent=None):
-        super(About, self).__init__(parent)
-        self.pushButton = QtGui.QPushButton('I am in Test widget')
-
-        layout = QtGui.QHBoxLayout()
-        layout.addWidget(self.pushButton)
-        self.setLayout(layout)
+class CorpusChooser(QMessageBox,QWidget):
+    def __init__(self):
+        super(CorpusChooser, self).__init__()
+        self.centralwidget = QtWidgets.QWidget(CorpusChooser)
+        self.setIcon(QMessageBox.Information)
+        self.setWindowTitle("Choose a Corpus")
+        self.setText("Please choose a Corpus, which is needed to calculate the complexity of the Words in your text")
+        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
+        print("1")
+        #self.gridLayout.setObjectName("gridLayout")
+        self.CorporaBox = QtWidgets.QComboBox(self.gridLayout)
         print("Fu")
+        self.CorporaBox.setCurrentText("")
+        self.CorporaBox.setObjectName("CorporaBox")
+
+
+
+
 
 

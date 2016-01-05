@@ -423,6 +423,7 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.tabWidget, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setStatusTip("")
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -485,7 +486,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuHilfe.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -523,6 +524,7 @@ class Ui_MainWindow(object):
         self.actionNachrichten.setText(_translate("MainWindow", "Nachrichten"))
         self.actionKeine_Hilfe_f_r_dich_Swag.setText(_translate("MainWindow", "Keine Hilfe für dich! Swag!"))
         self.action_ber.setText(_translate("MainWindow", "About"))
+        self.action_ber.setShortcut(_translate("MainWindow", "F12"))
         self.actionDocumentView.setText(_translate("MainWindow", "Document View"))
         self.actionDocumentView.setShortcut(_translate("MainWindow", "Ctrl+2"))
         self.actionDetailView.setText(_translate("MainWindow", "Detail View"))
