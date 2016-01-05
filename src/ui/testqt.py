@@ -132,7 +132,6 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         dialog.setNameFilters([self.tr('Text Files (*.txt)'), self.tr('All Files (*)')])
         dialog.setDefaultSuffix('.txt')
         file_name = dialog.getOpenFileName(self, 'Open file')
-        print(file_name)
         if file_name[0] != '':
             text = open(file_name[0]).read()
             # We need to create new TextWorker
