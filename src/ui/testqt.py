@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QDialog, QFileDialog, QLabel, QApplication, QMainWindow, QSizePolicy
+from PyQt5.QtWidgets import QDialog, QFileDialog, QLabel, QApplication, QMainWindow, QSizePolicy, QWidget
 from PyQt5.QtCore import QTextStream, QFile, QIODevice, QThread
 from PyQt5.QtGui import QImageReader, QImage, QPalette, QPixmap
 from PyQt5 import QtCore, QtGui
@@ -63,8 +63,12 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         #self.ViewSlider.setMaximum(1)
         #self.ViewSlider.actionTriggered.connect(self.updateView)
 
-
+        # menue actions
         self.actionText_ffnen.triggered.connect(self.open_text)
+        self.action_ber.triggered.connect(self.showAbout)
+        self.actionDocumentView.triggered.connect(self.setActiveTabDocumentView)
+        self.actionDetailView.triggered.connect(self.setActiveTabDetailView)
+        self.actionChangeView.triggered.connect(self.changeView)
 
         # initilize features
         self.kompVokIsActive = False
@@ -238,3 +242,36 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
     def sliderChanged(self):
         self.taggedTextWidget.showDataNoWait(self.tag)
+
+    def setActiveTabDocumentView(self):
+        self.tabWidget.setCurrentIndex(1)
+
+    def setActiveTabDetailView(self):
+        self.tabWidget.setCurrentIndex(0)
+
+    def changeView(self):
+        print(self.tabWidget.currentIndex())
+        if self.tabWidget.currentIndex() == 0:
+            self.tabWidget.setCurrentIndex(1)
+        elif self.tabWidget.currentIndex() == 1:
+            self.tabWidget.setCurrentIndex(0)
+
+
+    def showAbout(self):
+        z = About(self)
+
+
+
+
+
+class About(QWidget):
+    def __init__( self, parent=None):
+        super(About, self).__init__(parent)
+        self.pushButton = QtGui.QPushButton('I am in Test widget')
+
+        layout = QtGui.QHBoxLayout()
+        layout.addWidget(self.pushButton)
+        self.setLayout(layout)
+        print("Fu")
+
+

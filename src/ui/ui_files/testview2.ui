@@ -451,7 +451,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -632,7 +632,7 @@
                <item row="1" column="0">
                 <widget class="QLabel" name="label_2">
                  <property name="text">
-                  <string>Wordsr:</string>
+                  <string>Words:</string>
                  </property>
                 </widget>
                </item>
@@ -796,7 +796,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>comp. Word</string>
+                  <string>Comp. Word</string>
                  </property>
                 </widget>
                </item>
@@ -815,7 +815,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>comp. Sentence</string>
+                  <string>Comp. Sentence</string>
                  </property>
                 </widget>
                </item>
@@ -989,6 +989,7 @@
     </property>
     <addaction name="actionDocumentView"/>
     <addaction name="actionDetailView"/>
+    <addaction name="actionChangeView"/>
    </widget>
    <addaction name="menuDatei"/>
    <addaction name="menuAnsicht"/>
@@ -1062,10 +1063,24 @@
    <property name="text">
     <string>Document View</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+2</string>
+   </property>
   </action>
   <action name="actionDetailView">
    <property name="text">
     <string>Detail View</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+1</string>
+   </property>
+  </action>
+  <action name="actionChangeView">
+   <property name="text">
+    <string>ChangeView</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Tab</string>
    </property>
   </action>
  </widget>
