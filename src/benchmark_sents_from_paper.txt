@@ -4,7 +4,7 @@ We exploited those resources to determine how common the words of a text sample 
 
 This measure is related to the one already proposed in [16], following the assumption that parts of the sentence
 that are interrupted by subordinate sentences or parenthesis have to be stored in a temporary memory which
-increases the mental complexity of processing the sentence
+increases the mental complexity of processing the sentence.
 
 The implementation of 141 different simple text features allows us an unbiased search for text features with high
 expressiveness with respect to readability.

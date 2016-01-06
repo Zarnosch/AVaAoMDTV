@@ -191,10 +191,12 @@
 	\end{figure}
 	
 	\subsection*{Satzlänge}
-	Hier wird die Anzahl der Wörter $ |W| $ in einem Satz gemessen. Sollte kein Katalog an \textit{Grundwahrheiten} (vgl. Einleitung) gebildet werden, könnten entsprechende Werte aus anderer Literatur\footnote{\url{https://de.wikipedia.org/wiki/Satzl\%C3\%A4nge\#Durchschnittliche_Satzl.C3.A4nge}} für die Maßstabsfindung übernommen werden, was jedoch in je nach Kontext (nicht berücksichtige Textarten, Sprachwandel) zu weniger aussagekräftigen Ergebnissen führen könnte.
+	Hier wird die Anzahl der Wörter $ |W| $ in einem Satz gemessen. Der experimentell ermittelte Höchstwert von 100 Wörtern pro Satz verzerrt die Ergebnisse sehr stark. Die Literatur \footnote{BASTABLE, Susan B., et al. Health professional as educator: principles of teaching and learning, S. 577. Jones \& Bartlett Publishers, 2010.} bestätigt diesen subjektiven Eindruck. Daher wird ein Höchstwert von 29 verwendet, der sich auch in der avg-Spalte von Tabelle~\ref{sent_length_hard} wiederfindet.
+	
+	önnten entsprechende Werte aus anderer Literatur\footnote{\url{https://de.wikipedia.org/wiki/Satzl\%C3\%A4nge\#Durchschnittliche_Satzl.C3.A4nge}} für die Maßstabsfindung übernommen werden, was jedoch in je nach Kontext (nicht berücksichtige Textarten, Sprachwandel) zu weniger aussagekräftigen Ergebnissen führen könnte.
 		
 	\begin{equation*}
-		\text{Satzlänge-Wert: }\frac{|W|}{100}
+		\text{Satzlänge-Wert: }\frac{|W|}{29}
 	\end{equation*}	
 	
 	\subsubsection*{Skala}
@@ -219,8 +221,9 @@
 			\hline poems & 2 & 54 & 17.22 \\ 
 			\hline political\_english\_text & 6 & 39 & 19.15 \\ 
 			\hline 
-			\end{tabular}\right\}$ {obere Grenze: 100.00 weil schöner zu rechnen}
+			\end{tabular}\right\}$ {obere Grenze: 101.00}
 		\caption{Satzlänge: schwere Texte}
+		\label{sent_length_hard}
 	\end{table}
 	\begin{figure}[h]
 		\centering

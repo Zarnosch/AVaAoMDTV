@@ -42,7 +42,7 @@ class TextParser:
         length = len(self.tokenizer.tokenize(s))
         # print("The sentence has ", length, "words.")
 
-        sent_length_feature_value = length / 100
+        sent_length_feature_value = length / 29
 
         if sent_length_feature_value < 0: return 0
         if sent_length_feature_value > 1: return 1
@@ -126,6 +126,7 @@ class Stanford():
         if os.name == "nt":
             # print("fu1")
             os.environ['JAVAHOME'] = 'C:\Program Files\Java\jdk1.8.0_66\bin\java.exe'
+            # os.environ['JAVAHOME'] = 'C:/Program Files (x86)/Java/jdk1.8.0_66/bin/java.exe'
             # print("fu2")
             # insert path to the directory containing stanford-parser.jar and stanford-parser-3.5.2-models.jar
             self.english_parser = StanfordParser(
