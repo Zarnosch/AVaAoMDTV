@@ -1,6 +1,7 @@
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QFileDialog, QMainWindow, QSizePolicy, QWidget, QMessageBox
+from PyQt5.QtWidgets import QFileDialog, QMainWindow, QSizePolicy, QWidget, QMessageBox, QColorDialog
+from PyQt5.QtGui import QColor, QPalette
 
 from ui.taggedtextwidget import MQTaggedTextWidget
 from ui.text_worker import TextWorker
@@ -16,10 +17,26 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
         # Set up the user interface from Designer.
         self.setupUi(self)
+
+        # set default colors
+        self.worstColor = QColor(255, 0, 0)
+        self.neutralColor = QColor(255, 255, 255)
+        self.bestColor = QColor(0, 0, 255)
+        self.setWorstColorButton(self.worstColor)
+        self.setNeutralColorButton(self.neutralColor)
+        self.setBestColorButton(self.bestColor)
+
+        # colorwidget
+        self.colorDia = QColorDialog(self.centralwidget)
+        # connect widget with buttons
+        self.bestColorButton.clicked.connect(self.chooseBestColor)
+        self.neutralColorButton.clicked.connect(self.chooseNeutralColor)
+        self.worstColorButton.clicked.connect(self.chooseWorstColor)
+
+
         # open Buttons
         self.openButton_1.clicked.connect(self.open_text)
         self.openButton_2.clicked.connect(self.open_text)
-
         # progressBar
         self.progress = 100
         self.progressBar.setValue(self.progress)
@@ -33,12 +50,12 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.numSent.setText("0")
 
         # Corpora
-        self.CorporaBox.addItem("Thriller")  # 0
-        self.CorporaBox.addItem("Kindertext")  # 1
-        self.CorporaBox.addItem("Nachrichten")  # 2
-        self.CorporaBox.addItem("Gesetzestexte")  # 3
-        self.activeCorporaIndex = 0
-        self.CorporaBox.activated.connect(self.updateCorpora)
+        # self.CorporaBox.addItem("Thriller")  # 0
+        # self.CorporaBox.addItem("Kindertext")  # 1
+        # self.CorporaBox.addItem("Nachrichten")  # 2
+        # self.CorporaBox.addItem("Gesetzestexte")  # 3
+        # self.activeCorporaIndex = 0
+        # self.CorporaBox.activated.connect(self.updateCorpora)
 
         # remove qttextWidget and setup own textwidget (detailview)
         self.verticalLayout.removeWidget(self.plainTextEdit)
@@ -290,6 +307,50 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         msg.setStandardButtons(QMessageBox.Ok)
         retval = msg.exec_()
 
+    def setBestColorButton(self, color):
+        r = str(color.red())
+        g = str(color.green())
+        b = str(color.blue())
+        self.bestColorButton.setStyleSheet("background-color: rgb("+r+", "+g+", "+b +"); border: 1px solid black")
+        #self.bestColorButton.setStyleSheet("border: 1px solid black")
+
+    def setNeutralColorButton(self, color):
+        r = str(color.red())
+        g = str(color.green())
+        b = str(color.blue())
+        self.neutralColorButton.setStyleSheet("background-color: rgb("+r+", "+g+", "+b +"); border: 1px solid black")
+        #self.neutralColorButton.setStyleSheet("border: 1px solid black")
+
+    def setWorstColorButton(self, color):
+        r = str(color.red())
+        g = str(color.green())
+        b = str(color.blue())
+        self.worstColorButton.setStyleSheet("background-color: rgb("+r+", "+g+", "+b +"); border: 1px solid black")
+        #self.worstColorButton.setStyleSheet("border: 1px solid black")
+
+    def chooseWorstColor(self):
+        self.worstColor = QColorDialog.getColor()
+        self.setWorstColorButton(self.worstColor)
+
+    def chooseNeutralColor(self):
+        self.neutralColor = QColorDialog.getColor()
+        self.setNeutralColorButton(self.neutralColor)
+
+    def chooseBestColor(self):
+        self.bestColor = QColorDialog.getColor()
+        self.setBestColorButton(self.bestColor)
+
+    def getWorstColorHSL(self):
+        return self.worstColor.getHsl()
+
+    def getNeutralColorHSL(self):
+        return self.neutralColor.getHsl()
+
+    def getBestColorHSL(self):
+        return self.bestColor.getHsl()
+
+
+
 
 class CorpusChooser(QMessageBox, QWidget):
     def __init__(self):
@@ -305,3 +366,4 @@ class CorpusChooser(QMessageBox, QWidget):
         print("Fu")
         self.CorporaBox.setCurrentText("")
         self.CorporaBox.setObjectName("CorporaBox")
+
