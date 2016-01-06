@@ -25,86 +25,821 @@ table {
 
 
 .feature-body.f1-0 {
-    background-color: hsl(228, 50%, 56.8%);
-    color: hsl(228, 50%, 56.8%);
-}
-.feature-body.f2-0 {
-    background-color: hsl(8, 70%, 41.2%);
-    color: hsl(8, 70%, 41.2%);
-}
-.feature-body.f3-0 {
-    background-color: hsl(228, 50%, 55.6%);
-    color: hsl(228, 50%, 55.6%);
-}
-.feature-body.f4-0 {
-    background-color: hsl(8, 70%, 49.599999999999994%);
-    color: hsl(8, 70%, 49.599999999999994%);
-}
-.feature-body.f5-0 {
-    background-color: hsl(8, 70%, 41.2%);
-    color: hsl(8, 70%, 41.2%);
-}
-
-.feature-body.f1-1 {
-    background-color: hsl(8, 70%, 92.79999999999998%);
-    color: hsl(8, 70%, 92.79999999999998%);
-}
-.feature-body.f2-1 {
-    background-color: hsl(228, 50%, 94.0%);
-    color: hsl(228, 50%, 94.0%);
-}
-.feature-body.f3-1 {
-    background-color: hsl(8, 70%, 66.39999999999999%);
-    color: hsl(8, 70%, 66.39999999999999%);
-}
-.feature-body.f4-1 {
-    background-color: hsl(8, 70%, 64.0%);
-    color: hsl(8, 70%, 64.0%);
-}
-.feature-body.f5-1 {
-    background-color: hsl(8, 70%, 96.4%);
-    color: hsl(8, 70%, 96.4%);
-}
-
-.feature-body.f1-2 {
-    background-color: hsl(228, 50%, 54.4%);
-    color: hsl(228, 50%, 54.4%);
-}
-.feature-body.f2-2 {
-    background-color: hsl(228, 50%, 58.0%);
-    color: hsl(228, 50%, 58.0%);
-}
-.feature-body.f3-2 {
     background-color: hsl(8, 70%, 83.2%);
     color: hsl(8, 70%, 83.2%);
 }
+.feature-body.f2-0 {
+    background-color: hsl(8, 70%, 72.4%);
+    color: hsl(8, 70%, 72.4%);
+}
+.feature-body.f3-0 {
+    background-color: hsl(8, 70%, 55.6%);
+    color: hsl(8, 70%, 55.6%);
+}
+.feature-body.f4-0 {
+    background-color: hsl(228, 50%, 85.6%);
+    color: hsl(228, 50%, 85.6%);
+}
+.feature-body.f5-0 {
+    background-color: hsl(228, 50%, 71.2%);
+    color: hsl(228, 50%, 71.2%);
+}
+
+.feature-body.f1-1 {
+    background-color: hsl(8, 70%, 74.80000000000001%);
+    color: hsl(8, 70%, 74.80000000000001%);
+}
+.feature-body.f2-1 {
+    background-color: hsl(8, 70%, 88.0%);
+    color: hsl(8, 70%, 88.0%);
+}
+.feature-body.f3-1 {
+    background-color: hsl(8, 70%, 46.00000000000001%);
+    color: hsl(8, 70%, 46.00000000000001%);
+}
+.feature-body.f4-1 {
+    background-color: hsl(8, 70%, 73.60000000000001%);
+    color: hsl(8, 70%, 73.60000000000001%);
+}
+.feature-body.f5-1 {
+    background-color: hsl(228, 50%, 71.2%);
+    color: hsl(228, 50%, 71.2%);
+}
+
+.feature-body.f1-2 {
+    background-color: hsl(8, 70%, 97.6%);
+    color: hsl(8, 70%, 97.6%);
+}
+.feature-body.f2-2 {
+    background-color: hsl(228, 50%, 97.6%);
+    color: hsl(228, 50%, 97.6%);
+}
+.feature-body.f3-2 {
+    background-color: hsl(8, 70%, 43.6%);
+    color: hsl(8, 70%, 43.6%);
+}
 .feature-body.f4-2 {
-    background-color: hsl(8, 70%, 42.400000000000006%);
-    color: hsl(8, 70%, 42.400000000000006%);
+    background-color: hsl(8, 70%, 40.0%);
+    color: hsl(8, 70%, 40.0%);
 }
 .feature-body.f5-2 {
-    background-color: hsl(228, 50%, 96.4%);
-    color: hsl(228, 50%, 96.4%);
+    background-color: hsl(228, 50%, 86.8%);
+    color: hsl(228, 50%, 86.8%);
 }
 
 .feature-body.f1-3 {
+    background-color: hsl(228, 50%, 90.4%);
+    color: hsl(228, 50%, 90.4%);
+}
+.feature-body.f2-3 {
+    background-color: hsl(228, 50%, 86.8%);
+    color: hsl(228, 50%, 86.8%);
+}
+.feature-body.f3-3 {
+    background-color: hsl(8, 70%, 48.39999999999999%);
+    color: hsl(8, 70%, 48.39999999999999%);
+}
+.feature-body.f4-3 {
+    background-color: hsl(8, 70%, 60.400000000000006%);
+    color: hsl(8, 70%, 60.400000000000006%);
+}
+.feature-body.f5-3 {
+    background-color: hsl(228, 50%, 82.0%);
+    color: hsl(228, 50%, 82.0%);
+}
+
+.feature-body.f1-4 {
+    background-color: hsl(228, 50%, 82.0%);
+    color: hsl(228, 50%, 82.0%);
+}
+.feature-body.f2-4 {
+    background-color: hsl(228, 50%, 92.8%);
+    color: hsl(228, 50%, 92.8%);
+}
+.feature-body.f3-4 {
+    background-color: hsl(8, 70%, 82.0%);
+    color: hsl(8, 70%, 82.0%);
+}
+.feature-body.f4-4 {
+    background-color: hsl(8, 70%, 77.20000000000002%);
+    color: hsl(8, 70%, 77.20000000000002%);
+}
+.feature-body.f5-4 {
+    background-color: hsl(228, 50%, 91.6%);
+    color: hsl(228, 50%, 91.6%);
+}
+
+.feature-body.f1-5 {
+    background-color: hsl(8, 70%, 83.2%);
+    color: hsl(8, 70%, 83.2%);
+}
+.feature-body.f2-5 {
+    background-color: hsl(8, 70%, 70.0%);
+    color: hsl(8, 70%, 70.0%);
+}
+.feature-body.f3-5 {
+    background-color: hsl(8, 70%, 64.0%);
+    color: hsl(8, 70%, 64.0%);
+}
+.feature-body.f4-5 {
+    background-color: hsl(228, 50%, 97.6%);
+    color: hsl(228, 50%, 97.6%);
+}
+.feature-body.f5-5 {
+    background-color: hsl(228, 50%, 82.0%);
+    color: hsl(228, 50%, 82.0%);
+}
+
+.feature-body.f1-6 {
+    background-color: hsl(228, 50%, 82.0%);
+    color: hsl(228, 50%, 82.0%);
+}
+.feature-body.f2-6 {
+    background-color: hsl(8, 70%, 100.0%);
+    color: hsl(8, 70%, 100.0%);
+}
+.feature-body.f3-6 {
+    background-color: hsl(8, 70%, 47.2%);
+    color: hsl(8, 70%, 47.2%);
+}
+.feature-body.f4-6 {
+    background-color: hsl(8, 70%, 77.20000000000002%);
+    color: hsl(8, 70%, 77.20000000000002%);
+}
+.feature-body.f5-6 {
+    background-color: hsl(228, 50%, 82.0%);
+    color: hsl(228, 50%, 82.0%);
+}
+
+.feature-body.f1-7 {
+    background-color: hsl(228, 50%, 90.4%);
+    color: hsl(228, 50%, 90.4%);
+}
+.feature-body.f2-7 {
+    background-color: hsl(228, 50%, 77.2%);
+    color: hsl(228, 50%, 77.2%);
+}
+.feature-body.f3-7 {
+    background-color: hsl(8, 70%, 70.0%);
+    color: hsl(8, 70%, 70.0%);
+}
+.feature-body.f4-7 {
+    background-color: hsl(8, 70%, 60.400000000000006%);
+    color: hsl(8, 70%, 60.400000000000006%);
+}
+.feature-body.f5-7 {
+    background-color: hsl(8, 70%, 91.60000000000001%);
+    color: hsl(8, 70%, 91.60000000000001%);
+}
+
+.feature-body.f1-8 {
+    background-color: hsl(228, 50%, 95.2%);
+    color: hsl(228, 50%, 95.2%);
+}
+.feature-body.f2-8 {
+    background-color: hsl(228, 50%, 91.6%);
+    color: hsl(228, 50%, 91.6%);
+}
+.feature-body.f3-8 {
+    background-color: hsl(8, 70%, 53.2%);
+    color: hsl(8, 70%, 53.2%);
+}
+.feature-body.f4-8 {
+    background-color: hsl(8, 70%, 60.400000000000006%);
+    color: hsl(8, 70%, 60.400000000000006%);
+}
+.feature-body.f5-8 {
+    background-color: hsl(228, 50%, 97.6%);
+    color: hsl(228, 50%, 97.6%);
+}
+
+.feature-body.f1-9 {
+    background-color: hsl(8, 70%, 93.99999999999999%);
+    color: hsl(8, 70%, 93.99999999999999%);
+}
+.feature-body.f2-9 {
+    background-color: hsl(8, 70%, 92.79999999999998%);
+    color: hsl(8, 70%, 92.79999999999998%);
+}
+.feature-body.f3-9 {
+    background-color: hsl(8, 70%, 47.2%);
+    color: hsl(8, 70%, 47.2%);
+}
+.feature-body.f4-9 {
+    background-color: hsl(8, 70%, 40.0%);
+    color: hsl(8, 70%, 40.0%);
+}
+.feature-body.f5-9 {
+    background-color: hsl(8, 70%, 91.60000000000001%);
+    color: hsl(8, 70%, 91.60000000000001%);
+}
+
+.feature-body.f1-10 {
+    background-color: hsl(228, 50%, 89.2%);
+    color: hsl(228, 50%, 89.2%);
+}
+.feature-body.f2-10 {
+    background-color: hsl(8, 70%, 98.8%);
+    color: hsl(8, 70%, 98.8%);
+}
+.feature-body.f3-10 {
+    background-color: hsl(8, 70%, 52.0%);
+    color: hsl(8, 70%, 52.0%);
+}
+.feature-body.f4-10 {
+    background-color: hsl(8, 70%, 68.8%);
+    color: hsl(8, 70%, 68.8%);
+}
+.feature-body.f5-10 {
+    background-color: hsl(228, 50%, 76.0%);
+    color: hsl(228, 50%, 76.0%);
+}
+
+.feature-body.f1-11 {
+    background-color: hsl(8, 70%, 91.60000000000001%);
+    color: hsl(8, 70%, 91.60000000000001%);
+}
+.feature-body.f2-11 {
+    background-color: hsl(228, 50%, 98.8%);
+    color: hsl(228, 50%, 98.8%);
+}
+.feature-body.f3-11 {
+    background-color: hsl(8, 70%, 48.39999999999999%);
+    color: hsl(8, 70%, 48.39999999999999%);
+}
+.feature-body.f4-11 {
+    background-color: hsl(8, 70%, 43.6%);
+    color: hsl(8, 70%, 43.6%);
+}
+.feature-body.f5-11 {
+    background-color: hsl(228, 50%, 82.0%);
+    color: hsl(228, 50%, 82.0%);
+}
+
+.feature-body.f1-12 {
+    background-color: hsl(8, 70%, 93.99999999999999%);
+    color: hsl(8, 70%, 93.99999999999999%);
+}
+.feature-body.f2-12 {
+    background-color: hsl(8, 70%, 91.60000000000001%);
+    color: hsl(8, 70%, 91.60000000000001%);
+}
+.feature-body.f3-12 {
+    background-color: hsl(8, 70%, 46.00000000000001%);
+    color: hsl(8, 70%, 46.00000000000001%);
+}
+.feature-body.f4-12 {
+    background-color: hsl(8, 70%, 40.0%);
+    color: hsl(8, 70%, 40.0%);
+}
+.feature-body.f5-12 {
     background-color: hsl(8, 70%, 86.8%);
     color: hsl(8, 70%, 86.8%);
 }
-.feature-body.f2-3 {
-    background-color: hsl(8, 70%, 62.79999999999999%);
-    color: hsl(8, 70%, 62.79999999999999%);
+
+.feature-body.f1-13 {
+    background-color: hsl(228, 50%, 92.8%);
+    color: hsl(228, 50%, 92.8%);
 }
-.feature-body.f3-3 {
+.feature-body.f2-13 {
+    background-color: hsl(228, 50%, 91.6%);
+    color: hsl(228, 50%, 91.6%);
+}
+.feature-body.f3-13 {
+    background-color: hsl(8, 70%, 44.800000000000004%);
+    color: hsl(8, 70%, 44.800000000000004%);
+}
+.feature-body.f4-13 {
+    background-color: hsl(8, 70%, 56.8%);
+    color: hsl(8, 70%, 56.8%);
+}
+.feature-body.f5-13 {
+    background-color: hsl(228, 50%, 91.6%);
+    color: hsl(228, 50%, 91.6%);
+}
+
+.feature-body.f1-14 {
+    background-color: hsl(228, 50%, 82.0%);
+    color: hsl(228, 50%, 82.0%);
+}
+.feature-body.f2-14 {
+    background-color: hsl(228, 50%, 83.2%);
+    color: hsl(228, 50%, 83.2%);
+}
+.feature-body.f3-14 {
+    background-color: hsl(8, 70%, 50.8%);
+    color: hsl(8, 70%, 50.8%);
+}
+.feature-body.f4-14 {
+    background-color: hsl(8, 70%, 65.19999999999999%);
+    color: hsl(8, 70%, 65.19999999999999%);
+}
+.feature-body.f5-14 {
+    background-color: hsl(228, 50%, 91.6%);
+    color: hsl(228, 50%, 91.6%);
+}
+
+.feature-body.f1-15 {
+    background-color: hsl(228, 50%, 90.4%);
+    color: hsl(228, 50%, 90.4%);
+}
+.feature-body.f2-15 {
+    background-color: hsl(8, 70%, 97.6%);
+    color: hsl(8, 70%, 97.6%);
+}
+.feature-body.f3-15 {
+    background-color: hsl(8, 70%, 50.8%);
+    color: hsl(8, 70%, 50.8%);
+}
+.feature-body.f4-15 {
+    background-color: hsl(8, 70%, 40.0%);
+    color: hsl(8, 70%, 40.0%);
+}
+.feature-body.f5-15 {
+    background-color: hsl(228, 50%, 76.0%);
+    color: hsl(228, 50%, 76.0%);
+}
+
+.feature-body.f1-16 {
+    background-color: hsl(8, 70%, 98.8%);
+    color: hsl(8, 70%, 98.8%);
+}
+.feature-body.f2-16 {
+    background-color: hsl(8, 70%, 85.6%);
+    color: hsl(8, 70%, 85.6%);
+}
+.feature-body.f3-16 {
+    background-color: hsl(8, 70%, 55.6%);
+    color: hsl(8, 70%, 55.6%);
+}
+.feature-body.f4-16 {
+    background-color: hsl(8, 70%, 40.0%);
+    color: hsl(8, 70%, 40.0%);
+}
+.feature-body.f5-16 {
+    background-color: hsl(8, 70%, 66.39999999999999%);
+    color: hsl(8, 70%, 66.39999999999999%);
+}
+
+.feature-body.f1-17 {
+    background-color: hsl(228, 50%, 96.4%);
+    color: hsl(228, 50%, 96.4%);
+}
+.feature-body.f2-17 {
+    background-color: hsl(228, 50%, 88.0%);
+    color: hsl(228, 50%, 88.0%);
+}
+.feature-body.f3-17 {
+    background-color: hsl(8, 70%, 59.2%);
+    color: hsl(8, 70%, 59.2%);
+}
+.feature-body.f4-17 {
+    background-color: hsl(8, 70%, 89.2%);
+    color: hsl(8, 70%, 89.2%);
+}
+.feature-body.f5-17 {
+    background-color: hsl(228, 50%, 82.0%);
+    color: hsl(228, 50%, 82.0%);
+}
+
+.feature-body.f1-18 {
+    background-color: hsl(228, 50%, 95.2%);
+    color: hsl(228, 50%, 95.2%);
+}
+.feature-body.f2-18 {
+    background-color: hsl(8, 70%, 91.60000000000001%);
+    color: hsl(8, 70%, 91.60000000000001%);
+}
+.feature-body.f3-18 {
+    background-color: hsl(8, 70%, 47.2%);
+    color: hsl(8, 70%, 47.2%);
+}
+.feature-body.f4-18 {
+    background-color: hsl(8, 70%, 40.0%);
+    color: hsl(8, 70%, 40.0%);
+}
+.feature-body.f5-18 {
+    background-color: hsl(8, 70%, 44.800000000000004%);
+    color: hsl(8, 70%, 44.800000000000004%);
+}
+
+.feature-body.f1-19 {
+    background-color: hsl(8, 70%, 80.8%);
+    color: hsl(8, 70%, 80.8%);
+}
+.feature-body.f2-19 {
+    background-color: hsl(8, 70%, 89.2%);
+    color: hsl(8, 70%, 89.2%);
+}
+.feature-body.f3-19 {
+    background-color: hsl(8, 70%, 46.00000000000001%);
+    color: hsl(8, 70%, 46.00000000000001%);
+}
+.feature-body.f4-19 {
+    background-color: hsl(8, 70%, 40.0%);
+    color: hsl(8, 70%, 40.0%);
+}
+.feature-body.f5-19 {
+    background-color: hsl(228, 50%, 55.6%);
+    color: hsl(228, 50%, 55.6%);
+}
+
+.feature-body.f1-20 {
+    background-color: hsl(228, 50%, 85.6%);
+    color: hsl(228, 50%, 85.6%);
+}
+.feature-body.f2-20 {
+    background-color: hsl(228, 50%, 94.0%);
+    color: hsl(228, 50%, 94.0%);
+}
+.feature-body.f3-20 {
+    background-color: hsl(8, 70%, 72.4%);
+    color: hsl(8, 70%, 72.4%);
+}
+.feature-body.f4-20 {
+    background-color: hsl(8, 70%, 40.0%);
+    color: hsl(8, 70%, 40.0%);
+}
+.feature-body.f5-20 {
+    background-color: hsl(8, 70%, 86.8%);
+    color: hsl(8, 70%, 86.8%);
+}
+
+.feature-body.f1-21 {
+    background-color: hsl(8, 70%, 84.4%);
+    color: hsl(8, 70%, 84.4%);
+}
+.feature-body.f2-21 {
+    background-color: hsl(8, 70%, 98.8%);
+    color: hsl(8, 70%, 98.8%);
+}
+.feature-body.f3-21 {
+    background-color: hsl(8, 70%, 50.8%);
+    color: hsl(8, 70%, 50.8%);
+}
+.feature-body.f4-21 {
+    background-color: hsl(8, 70%, 48.39999999999999%);
+    color: hsl(8, 70%, 48.39999999999999%);
+}
+.feature-body.f5-21 {
+    background-color: hsl(8, 70%, 86.8%);
+    color: hsl(8, 70%, 86.8%);
+}
+
+.feature-body.f1-22 {
+    background-color: hsl(8, 70%, 88.0%);
+    color: hsl(8, 70%, 88.0%);
+}
+.feature-body.f2-22 {
+    background-color: hsl(228, 50%, 96.4%);
+    color: hsl(228, 50%, 96.4%);
+}
+.feature-body.f3-22 {
+    background-color: hsl(8, 70%, 50.8%);
+    color: hsl(8, 70%, 50.8%);
+}
+.feature-body.f4-22 {
+    background-color: hsl(8, 70%, 40.0%);
+    color: hsl(8, 70%, 40.0%);
+}
+.feature-body.f5-22 {
+    background-color: hsl(228, 50%, 82.0%);
+    color: hsl(228, 50%, 82.0%);
+}
+
+.feature-body.f1-23 {
+    background-color: hsl(8, 70%, 78.39999999999999%);
+    color: hsl(8, 70%, 78.39999999999999%);
+}
+.feature-body.f2-23 {
+    background-color: hsl(8, 70%, 86.8%);
+    color: hsl(8, 70%, 86.8%);
+}
+.feature-body.f3-23 {
+    background-color: hsl(8, 70%, 52.0%);
+    color: hsl(8, 70%, 52.0%);
+}
+.feature-body.f4-23 {
+    background-color: hsl(8, 70%, 80.8%);
+    color: hsl(8, 70%, 80.8%);
+}
+.feature-body.f5-23 {
+    background-color: hsl(228, 50%, 66.4%);
+    color: hsl(228, 50%, 66.4%);
+}
+
+.feature-body.f1-24 {
+    background-color: hsl(228, 50%, 82.0%);
+    color: hsl(228, 50%, 82.0%);
+}
+.feature-body.f2-24 {
+    background-color: hsl(228, 50%, 95.2%);
+    color: hsl(228, 50%, 95.2%);
+}
+.feature-body.f3-24 {
+    background-color: hsl(8, 70%, 47.2%);
+    color: hsl(8, 70%, 47.2%);
+}
+.feature-body.f4-24 {
+    background-color: hsl(8, 70%, 65.19999999999999%);
+    color: hsl(8, 70%, 65.19999999999999%);
+}
+.feature-body.f5-24 {
+    background-color: hsl(228, 50%, 76.0%);
+    color: hsl(228, 50%, 76.0%);
+}
+
+.feature-body.f1-25 {
+    background-color: hsl(8, 70%, 100.0%);
+    color: hsl(8, 70%, 100.0%);
+}
+.feature-body.f2-25 {
+    background-color: hsl(228, 50%, 91.6%);
+    color: hsl(228, 50%, 91.6%);
+}
+.feature-body.f3-25 {
+    background-color: hsl(8, 70%, 46.00000000000001%);
+    color: hsl(8, 70%, 46.00000000000001%);
+}
+.feature-body.f4-25 {
+    background-color: hsl(8, 70%, 43.6%);
+    color: hsl(8, 70%, 43.6%);
+}
+.feature-body.f5-25 {
+    background-color: hsl(228, 50%, 91.6%);
+    color: hsl(228, 50%, 91.6%);
+}
+
+.feature-body.f1-26 {
+    background-color: hsl(8, 70%, 100.0%);
+    color: hsl(8, 70%, 100.0%);
+}
+.feature-body.f2-26 {
+    background-color: hsl(228, 50%, 89.2%);
+    color: hsl(228, 50%, 89.2%);
+}
+.feature-body.f3-26 {
+    background-color: hsl(8, 70%, 50.8%);
+    color: hsl(8, 70%, 50.8%);
+}
+.feature-body.f4-26 {
+    background-color: hsl(8, 70%, 40.0%);
+    color: hsl(8, 70%, 40.0%);
+}
+.feature-body.f5-26 {
+    background-color: hsl(228, 50%, 82.0%);
+    color: hsl(228, 50%, 82.0%);
+}
+
+.feature-body.f1-27 {
+    background-color: hsl(228, 50%, 56.8%);
+    color: hsl(228, 50%, 56.8%);
+}
+.feature-body.f2-27 {
+    background-color: hsl(228, 50%, 88.0%);
+    color: hsl(228, 50%, 88.0%);
+}
+.feature-body.f3-27 {
     background-color: hsl(8, 70%, 58.0%);
     color: hsl(8, 70%, 58.0%);
 }
-.feature-body.f4-3 {
-    background-color: hsl(8, 70%, 62.79999999999999%);
-    color: hsl(8, 70%, 62.79999999999999%);
+.feature-body.f4-27 {
+    background-color: hsl(228, 50%, 97.6%);
+    color: hsl(228, 50%, 97.6%);
 }
-.feature-body.f5-3 {
-    background-color: hsl(228, 50%, 90.4%);
-    color: hsl(228, 50%, 90.4%);
+.feature-body.f5-27 {
+    background-color: hsl(228, 50%, 82.0%);
+    color: hsl(228, 50%, 82.0%);
+}
+
+.feature-body.f1-28 {
+    background-color: hsl(8, 70%, 96.4%);
+    color: hsl(8, 70%, 96.4%);
+}
+.feature-body.f2-28 {
+    background-color: hsl(8, 70%, 93.99999999999999%);
+    color: hsl(8, 70%, 93.99999999999999%);
+}
+.feature-body.f3-28 {
+    background-color: hsl(8, 70%, 47.2%);
+    color: hsl(8, 70%, 47.2%);
+}
+.feature-body.f4-28 {
+    background-color: hsl(8, 70%, 40.0%);
+    color: hsl(8, 70%, 40.0%);
+}
+.feature-body.f5-28 {
+    background-color: hsl(8, 70%, 86.8%);
+    color: hsl(8, 70%, 86.8%);
+}
+
+.feature-body.f1-29 {
+    background-color: hsl(8, 70%, 88.0%);
+    color: hsl(8, 70%, 88.0%);
+}
+.feature-body.f2-29 {
+    background-color: hsl(8, 70%, 76.0%);
+    color: hsl(8, 70%, 76.0%);
+}
+.feature-body.f3-29 {
+    background-color: hsl(8, 70%, 53.2%);
+    color: hsl(8, 70%, 53.2%);
+}
+.feature-body.f4-29 {
+    background-color: hsl(8, 70%, 77.20000000000002%);
+    color: hsl(8, 70%, 77.20000000000002%);
+}
+.feature-body.f5-29 {
+    background-color: hsl(228, 50%, 76.0%);
+    color: hsl(228, 50%, 76.0%);
+}
+
+.feature-body.f1-30 {
+    background-color: hsl(8, 70%, 90.4%);
+    color: hsl(8, 70%, 90.4%);
+}
+.feature-body.f2-30 {
+    background-color: hsl(8, 70%, 92.79999999999998%);
+    color: hsl(8, 70%, 92.79999999999998%);
+}
+.feature-body.f3-30 {
+    background-color: hsl(8, 70%, 43.6%);
+    color: hsl(8, 70%, 43.6%);
+}
+.feature-body.f4-30 {
+    background-color: hsl(228, 50%, 89.2%);
+    color: hsl(228, 50%, 89.2%);
+}
+.feature-body.f5-30 {
+    background-color: hsl(228, 50%, 60.4%);
+    color: hsl(228, 50%, 60.4%);
+}
+
+.feature-body.f1-31 {
+    background-color: hsl(228, 50%, 74.8%);
+    color: hsl(228, 50%, 74.8%);
+}
+.feature-body.f2-31 {
+    background-color: hsl(228, 50%, 84.4%);
+    color: hsl(228, 50%, 84.4%);
+}
+.feature-body.f3-31 {
+    background-color: hsl(8, 70%, 64.0%);
+    color: hsl(8, 70%, 64.0%);
+}
+.feature-body.f4-31 {
+    background-color: hsl(8, 70%, 40.0%);
+    color: hsl(8, 70%, 40.0%);
+}
+.feature-body.f5-31 {
+    background-color: hsl(8, 70%, 86.8%);
+    color: hsl(8, 70%, 86.8%);
+}
+
+.feature-body.f1-32 {
+    background-color: hsl(8, 70%, 95.2%);
+    color: hsl(8, 70%, 95.2%);
+}
+.feature-body.f2-32 {
+    background-color: hsl(228, 50%, 94.0%);
+    color: hsl(228, 50%, 94.0%);
+}
+.feature-body.f3-32 {
+    background-color: hsl(8, 70%, 48.39999999999999%);
+    color: hsl(8, 70%, 48.39999999999999%);
+}
+.feature-body.f4-32 {
+    background-color: hsl(228, 50%, 94.0%);
+    color: hsl(228, 50%, 94.0%);
+}
+.feature-body.f5-32 {
+    background-color: hsl(228, 50%, 60.4%);
+    color: hsl(228, 50%, 60.4%);
+}
+
+.feature-body.f1-33 {
+    background-color: hsl(8, 70%, 90.4%);
+    color: hsl(8, 70%, 90.4%);
+}
+.feature-body.f2-33 {
+    background-color: hsl(8, 70%, 76.0%);
+    color: hsl(8, 70%, 76.0%);
+}
+.feature-body.f3-33 {
+    background-color: hsl(8, 70%, 60.400000000000006%);
+    color: hsl(8, 70%, 60.400000000000006%);
+}
+.feature-body.f4-33 {
+    background-color: hsl(8, 70%, 80.8%);
+    color: hsl(8, 70%, 80.8%);
+}
+.feature-body.f5-33 {
+    background-color: hsl(8, 70%, 91.60000000000001%);
+    color: hsl(8, 70%, 91.60000000000001%);
+}
+
+.feature-body.f1-34 {
+    background-color: hsl(8, 70%, 97.6%);
+    color: hsl(8, 70%, 97.6%);
+}
+.feature-body.f2-34 {
+    background-color: hsl(8, 70%, 77.20000000000002%);
+    color: hsl(8, 70%, 77.20000000000002%);
+}
+.feature-body.f3-34 {
+    background-color: hsl(8, 70%, 53.2%);
+    color: hsl(8, 70%, 53.2%);
+}
+.feature-body.f4-34 {
+    background-color: hsl(8, 70%, 73.60000000000001%);
+    color: hsl(8, 70%, 73.60000000000001%);
+}
+.feature-body.f5-34 {
+    background-color: hsl(228, 50%, 91.6%);
+    color: hsl(228, 50%, 91.6%);
+}
+
+.feature-body.f1-35 {
+    background-color: hsl(228, 50%, 92.8%);
+    color: hsl(228, 50%, 92.8%);
+}
+.feature-body.f2-35 {
+    background-color: hsl(8, 70%, 82.0%);
+    color: hsl(8, 70%, 82.0%);
+}
+.feature-body.f3-35 {
+    background-color: hsl(8, 70%, 53.2%);
+    color: hsl(8, 70%, 53.2%);
+}
+.feature-body.f4-35 {
+    background-color: hsl(8, 70%, 56.8%);
+    color: hsl(8, 70%, 56.8%);
+}
+.feature-body.f5-35 {
+    background-color: hsl(8, 70%, 91.60000000000001%);
+    color: hsl(8, 70%, 91.60000000000001%);
+}
+
+.feature-body.f1-36 {
+    background-color: hsl(228, 50%, 97.6%);
+    color: hsl(228, 50%, 97.6%);
+}
+.feature-body.f2-36 {
+    background-color: hsl(228, 50%, 94.0%);
+    color: hsl(228, 50%, 94.0%);
+}
+.feature-body.f3-36 {
+    background-color: hsl(8, 70%, 53.2%);
+    color: hsl(8, 70%, 53.2%);
+}
+.feature-body.f4-36 {
+    background-color: hsl(8, 70%, 73.60000000000001%);
+    color: hsl(8, 70%, 73.60000000000001%);
+}
+.feature-body.f5-36 {
+    background-color: hsl(228, 50%, 97.6%);
+    color: hsl(228, 50%, 97.6%);
+}
+
+.feature-body.f1-37 {
+    background-color: hsl(228, 50%, 71.2%);
+    color: hsl(228, 50%, 71.2%);
+}
+.feature-body.f2-37 {
+    background-color: hsl(228, 50%, 83.2%);
+    color: hsl(228, 50%, 83.2%);
+}
+.feature-body.f3-37 {
+    background-color: hsl(8, 70%, 88.0%);
+    color: hsl(8, 70%, 88.0%);
+}
+.feature-body.f4-37 {
+    background-color: hsl(8, 70%, 40.0%);
+    color: hsl(8, 70%, 40.0%);
+}
+.feature-body.f5-37 {
+    background-color: hsl(228, 50%, 86.8%);
+    color: hsl(228, 50%, 86.8%);
+}
+
+.feature-body.f1-38 {
+    background-color: hsl(228, 50%, 97.6%);
+    color: hsl(228, 50%, 97.6%);
+}
+.feature-body.f2-38 {
+    background-color: hsl(228, 50%, 74.8%);
+    color: hsl(228, 50%, 74.8%);
+}
+.feature-body.f3-38 {
+    background-color: hsl(8, 70%, 53.2%);
+    color: hsl(8, 70%, 53.2%);
+}
+.feature-body.f4-38 {
+    background-color: hsl(8, 70%, 56.8%);
+    color: hsl(8, 70%, 56.8%);
+}
+.feature-body.f5-38 {
+    background-color: hsl(8, 70%, 97.6%);
+    color: hsl(8, 70%, 97.6%);
 }
 

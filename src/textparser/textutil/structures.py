@@ -39,6 +39,8 @@ class Text(object):
         self.ProcessedTokens = 0
         self.TokensCount = len(self.Tokens)
 
+        self.WordCount = 0
+
         self.Sentences = []
 
     def split_text_and_work(self, text):
@@ -62,6 +64,8 @@ class Text(object):
         if self.TokensCount > (self.ProcessedTokens):
             self.Sentences.append(Sentence(self.Tokens[self.ProcessedTokens], self.ProcessedTokens,
                                            self.Parser, self.StanfordParser))
+
+            self.WordCount += len(self.Parser.tokenizer.tokenize(self.Tokens[self.ProcessedTokens]))
 
             self.ProcessedTokens += 1
         else:

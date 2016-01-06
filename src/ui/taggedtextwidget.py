@@ -50,9 +50,6 @@ class MQTaggedTextWidget(QtWebKitWidgets.QWebView):
 
         self.load(QtCore.QUrl('file:///'+os.getcwd()+"/generated_html/index.html"))
 
-        self.app.numSent.setText(str(len(data.Sentences)))
-        #self.app.numWords.setText(str(len(data.Tokens)))
-
     def showLoading(self):
         QWebSettings.clearMemoryCaches()
         QWebSettings.clearIconDatabase()

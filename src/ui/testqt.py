@@ -117,8 +117,15 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.taggedDocumentWidget.showDataNoGeneration(self.tag)
 
     def finishOpen(self):
+        self.openButton_1.setEnabled(True)
+        self.openButton_2.setEnabled(True)
+        self.actionText_ffnen.setEnabled(True)
+
         self.tag = self.tag[0].FinishedText
         self.show_data()
+
+        self.updateNumSent(len(self.tag.Sentences))
+        self.updateNumWords(self.tag.WordCount)
 
     def updateWorkerInfo(self, value):
         self.updateProgressBar(value * 100.0)
@@ -152,6 +159,11 @@ class MainApplication(QMainWindow, Ui_MainWindow):
                 self.tag[0].common_words_file = file_name[0]
 
             self.tag[0].TextToParse = text
+
+            # Gray out all buttons
+            self.openButton_1.setEnabled(False)
+            self.openButton_2.setEnabled(False)
+            self.actionText_ffnen.setEnabled(False)
 
             # Create Thread
             self.tag[1].objThread = QtCore.QThread()
@@ -227,7 +239,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.numSent.setText(str(int_value))
 
     def updateNumWords(self, int_value):
-        self.numWords.sentText(str(int_value))
+        self.numWords.setText(str(int_value))
 
     def updateCorpora(self):
         self.activeCorporaIndex = self.CorporaBox.currentIndex()
