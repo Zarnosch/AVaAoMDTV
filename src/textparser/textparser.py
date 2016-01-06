@@ -1,5 +1,6 @@
 import os
 from os.path import expanduser
+
 import nltk
 from nltk.corpus import brown
 from nltk.parse.stanford import StanfordParser
@@ -8,23 +9,28 @@ from nltk.tokenize import RegexpTokenizer
 home = expanduser("~")
 
 
-class TextParser():
+class TextParser:
     def __init__(self):
         sent = "This is a sample sentence, nothing important here."
         self.tokens = nltk.word_tokenize(sent)
         brown_tagged_sents = brown.tagged_sents(categories="news")
+        # default common words list
+        self.common_words = set()
+        self.set_common_words("textparser/wordlist.txt")
 
         self.unigram_tagger = nltk.UnigramTagger(brown_tagged_sents)
         self.bigram_tagger = nltk.BigramTagger(brown_tagged_sents, backoff=self.unigram_tagger)
 
-        file = open("textparser/wordlist.txt").read()
-        self.common_words = set(nltk.word_tokenize(file))
-
-        self.noun_tags = set(['NN', 'NNS', 'NNP', 'NNPS'])
-        self.verb_tags = set(['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ'])
+        self.noun_tags = {'NN', 'NNS', 'NNP', 'NNPS'}
+        self.verb_tags = {'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ'}
 
         self.tokenizer = RegexpTokenizer(r'\w+')
 
+    def set_common_words(self, path_to_file):
+        if path_to_file != "":
+            # print("path to file: ", path_to_file)
+            file = open(path_to_file).read()
+            self.common_words = set(nltk.word_tokenize(file))
 
     def get_sent_length(self, s):
         length = len(self.tokenizer.tokenize(s))
@@ -54,6 +60,7 @@ class TextParser():
         tokens = self.tokenizer.tokenize(s)
         length = len(tokens)
         word_matches = 0
+        # print(self.common_words)
         for word in self.common_words:
             for token in tokens:
                 if token.lower() == word:
@@ -111,14 +118,14 @@ class Stanford():
         # The Stanford Parser is required, download from http://nlp.stanford.edu/software/lex-parser.shtml and unpack somewhere
         # insert path to java home
         if os.name == "nt":
-            #print("fu1")
+            # print("fu1")
             os.environ['JAVAHOME'] = 'C:\Program Files\Java\jdk1.8.0_66\bin\java.exe'
-            #print("fu2")
+            # print("fu2")
             # insert path to the directory containing stanford-parser.jar and stanford-parser-3.5.2-models.jar
             self.english_parser = StanfordParser(
                 'C:/Python34/Lib/site-packages/stanford-parser-full-2015-04-20/stanford-parser.jar',
                 'C:/Python34/Lib/site-packages/stanford-parser-full-2015-04-20/stanford-parser-3.5.2-models.jar')
-            #print("fu3")
+            # print("fu3")
         elif os.name != "posix":
             os.environ['JAVAHOME'] = 'C:/Program Files (x86)/Java/jdk1.8.0_65/bin/java.exe'
             # insert path to the directory containing stanford-parser.jar and stanford-parser-3.5.2-models.jar

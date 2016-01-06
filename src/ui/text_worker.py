@@ -1,24 +1,28 @@
 from PyQt5 import QtCore
+
 from textparser.textutil.structures import Text
-#import random
+
+
+# import random
 
 class TextWorker(QtCore.QObject):
-	finished = QtCore.pyqtSignal()
-	updated = QtCore.pyqtSignal(float)
+    finished = QtCore.pyqtSignal()
+    updated = QtCore.pyqtSignal(float)
+    common_words_file = "textparser/wordlist.txt"
+    TextToParse = None
+    FinishedText = None
 
-	TextToParse = None
-	FinishedText = None
+    def __init__(self):
+        super(TextWorker, self).__init__()
 
-	def __init__(self):
-		super(TextWorker, self).__init__()
+    def longRunning(self):
+        self.FinishedText = Text(self.TextToParse)  # SampleText()
+        self.FinishedText.Parser.set_common_words(self.common_words_file)
 
-	def longRunning(self):
-		self.FinishedText = Text(self.TextToParse) #SampleText()
+        while self.FinishedText.process_next_token():
+            self.updated.emit(self.FinishedText.ProcessedTokens / self.FinishedText.TokensCount)
 
-		while self.FinishedText.process_next_token():
-			self.updated.emit(self.FinishedText.ProcessedTokens / self.FinishedText.TokensCount)
-
-		self.finished.emit()
+        self.finished.emit()
 
 # class SampleText(object):
 # 	def __init__(self):

@@ -1,6 +1,7 @@
-import re
 from nltk.tokenize import sent_tokenize
+
 from textparser.textparser import *
+
 
 class Sentence(object):
     """Describes one sentence.
@@ -19,13 +20,13 @@ class Sentence(object):
         self.depth = s_parser.get_sent_depth(self.Text, False)
         self.nominals = parser.get_sent_nomins(self.Text)
 
+
 class Text(object):
     """Describes the whole text."""
 
     def __init__(self, text):
         self.Parser = TextParser()
         self.StanfordParser = Stanford()
-
         # self.Sentences = self.split_text_and_work(text)
         self.Tokens = self.split_text(text)
 
@@ -38,12 +39,12 @@ class Text(object):
         tokens = sent_tokenize(text)
 
         sentences = []
-	
+
         count = 0
 
         for token in tokens:
-           sentences.append(Sentence(token, count, self.Parser, self.StanfordParser))
-           count += 1
+            sentences.append(Sentence(token, count, self.Parser, self.StanfordParser))
+            count += 1
 
         return sentences
 
@@ -53,11 +54,11 @@ class Text(object):
 
     def process_next_token(self):
         if self.TokensCount > (self.ProcessedTokens):
-          self.Sentences.append(Sentence(self.Tokens[self.ProcessedTokens], self.ProcessedTokens, 
-              self.Parser, self.StanfordParser))
-            
-          self.ProcessedTokens += 1
+            self.Sentences.append(Sentence(self.Tokens[self.ProcessedTokens], self.ProcessedTokens,
+                                           self.Parser, self.StanfordParser))
+
+            self.ProcessedTokens += 1
         else:
-          return False
+            return False
 
         return True

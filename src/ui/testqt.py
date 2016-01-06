@@ -1,15 +1,10 @@
-import sys
-from PyQt5.QtWidgets import QDialog, QFileDialog, QLabel, QApplication, QMainWindow, QSizePolicy, QWidget, QMessageBox, QComboBox, QAbstractButton, QRadioButton, QBoxLayout
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import QTextStream, QFile, QIODevice, QThread
-from PyQt5.QtGui import QImageReader, QImage, QPalette, QPixmap
-from PyQt5 import QtCore, QtGui
-from ui.ui_dialog import Ui_MainWindow
-from textparser.textparser import TextParser
-from textparser.textutil.structures import Text
+from PyQt5 import QtCore
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QFileDialog, QMainWindow, QSizePolicy, QWidget, QMessageBox
+
 from ui.taggedtextwidget import MQTaggedTextWidget
 from ui.text_worker import TextWorker
-import pkg_resources
+from ui.ui_dialog import Ui_MainWindow
 
 
 class MainApplication(QMainWindow, Ui_MainWindow):
@@ -17,7 +12,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         super(MainApplication, self).__init__()
 
         # Load TextParser
-        self.textParser = TextParser()
+        # self.textParser = TextParser()
 
         # Set up the user interface from Designer.
         self.setupUi(self)
@@ -25,27 +20,27 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.openButton_1.clicked.connect(self.open_text)
         self.openButton_2.clicked.connect(self.open_text)
 
-        #progressBar
+        # progressBar
         self.progress = 100
         self.progressBar.setValue(self.progress)
         self.progressBar_2.setValue(self.progress)
-        #print(self.progressBar.value)
+        # print(self.progressBar.value)
 
-        #numWords
+        # numWords
         self.numWords.setText("0")
 
-        #numSent
+        # numSent
         self.numSent.setText("0")
 
-        #Corpora
-        self.CorporaBox.addItem("Thriller") #0
-        self.CorporaBox.addItem("Kindertext") #1
-        self.CorporaBox.addItem("Nachrichten") #2
-        self.CorporaBox.addItem("Gesetzestexte") #3
+        # Corpora
+        self.CorporaBox.addItem("Thriller")  # 0
+        self.CorporaBox.addItem("Kindertext")  # 1
+        self.CorporaBox.addItem("Nachrichten")  # 2
+        self.CorporaBox.addItem("Gesetzestexte")  # 3
         self.activeCorporaIndex = 0
         self.CorporaBox.activated.connect(self.updateCorpora)
 
-        #remove qttextWidget and setup own textwidget (detailview)
+        # remove qttextWidget and setup own textwidget (detailview)
         self.verticalLayout.removeWidget(self.plainTextEdit)
         self.plainTextEdit.close()
         self.taggedTextWidget = MQTaggedTextWidget(self.centralwidget, self)
@@ -53,7 +48,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.verticalLayout.addWidget(self.taggedTextWidget)
         self.verticalLayout.update()
 
-        #remove qttextWidget and setup own textwidget (documentview)
+        # remove qttextWidget and setup own textwidget (documentview)
         self.verticalLayout_3.removeWidget(self.plainTextEdit_2)
         self.plainTextEdit_2.close()
         self.taggedDocumentWidget = MQTaggedTextWidget(self.centralwidget, self)
@@ -61,9 +56,9 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.gridLayout_9.addWidget(self.taggedDocumentWidget)
         self.gridLayout_9.update()
 
-        #setup the slider
-        #self.ViewSlider.setMaximum(1)
-        #self.ViewSlider.actionTriggered.connect(self.updateView)
+        # setup the slider
+        # self.ViewSlider.setMaximum(1)
+        # self.ViewSlider.actionTriggered.connect(self.updateView)
 
         # menue actions
         self.actionText_ffnen.triggered.connect(self.open_text)
@@ -72,7 +67,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.actionDetailView.triggered.connect(self.setActiveTabDetailView)
         self.actionChangeView.triggered.connect(self.changeView)
 
-        #statusbar
+        # statusbar
 
         # initilize features
         self.kompVokIsActive = False
@@ -142,9 +137,20 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         file_name = dialog.getOpenFileName(self, 'Open file')
         if file_name[0] != '':
             text = open(file_name[0]).read()
-            self.chooseCorpus()
             # We need to create new TextWorker
             self.tag = (TextWorker(), QtCore.QThread())
+
+            # prompt for custom common words list
+            msg = QMessageBox()
+            question = "Do you want to choose a custom list of domain specific common words?"
+            reply = msg.question(self, 'Message', question, msg.Yes, msg.No)
+            if reply == msg.Yes:
+                dialog = QFileDialog(self)
+                dialog.setNameFilters([self.tr('Text Files (*.txt)'), self.tr('All Files (*)')])
+                dialog.setDefaultSuffix('.txt')
+                file_name = dialog.getOpenFileName(self, 'Open file')
+                self.tag[0].common_words_file = file_name[0]
+
             self.tag[0].TextToParse = text
 
             # Create Thread
@@ -213,8 +219,6 @@ class MainApplication(QMainWindow, Ui_MainWindow):
             self.wlengthIsActive = False
             self.wlengthWeight = 0
 
-
-
     def updateProgressBar(self, int_value):
         self.progressBar.setValue(int_value)
         self.progressBar_2.setValue(int_value)
@@ -255,37 +259,27 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.tabWidget.setCurrentIndex(0)
 
     def changeView(self):
-        #print(self.tabWidget.currentIndex())
+        # print(self.tabWidget.currentIndex())
         if self.tabWidget.currentIndex() == 0:
             self.tabWidget.setCurrentIndex(1)
         elif self.tabWidget.currentIndex() == 1:
             self.tabWidget.setCurrentIndex(0)
 
-
     def showAbout(self):
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
-        #msg.setTextFormat(QLabel.openExternalLinks);   #this is what makes the links clickable
+        # msg.setTextFormat(QLabel.openExternalLinks);   #this is what makes the links clickable
         msg.setText("Applied Visualization and Analysis of Multivariate Datasets - Text Visualization")
         msg.setInformativeText("Git repository: " + "https://github.com/Zarnosch/AVaAoMDTV")
         msg.setWindowTitle("About")
-        msg.setDetailedText("Version: " + "0.1.0" +"\n \n" + "This Project is done in the context of Applied Visualization and Analysis of Multivariate Datasets at the"
-                                                    "OVGU University." + "\n \n" + "This tool can load .txt files and shows the readability difficulty.")
+        msg.setDetailedText(
+            "Version: " + "0.1.0" + "\n \n" + "This Project is done in the context of Applied Visualization and Analysis of Multivariate Datasets at the"
+                                              "OVGU University." + "\n \n" + "This tool can load .txt files and shows the readability difficulty.")
         msg.setStandardButtons(QMessageBox.Ok)
         retval = msg.exec_()
 
-    def chooseCorpus(self):
-        #msg = CorpusChooser()
 
-        msg = QMessageBox()
-        msg.setIcon(QMessageBox.Information)
-        msg.setWindowTitle("Choose a Corpus")
-        msg.setText("Please choose a Corpus, which is needed to calculate the complexity of the Words in your text")
-        #msg.addButton(QMessageBox.Accepted())
-
-        retval = msg.exec_()
-
-class CorpusChooser(QMessageBox,QWidget):
+class CorpusChooser(QMessageBox, QWidget):
     def __init__(self):
         super(CorpusChooser, self).__init__()
         self.centralwidget = QtWidgets.QWidget(CorpusChooser)
@@ -294,14 +288,8 @@ class CorpusChooser(QMessageBox,QWidget):
         self.setText("Please choose a Corpus, which is needed to calculate the complexity of the Words in your text")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         print("1")
-        #self.gridLayout.setObjectName("gridLayout")
+        # self.gridLayout.setObjectName("gridLayout")
         self.CorporaBox = QtWidgets.QComboBox(self.gridLayout)
         print("Fu")
         self.CorporaBox.setCurrentText("")
         self.CorporaBox.setObjectName("CorporaBox")
-
-
-
-
-
-
