@@ -11,9 +11,10 @@ home = expanduser("~")
 
 class TextParser:
     def __init__(self):
-        sent = "This is a sample sentence, nothing important here."
-        self.tokens = nltk.word_tokenize(sent)
+        # sent = "This is a sample sentence, nothing important here."
+        # self.tokens = nltk.word_tokenize(sent)
         brown_tagged_sents = brown.tagged_sents(categories="news")
+
         # default common words list
         self.common_words = set()
         self.set_common_words("textparser/wordlist.txt")
@@ -30,7 +31,12 @@ class TextParser:
         if path_to_file != "":
             # print("path to file: ", path_to_file)
             file = open(path_to_file).read()
-            self.common_words = set(nltk.word_tokenize(file))
+            # sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
+            # sentences_ntlk = sent_detector.tokenize(file.strip())
+            #
+            # self.common_words = nltk.word_tokenize(sentences_ntlk[0])
+            tokenizer = RegexpTokenizer(r'\w+')
+            self.common_words = set(tokenizer.tokenize(file.lower()))
 
     def get_sent_length(self, s):
         length = len(self.tokenizer.tokenize(s))
@@ -57,7 +63,7 @@ class TextParser:
         return round(word_length_feature_value, 2)
 
     def get_sent_voc_complexity(self, s):
-        tokens = self.tokenizer.tokenize(s)
+        tokens = self.tokenizer.tokenize(s.lower())
         length = len(tokens)
         word_matches = 0
         # print(self.common_words)
@@ -69,7 +75,7 @@ class TextParser:
 
         complexity = complex_word_count / length
 
-        # print(complex_word_count, " of ", length, " words in this sentence are not common, so the vocabular complexity is ", complexity, ".")
+        # print(complex_word_count, " of ", length, words in this sentence are not common, so the vocabular complexity is ", complexity, ".")
 
         if complexity < 0: return 0
         if complexity > 1: return 1
