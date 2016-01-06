@@ -13,6 +13,12 @@ class Sentence(object):
         self.id = my_id
         self.Text = textpart
 
+        # nasty umlaut workaround
+        self.Text = self.Text.encode('latin-1').decode('utf-8')
+        self.Text = self.Text.replace("ä", "ae")
+        self.Text = self.Text.replace("ö", "oe")
+        self.Text = self.Text.replace("ü", "ue")
+
         """features"""
         self.sent_len = parser.get_sent_length(self.Text)
         self.avg_word_len = parser.get_word_length(self.Text)

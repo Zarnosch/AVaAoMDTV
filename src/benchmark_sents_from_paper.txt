@@ -1,0 +1,15 @@
+Analysis of word frequencies: Large document collections such as the Project Gutenberg (http://www.guten-
+berg.org/) or Wikipedia (http://www.wikipedia.com) allow to calculate the average usage frequency of a word 1
+We exploited those resources to determine how common the words of a text sample on average are.
+
+This measure is related to the one already proposed in [16], following the assumption that parts of the sentence
+that are interrupted by subordinate sentences or parenthesis have to be stored in a temporary memory which
+increases the mental complexity of processing the sentence
+
+The implementation of 141 different simple text features allows us an unbiased search for text features with high
+expressiveness with respect to readability.
+
+Die Literaturangabe in der Bibtex Datei muss noch vervollständigt werden! 
+
+Among the most popular ones are the Flesch-Kincaid Readability Test [12], Flesch Reading Ease [7], SMOG
+[13], the Coleman-Liau-Index [4], and Gunning Fog [8].
