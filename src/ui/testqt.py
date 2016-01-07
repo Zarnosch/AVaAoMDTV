@@ -44,9 +44,11 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.openButton_1.clicked.connect(self.open_text)
         self.openButton_2.clicked.connect(self.open_text)
         # progressBar
-        self.progress = 100
+        self.progress = 0
         self.progressBar.setValue(self.progress)
         self.progressBar_2.setValue(self.progress)
+        self.progressBar.setVisible(False)
+        self.progressBar_2.setVisible(False)
         # print(self.progressBar.value)
 
         # numWords
@@ -147,6 +149,8 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.textEditApply.setEnabled(True)
         self.textEditDiscard.setEnabled(True)
         self.textEditSave.setEnabled(True)
+        self.progressBar.setVisible(False)
+        self.progressBar_2.setVisible(False)
 
         self.tag = self.tag[0].FinishedText
         self.show_data()
@@ -169,6 +173,8 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         dialog.setNameFilters([self.tr('Text Files (*.txt)'), self.tr('All Files (*)')])
         dialog.setDefaultSuffix('.txt')
         file_name = dialog.getOpenFileName(self, 'Open file')
+        self.progressBar.setVisible(True)
+        self.progressBar_2.setVisible(True)
         if file_name[0] != '':
             text = open(file_name[0]).read()
             # We need to create new TextWorker
