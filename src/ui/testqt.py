@@ -52,8 +52,10 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.progress = 0
         self.progressBar.setValue(self.progress)
         self.progressBar_2.setValue(self.progress)
+        self.progressBar_3.setValue(self.progress)
         self.progressBar.setVisible(False)
         self.progressBar_2.setVisible(False)
+        self.progressBar_3.setVisible(False)
         # print(self.progressBar.value)
 
         # numWords
@@ -156,6 +158,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.textEditSave.setEnabled(True)
         self.progressBar.setVisible(False)
         self.progressBar_2.setVisible(False)
+        self.progressBar_3.setVisible(False)
 
         self.tag = self.tag[0].FinishedText
         self.show_data()
@@ -180,6 +183,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         file_name = dialog.getOpenFileName(self, 'Open file')
         self.progressBar.setVisible(True)
         self.progressBar_2.setVisible(True)
+        self.progressBar_3.setVisible(True)
         if file_name[0] != '':
             text = open(file_name[0]).read()
             # We need to create new TextWorker
@@ -275,6 +279,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
     def updateProgressBar(self, int_value):
         self.progressBar.setValue(int_value)
         self.progressBar_2.setValue(int_value)
+        self.progressBar_3.setValue(int_value)
 
     def updateNumSent(self, int_value):
         self.numSent.setText(str(int_value))
@@ -396,6 +401,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
         self.progressBar.setVisible(True)
         self.progressBar_2.setVisible(True)
+        self.progressBar_3.setVisible(True)
 
         self.taggedDocumentWidget.stop()
         self.taggedDocumentWidget.showLoading()
