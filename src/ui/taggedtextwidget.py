@@ -62,3 +62,11 @@ class MQTaggedTextWidget(QtWebKitWidgets.QWebView):
 
         ViewGenerator.generate_document_view(data, self.app)
         self.reload()
+
+    def showDateNoWaitDetails(self, data):
+        QWebSettings.clearMemoryCaches()
+        QWebSettings.clearIconDatabase()
+
+        ViewGenerator.generate_css(data, self.app)
+        ViewGenerator.generate_html(data)
+        self.reload()

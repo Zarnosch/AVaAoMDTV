@@ -86,12 +86,12 @@ class ViewGenerator(object):
         for sent in text.Sentences:
             data_set = {}
             data_set["id"] = sent.id
-            data_set["f1"] = GenScale.get_color(sent.voc_complexity)
-            data_set["f2"] = GenScale.get_color(sent.avg_word_len)
-            data_set["f3"] = GenScale.get_color(sent.nominals)
-            data_set["f4"] = GenScale.get_color(sent.sent_len)
-            data_set["f5"] = GenScale.get_color(sent.depth)
-            data_set["avg_color"] = GenScale.get_color(GenScale.get_avg_color(sent,app))
+            data_set["f1"] = GenScale.get_color(sent.voc_complexity, app)
+            data_set["f2"] = GenScale.get_color(sent.avg_word_len, app)
+            data_set["f3"] = GenScale.get_color(sent.nominals, app)
+            data_set["f4"] = GenScale.get_color(sent.sent_len, app)
+            data_set["f5"] = GenScale.get_color(sent.depth, app)
+            data_set["avg_color"] = GenScale.get_color(GenScale.get_avg_color(sent, app, sliders=False), app)
 
             filled_style += Template(ViewGenerator.barebone_css).substitute(data_set)
 
@@ -117,7 +117,7 @@ class ViewGenerator(object):
 
             avg_color = GenScale.get_avg_color(sent, app)
 
-            gen_css += Template(ViewGenerator.barebone_document_css).substitute(id=sent.id, color=GenScale.get_color(avg_color))
+            gen_css += Template(ViewGenerator.barebone_document_css).substitute(id=sent.id, color=GenScale.get_color(avg_color, app))
 
         file = os.path.dirname(__file__)
         html_template = os.path.join(file, '../../generated_html/document_view_template.html')
@@ -141,63 +141,46 @@ class GenScale(object):
     light_percent_min = 40
     light_percent_max = 100
 
-    hsl_template_blue = "hsl(228, 50%, ${blue}%)"
-    hsl_template_red = "hsl(8, 70%, ${red}%)"
+    color_scale_template = "rgb(${r}, ${g}, ${b})" #"hsl(228, 50%, ${blue}%)" "hsl(8, 70%, ${red}%)"
 
     """Returns a string containing the css rgb() color for the given value."""
     @staticmethod
-    def get_color(value):
-        hsl_filled = ""
+    def get_color(value, app):
+        color_filled = ""
         if value < 0.5:
             nv = 2*value
-            ligth_percent = (1-nv) * GenScale.light_percent_min + nv * GenScale.light_percent_max
-            hsl_filled = Template(GenScale.hsl_template_blue).substitute(blue=ligth_percent)
+            red_percent = round((1-nv) * app.bestColor.red() + nv * app.neutralColor.red())
+            green_percent = round((1-nv) * app.bestColor.green() + nv * app.neutralColor.green())
+            blue_percent = round((1-nv) * app.bestColor.blue() + nv * app.neutralColor.blue())
+            color_filled = Template(GenScale.color_scale_template).substitute(r=red_percent, g=green_percent, b=blue_percent)
         else:
             nv = 2*(value-0.5)
-            ligth_percent = (1-nv) * GenScale.light_percent_max + nv * GenScale.light_percent_min
-            hsl_filled = Template(GenScale.hsl_template_red).substitute(red=ligth_percent)
+            red_percent = round((1-nv) * app.neutralColor.red() + nv * app.worstColor.red())
+            green_percent = round((1-nv) * app.neutralColor.green() + nv * app.worstColor.green())
+            blue_percent = round((1-nv) * app.neutralColor.blue() + nv * app.worstColor.blue())
+            color_filled = Template(GenScale.color_scale_template).substitute(r=red_percent, g=green_percent, b=blue_percent)
 
-        return hsl_filled
+        return color_filled
 
     @staticmethod
-    def get_avg_color(sent, app):
+    def get_avg_color(sent, app, sliders=True):
         avg_color = 0
 
         if app.kompVokIsActive:
-            avg_color += sent.voc_complexity * (app.kompVokWeight/100)
+            avg_color += sent.voc_complexity * ((app.kompVokWeight/100) if sliders else 1)
         if app.wlengthIsActive:
-            avg_color += sent.avg_word_len * (app.wlengthWeight/100)
+            avg_color += sent.avg_word_len * ((app.wlengthWeight/100) if sliders else 1)
         if app.nomIsActive:
-            avg_color += sent.nominals * (app.nomWeight/100)
+            avg_color += sent.nominals * ((app.nomWeight/100) if sliders else 1)
         if app.slenghtIsActive:
-            avg_color += sent.sent_len * (app.slenghtWeight/100)
+            avg_color += sent.sent_len * ((app.slenghtWeight/100) if sliders else 1)
         if app.kompSatzIsActive:
-            avg_color += sent.depth * (app.kompSatzWeight/100)
+            avg_color += sent.depth * ((app.kompSatzWeight/100) if sliders else 1)
 
-        divider = ((app.kompVokWeight/100) + (app.wlengthWeight/100) + (app.nomWeight/100) + (app.slenghtWeight/100) + (app.kompSatzWeight/100))
+        divider = ((app.kompVokWeight/100) + (app.wlengthWeight/100) + (app.nomWeight/100) + (app.slenghtWeight/100) + (app.kompSatzWeight/100)) if sliders else 5
         if divider > 0:
             avg_color /= divider
         else:
             avg_color = 0.5
 
         return avg_color
-
-# class SampleText(object):
-#     def __init__(self):
-#         self.Sentences = [SampleSent(0), SampleSent(1)]
-#
-#
-# class SampleSent(object):
-#     def __init__(self, id):
-#         self.id = id
-#         self.Text = "Construction started in 1963, and the freeway opened on December 18, 1970."
-#         self.sent_len = 0
-#         self.avg_word_len = 0.3
-#         self.voc_complexity = 1
-#         self.depth = 0.7
-#         self.nominals = 0.5
-#
-# if __name__ == '__main__':
-#     stext = SampleText()
-#
-#     ViewGenerator.generate_document_view(stext)

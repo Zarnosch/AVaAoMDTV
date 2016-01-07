@@ -29,15 +29,15 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.setTextSize()
 
         # set default colors
-        self.worstColor = QColor(255, 0, 0)
+        self.worstColor = QColor(173, 50, 31)
         self.neutralColor = QColor(255, 255, 255)
-        self.bestColor = QColor(0, 0, 255)
+        self.bestColor = QColor(51, 71, 153)
         self.setWorstColorButton(self.worstColor)
         self.setNeutralColorButton(self.neutralColor)
         self.setBestColorButton(self.bestColor)
 
         # colorwidget
-        self.colorDia = QColorDialog(self.centralwidget)
+        self.colorDia = QColorDialog(self.neutralColor, self.centralwidget)
         # connect widget with buttons
         self.bestColorButton.clicked.connect(self.chooseBestColor)
         self.neutralColorButton.clicked.connect(self.chooseNeutralColor)
@@ -335,34 +335,40 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         r = str(color.red())
         g = str(color.green())
         b = str(color.blue())
-        self.bestColorButton.setStyleSheet("background-color: rgb("+r+", "+g+", "+b +"); border: 1px solid black")
+        self.bestColorButton.setStyleSheet("background-color: rgb("+r+", "+g+", "+b +"); border: 1px dashed black; padding: 2px;")
         #self.bestColorButton.setStyleSheet("border: 1px solid black")
 
     def setNeutralColorButton(self, color):
         r = str(color.red())
         g = str(color.green())
         b = str(color.blue())
-        self.neutralColorButton.setStyleSheet("background-color: rgb("+r+", "+g+", "+b +"); border: 1px solid black")
+        self.neutralColorButton.setStyleSheet("background-color: rgb("+r+", "+g+", "+b +"); border: 1px dashed black; padding: 2px;")
         #self.neutralColorButton.setStyleSheet("border: 1px solid black")
 
     def setWorstColorButton(self, color):
         r = str(color.red())
         g = str(color.green())
         b = str(color.blue())
-        self.worstColorButton.setStyleSheet("background-color: rgb("+r+", "+g+", "+b +"); border: 1px solid black")
+        self.worstColorButton.setStyleSheet("background-color: rgb("+r+", "+g+", "+b +"); border: 1px dashed black; padding: 2px;")
         #self.worstColorButton.setStyleSheet("border: 1px solid black")
 
     def chooseWorstColor(self):
-        self.worstColor = QColorDialog.getColor()
+        self.worstColor = QColorDialog.getColor(self.worstColor)
         self.setWorstColorButton(self.worstColor)
+        self.taggedTextWidget.showDataNoWait(self.tag)
+        self.taggedDocumentWidget.showDateNoWaitDetails(self.tag)
 
     def chooseNeutralColor(self):
-        self.neutralColor = QColorDialog.getColor()
+        self.neutralColor = QColorDialog.getColor(self.neutralColor)
         self.setNeutralColorButton(self.neutralColor)
+        self.taggedTextWidget.showDataNoWait(self.tag)
+        self.taggedDocumentWidget.showDateNoWaitDetails(self.tag)
 
     def chooseBestColor(self):
-        self.bestColor = QColorDialog.getColor()
+        self.bestColor = QColorDialog.getColor(self.bestColor)
         self.setBestColorButton(self.bestColor)
+        self.taggedTextWidget.showDataNoWait(self.tag)
+        self.taggedDocumentWidget.showDateNoWaitDetails(self.tag)
 
     def getWorstColorHSL(self):
         return self.worstColor.getHsl()
@@ -468,4 +474,3 @@ class CorpusChooser(QMessageBox, QWidget):
         print("Fu")
         self.CorporaBox.setCurrentText("")
         self.CorporaBox.setObjectName("CorporaBox")
-
