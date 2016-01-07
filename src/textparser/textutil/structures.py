@@ -23,8 +23,13 @@ class Sentence(object):
         self.sent_len = parser.get_sent_length(self.Text)
         self.avg_word_len = parser.get_word_length(self.Text)
         self.voc_complexity = parser.get_sent_voc_complexity(self.Text)
-        self.depth = s_parser.get_sent_depth(self.Text, False)
         self.nominals = parser.get_sent_nomins(self.Text)
+
+        self.stanford_result = s_parser.get_sent_depth(self.Text)
+        self.syntax_tree = self.stanford_result[0]
+        # draw some happy trees with the following line
+        # self.syntax_tree.draw()
+        self.depth = self.stanford_result[1]
 
 
 class Text(object):

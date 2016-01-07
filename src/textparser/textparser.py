@@ -146,18 +146,16 @@ class Stanford():
                 expanduser("~") + '/lib/stanford-parser-full-2015-04-20/stanford-parser.jar',
                 expanduser("~") + '/lib/stanford-parser-full-2015-04-20/stanford-parser-3.5.2-models.jar')
 
-    def get_sent_depth(self, s, draw_tree):
+    def get_sent_depth(self, s):
         sentence = self.english_parser.raw_parse(s)
         depth = 0
         for i in sentence:
+            current_tree = i
             depth = i.height() - 1
             # print('The depth of the parse tree is ' + depth + '.')
-
-            if draw_tree:
-                i.draw()
 
         sent_depth_feature_value = (depth - 3) / 23
 
         if sent_depth_feature_value < 0: return 0
         if sent_depth_feature_value > 1: return 1
-        return round(sent_depth_feature_value, 2)
+        return current_tree, round(sent_depth_feature_value, 2)
