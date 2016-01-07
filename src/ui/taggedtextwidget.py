@@ -43,7 +43,7 @@ class MQTaggedTextWidget(QtWebKitWidgets.QWebView):
         QWebSettings.clearMemoryCaches()
         QWebSettings.clearIconDatabase()
 
-        ViewGenerator.generate_css(data)
+        ViewGenerator.generate_css(data, self.app)
         ViewGenerator.generate_html(data)
 
         time.sleep(2)

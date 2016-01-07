@@ -5,7 +5,7 @@ import os
 class ViewGenerator(object):
 
     barebone_element = """<tr>
-                    <td>${text}</td>
+                    <td class="feature-text text-${id}">${text}</td>
                     <td class="feature-body f1-${id}">${f1}</td>
                     <td class="feature-body f2-${id}">${f2}</td>
                     <td class="feature-body f3-${id}">${f3}</td>
@@ -34,6 +34,9 @@ class ViewGenerator(object):
 .feature-body.f5-${id} {
     background-color: ${f5};
     color: ${f5};
+}
+.feature-text.text-${id} {
+    background-color: ${avg_color};
 }
 """
     barebone_document_css = """
@@ -76,7 +79,7 @@ class ViewGenerator(object):
 
 
     @staticmethod
-    def generate_css(text):
+    def generate_css(text, app):
         filled_style = ""
 
         for sent in text.Sentences:
@@ -87,6 +90,7 @@ class ViewGenerator(object):
             data_set["f3"] = GenScale.get_color(sent.nominals)
             data_set["f4"] = GenScale.get_color(sent.sent_len)
             data_set["f5"] = GenScale.get_color(sent.depth)
+            data_set["avg_color"] = GenScale.get_color(GenScale.get_avg_color(sent,app))
 
             filled_style += Template(ViewGenerator.barebone_css).substitute(data_set)
 
@@ -110,23 +114,7 @@ class ViewGenerator(object):
         for sent in text.Sentences:
             gen_html += Template("""            <div class="feature-block-${id}"></div>\n""").substitute(id=sent.id)
 
-            avg_color = 0
-            if app.kompVokIsActive:
-                avg_color += sent.voc_complexity * (app.kompVokWeight/100)
-            if app.wlengthIsActive:
-                avg_color += sent.avg_word_len * (app.wlengthWeight/100)
-            if app.nomIsActive:
-                avg_color += sent.nominals * (app.nomWeight/100)
-            if app.slenghtIsActive:
-                avg_color += sent.sent_len * (app.slenghtWeight/100)
-            if app.kompSatzIsActive:
-                avg_color += sent.depth * (app.kompSatzWeight/100)
-
-            divider = ((app.kompVokWeight/100) + (app.wlengthWeight/100) + (app.nomWeight/100) + (app.slenghtWeight/100) + (app.kompSatzWeight/100))
-            if divider > 0:
-                avg_color /= divider
-            else:
-                avg_color = 0.5
+            avg_color = GenScale.get_avg_color(sent, app)
 
             gen_css += Template(ViewGenerator.barebone_document_css).substitute(id=sent.id, color=GenScale.get_color(avg_color))
 
@@ -169,6 +157,29 @@ class GenScale(object):
             hsl_filled = Template(GenScale.hsl_template_red).substitute(red=ligth_percent)
 
         return hsl_filled
+
+    @staticmethod
+    def get_avg_color(sent, app):
+        avg_color = 0
+
+        if app.kompVokIsActive:
+            avg_color += sent.voc_complexity * (app.kompVokWeight/100)
+        if app.wlengthIsActive:
+            avg_color += sent.avg_word_len * (app.wlengthWeight/100)
+        if app.nomIsActive:
+            avg_color += sent.nominals * (app.nomWeight/100)
+        if app.slenghtIsActive:
+            avg_color += sent.sent_len * (app.slenghtWeight/100)
+        if app.kompSatzIsActive:
+            avg_color += sent.depth * (app.kompSatzWeight/100)
+
+        divider = ((app.kompVokWeight/100) + (app.wlengthWeight/100) + (app.nomWeight/100) + (app.slenghtWeight/100) + (app.kompSatzWeight/100))
+        if divider > 0:
+            avg_color /= divider
+        else:
+            avg_color = 0.5
+
+        return avg_color
 
 # class SampleText(object):
 #     def __init__(self):
