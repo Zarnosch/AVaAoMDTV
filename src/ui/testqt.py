@@ -1,7 +1,9 @@
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QFileDialog, QMainWindow, QSizePolicy, QWidget, QMessageBox, QColorDialog
-from PyQt5.QtGui import QColor, QPalette
+from PyQt5.QtGui import QColor
+from PyQt5.QtCore import QFile, QIODevice, QTextStream
+import codecs
 
 from ui.taggedtextwidget import MQTaggedTextWidget
 from ui.text_worker import TextWorker
@@ -17,6 +19,10 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
         # Set up the user interface from Designer.
         self.setupUi(self)
+
+        # connect Textedit buttons
+        self.textEditApply.clicked.connect(self.applyTextEdit)
+        self.textEditSave.clicked.connect(self.saveTextEdit)
 
         # set default colors
         self.worstColor = QColor(255, 0, 0)
@@ -83,6 +89,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.actionDocumentView.triggered.connect(self.setActiveTabDocumentView)
         self.actionDetailView.triggered.connect(self.setActiveTabDetailView)
         self.actionChangeView.triggered.connect(self.changeView)
+        self.actionSave.triggered.connect(self.saveTextEdit)
 
         # statusbar
 
@@ -137,6 +144,9 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.openButton_1.setEnabled(True)
         self.openButton_2.setEnabled(True)
         self.actionText_ffnen.setEnabled(True)
+        self.textEditApply.setEnabled(True)
+        self.textEditDiscard.setEnabled(True)
+        self.textEditSave.setEnabled(True)
 
         self.tag = self.tag[0].FinishedText
         self.show_data()
@@ -176,11 +186,14 @@ class MainApplication(QMainWindow, Ui_MainWindow):
                 self.tag[0].common_words_file = file_name[0]
 
             self.tag[0].TextToParse = text
-
+            self.textEdit.setText(text)
             # Gray out all buttons
             self.openButton_1.setEnabled(False)
             self.openButton_2.setEnabled(False)
             self.actionText_ffnen.setEnabled(False)
+            self.textEditApply.setEnabled(False)
+            self.textEditDiscard.setEnabled(False)
+            self.textEditSave.setEnabled(False)
 
             # Create Thread
             self.tag[1].objThread = QtCore.QThread()
@@ -348,6 +361,64 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
     def getBestColorHSL(self):
         return self.bestColor.getHsl()
+
+    def applyTextEdit(self):
+        # Show loading page
+        self.taggedTextWidget.stop()
+        self.taggedTextWidget.showLoading()
+
+        self.taggedDocumentWidget.stop()
+        self.taggedDocumentWidget.showLoading()
+
+        text = self.textEdit.toPlainText()
+        # We need to create new TextWorker
+        self.tag = (TextWorker(), QtCore.QThread())
+
+        # prompt for custom common words list
+        msg = QMessageBox()
+        question = "Do you want to choose a custom list of domain specific common words?"
+        reply = msg.question(self, 'Message', question, msg.Yes, msg.No)
+        if reply == msg.Yes:
+            dialog = QFileDialog(self)
+            dialog.setNameFilters([self.tr('Text Files (*.txt)'), self.tr('All Files (*)')])
+            dialog.setDefaultSuffix('.txt')
+            file_name = dialog.getOpenFileName(self, 'Open file')
+            self.tag[0].common_words_file = file_name[0]
+
+        self.tag[0].TextToParse = text
+        self.textEdit.setText(text)
+        # Gray out all buttons
+        self.openButton_1.setEnabled(False)
+        self.openButton_2.setEnabled(False)
+        self.actionText_ffnen.setEnabled(False)
+        self.textEditApply.setEnabled(False)
+        self.textEditDiscard.setEnabled(False)
+        self.textEditSave.setEnabled(False)
+
+        # Create Thread
+        self.tag[1].objThread = QtCore.QThread()
+        self.tag[0].moveToThread(self.tag[1])
+        self.tag[0].finished.connect(self.tag[1].quit)
+        self.tag[0].updated.connect(self.updateWorkerInfo);
+        # self.tag[0].finished.connect(self.finishOpen)
+        self.tag[1].started.connect(self.tag[0].longRunning)
+        self.tag[1].finished.connect(self.finishOpen)
+
+        self.tag[1].start()
+
+    def saveTextEdit(self):
+        filename = ""
+        dialog = QFileDialog(self, 'Save File')
+        dialog.setNameFilters([self.tr('Text Files (*.txt)'), self.tr('All Files (*)')])
+        dialog.setDefaultSuffix('.txt')
+        filename = dialog.getSaveFileName()
+        file = filename[0]
+        if not file.endswith('.txt'):
+            file += ".txt"
+        f = open(file, 'w')
+        filedata = self.textEdit.toPlainText()
+        f.write(filedata)
+        f.close()
 
 
 
