@@ -20,6 +20,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         # Set up the user interface from Designer.
         self.setupUi(self)
 
+
         # connect Textedit buttons
         self.textEditApply.clicked.connect(self.applyAllText)
         self.textEditSave.clicked.connect(self.saveTextEdit)

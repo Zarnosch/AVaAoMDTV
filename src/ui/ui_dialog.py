@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui_files/testview2.ui'
+# Form implementation generated from reading ui file 'ui_files\testview2.ui'
 #
 # Created by: PyQt5 UI code generator 5.5.1
 #
@@ -179,6 +179,17 @@ class Ui_MainWindow(object):
         self.gridWidget_2.setObjectName("gridWidget_2")
         self.gridLayout_9 = QtWidgets.QGridLayout(self.gridWidget_2)
         self.gridLayout_9.setObjectName("gridLayout_9")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.plainTextEdit_2 = QtWidgets.QTextBrowser(self.gridWidget_2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.plainTextEdit_2.sizePolicy().hasHeightForWidth())
+        self.plainTextEdit_2.setSizePolicy(sizePolicy)
+        self.plainTextEdit_2.setObjectName("plainTextEdit_2")
+        self.verticalLayout_3.addWidget(self.plainTextEdit_2)
+        self.gridLayout_9.addLayout(self.verticalLayout_3, 2, 0, 1, 1)
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.gridLayout_12 = QtWidgets.QGridLayout()
@@ -206,17 +217,15 @@ class Ui_MainWindow(object):
         self.gridLayout_10.setObjectName("gridLayout_10")
         self.horizontalLayout_4.addLayout(self.gridLayout_10)
         self.gridLayout_9.addLayout(self.horizontalLayout_4, 1, 0, 1, 1)
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.plainTextEdit_2 = QtWidgets.QTextBrowser(self.gridWidget_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        self.colorBar = QtWidgets.QTextBrowser(self.gridWidget_2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.plainTextEdit_2.sizePolicy().hasHeightForWidth())
-        self.plainTextEdit_2.setSizePolicy(sizePolicy)
-        self.plainTextEdit_2.setObjectName("plainTextEdit_2")
-        self.verticalLayout_3.addWidget(self.plainTextEdit_2)
-        self.gridLayout_9.addLayout(self.verticalLayout_3, 2, 0, 1, 1)
+        sizePolicy.setHeightForWidth(self.colorBar.sizePolicy().hasHeightForWidth())
+        self.colorBar.setSizePolicy(sizePolicy)
+        self.colorBar.setMaximumSize(QtCore.QSize(50, 16777215))
+        self.colorBar.setObjectName("colorBar")
+        self.gridLayout_9.addWidget(self.colorBar, 2, 1, 1, 1)
         self.gridLayout_13.addWidget(self.gridWidget_2, 0, 0, 2, 2)
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QtWidgets.QWidget()
@@ -440,6 +449,15 @@ class Ui_MainWindow(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.gridLayout_4.addWidget(self.line, 2, 0, 1, 1)
+        self.colorBar_2 = QtWidgets.QTextBrowser(self.gridWidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.colorBar_2.sizePolicy().hasHeightForWidth())
+        self.colorBar_2.setSizePolicy(sizePolicy)
+        self.colorBar_2.setMaximumSize(QtCore.QSize(50, 16777215))
+        self.colorBar_2.setObjectName("colorBar_2")
+        self.gridLayout_4.addWidget(self.colorBar_2, 3, 1, 1, 1)
         self.gridLayout_8.addWidget(self.gridWidget, 0, 0, 1, 1)
         self.tabWidget.addTab(self.tab_2, "")
         self.tab_3 = QtWidgets.QWidget()
@@ -563,7 +581,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuHilfe.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
