@@ -1,9 +1,9 @@
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QFileDialog, QMainWindow, QSizePolicy, QWidget, QMessageBox, QColorDialog
-from PyQt5.QtGui import QColor
-from PyQt5.QtCore import QFile, QIODevice, QTextStream
-import codecs
+from PyQt5.QtGui import QColor, QFont, QTextCursor
+
+
 
 from ui.taggedtextwidget import MQTaggedTextWidget
 from ui.text_worker import TextWorker
@@ -21,8 +21,11 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
 
         # connect Textedit buttons
-        self.textEditApply.clicked.connect(self.applyTextEdit)
+        self.textEditApply.clicked.connect(self.applyAllText)
         self.textEditSave.clicked.connect(self.saveTextEdit)
+        self.textEditApplyMarked.clicked.connect(self.applyChoosenText)
+        self.spinBox.valueChanged.connect(self.setTextSize)
+        self.setTextSize()
 
         # set default colors
         self.worstColor = QColor(255, 0, 0)
@@ -38,6 +41,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.bestColorButton.clicked.connect(self.chooseBestColor)
         self.neutralColorButton.clicked.connect(self.chooseNeutralColor)
         self.worstColorButton.clicked.connect(self.chooseWorstColor)
+
 
 
         # open Buttons
@@ -147,7 +151,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.openButton_2.setEnabled(True)
         self.actionText_ffnen.setEnabled(True)
         self.textEditApply.setEnabled(True)
-        self.textEditDiscard.setEnabled(True)
+        self.textEditApplyMarked.setEnabled(True)
         self.textEditSave.setEnabled(True)
         self.progressBar.setVisible(False)
         self.progressBar_2.setVisible(False)
@@ -198,7 +202,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
             self.openButton_2.setEnabled(False)
             self.actionText_ffnen.setEnabled(False)
             self.textEditApply.setEnabled(False)
-            self.textEditDiscard.setEnabled(False)
+            self.textEditApplyMarked.setEnabled(False)
             self.textEditSave.setEnabled(False)
 
             # Create Thread
@@ -368,15 +372,27 @@ class MainApplication(QMainWindow, Ui_MainWindow):
     def getBestColorHSL(self):
         return self.bestColor.getHsl()
 
-    def applyTextEdit(self):
+    def applyChoosenText(self):
+        cursor = self.textEdit.textCursor()
+        #cursor = QTextCursor()
+        stext = cursor.selection()
+        mtext = stext.toPlainText()
+        self.applyTextEdit(mtext)
+
+    def applyAllText(self):
+        self.applyTextEdit(self.textEdit.toPlainText())
+
+    def applyTextEdit(self, text):
         # Show loading page
         self.taggedTextWidget.stop()
         self.taggedTextWidget.showLoading()
 
+        self.progressBar.setVisible(True)
+        self.progressBar_2.setVisible(True)
+
         self.taggedDocumentWidget.stop()
         self.taggedDocumentWidget.showLoading()
 
-        text = self.textEdit.toPlainText()
         # We need to create new TextWorker
         self.tag = (TextWorker(), QtCore.QThread())
 
@@ -392,13 +408,13 @@ class MainApplication(QMainWindow, Ui_MainWindow):
             self.tag[0].common_words_file = file_name[0]
 
         self.tag[0].TextToParse = text
-        self.textEdit.setText(text)
+        # self.textEdit.setText(text)
         # Gray out all buttons
         self.openButton_1.setEnabled(False)
         self.openButton_2.setEnabled(False)
         self.actionText_ffnen.setEnabled(False)
         self.textEditApply.setEnabled(False)
-        self.textEditDiscard.setEnabled(False)
+        self.textEditApplyMarked.setEnabled(False)
         self.textEditSave.setEnabled(False)
 
         # Create Thread
@@ -425,6 +441,14 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         filedata = self.textEdit.toPlainText()
         f.write(filedata)
         f.close()
+
+    def setTextSize(self):
+        self.textEdit.setAcceptRichText(True)
+        font = QFont()
+        font.setPixelSize(self.spinBox.value())
+        self.textEdit.setFont(font)
+
+
 
 
 
