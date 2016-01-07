@@ -7,10 +7,17 @@ table {
     border-spacing: 0;
 }
 
+thead {
+    height: 85px;
+    position: fixed;
+    right: 9px;
+    font-size: 0.8em;
+}
+
 .feature-head {
     width: 85px;
     height: 85px;
-    /*text-align: center;*/
+    text-align: center;
     font-weight: normal;
 }
 

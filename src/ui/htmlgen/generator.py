@@ -37,6 +37,7 @@ class ViewGenerator(object):
 }
 .feature-text.text-${id} {
     background-color: ${avg_color};
+    padding: 5px;
 }
 """
     barebone_document_css = """
