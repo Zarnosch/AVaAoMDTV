@@ -189,9 +189,7 @@
 	\end{figure}
 	
 	\subsection*{Satzlänge}
-	Hier wird die Anzahl der Wörter $ |W| $ in einem Satz gemessen. Der experimentell ermittelte Höchstwert von 100 Wörtern pro Satz verzerrt die Ergebnisse sehr stark. Die Literatur \footnote{BASTABLE, Susan B., et al. Health professional as educator: principles of teaching and learning, S. 577. Jones \& Bartlett Publishers, 2010.} bestätigt diesen subjektiven Eindruck. Daher wird ein Höchstwert von 29 verwendet, der sich auch in der avg-Spalte von Tabelle~\ref{sent_length_hard} wiederfindet.
-	
-	önnten entsprechende Werte aus anderer Literatur\footnote{\url{https://de.wikipedia.org/wiki/Satzl\%C3\%A4nge\#Durchschnittliche_Satzl.C3.A4nge}} für die Maßstabsfindung übernommen werden, was jedoch in je nach Kontext (nicht berücksichtige Textarten, Sprachwandel) zu weniger aussagekräftigen Ergebnissen führen könnte.
+	Hier wird die Anzahl der Wörter $ |W| $ in einem Satz gemessen. Der experimentell ermittelte Höchstwert von 100 Wörtern pro Satz verzerrt die Ergebnisse sehr stark. Die Literatur\footnote{BASTABLE, Susan B., et al. Health professional as educator: principles of teaching and learning, S. 577. Jones \& Bartlett Publishers, 2010.}$ ^, $ \footnote{\url{https://de.wikipedia.org/wiki/Satzl\%C3\%A4nge\#Durchschnittliche_Satzl.C3.A4nge}} bestätigt diesen subjektiven Eindruck. Daher wird ein Höchstwert von 29 verwendet, der sich auch in der avg-Spalte von Tabelle~\ref{sent_length_hard} wiederfindet.
 		
 	\begin{equation*}
 		\text{Satzlänge-Wert: }\frac{|W|-2}{27}
@@ -203,7 +201,7 @@
 			\hline Text & min & max & avg \\ 
 			\hline\hline it\_could\_happen & 3 & 42 & 18.00 \\ 
 			\hline the\_halloween\_house & 1 & 26 & 9.68 \\ 
-			\hline the\_little\_gingerbread\_man & 1 & 31 & 10.91 \\ 
+			\hline the\_little\_gingerbread\_man & 3 & 31 & 10.91 \\ 
 			\hline who\_did\_patricks\_homework & 2 & 21 & 10.00 \\ 
 			\hline 
 		\end{tabular}\right\}$ untere Grenze: $ \overline{min}=1.75\approx 2 $
@@ -247,7 +245,7 @@
 	Der dem Maßstab zugrundeliegende Verzweigungsfaktor des Satzstruktur-Baums muss zunächst experimentell ermittelt werden. Um Mehrdeutigkeiten aufzulösen, wird der Stanford Parser\footnote{\url{http://nlp.stanford.edu/software/lex-parser.shtml}} verwendet. Dieser hat auch eine eingebaute Visualisierungsmöglichkeit für den entstehenden Syntaxbaum.
 	
 	\begin{equation*}
-		\text{Verschachtelungswert: } \frac{Baumtiefe-4}{15}
+		\text{Verschachtelungswert: } \frac{Baumtiefe-4}{20}
 	\end{equation*}
 		
 	
@@ -268,12 +266,12 @@
 			\hline Text & min & max & avg \\ 
 			\hline\hline black\_and\_white & 4 & 23 & 11.84 \\ 
 			\hline fight\_terrorism & 7 & 25 & 13.00 \\ 
-			\hline jura\_paper & 3 & 26 & 14.00 \\ 
-			\hline paper\_medicine & 3 & 11 & 5.83 \\ 
-			\hline poems & 3 & 10 & 5.78 \\ 
+			\hline jura\_paper & 5 & 26 & 14.40 \\ 
+			\hline paper\_medicine & 5 & 24 & 11.75 \\ 
+			\hline poems & 3 & 26 & 10.13 \\ 
 			\hline political\_english\_text & 5 & 19 & 11.12 \\ 
 			\hline 
-			\end{tabular}\right\}$ obere Grenze: $ \overline{max}=19 $
+			\end{tabular}\right\}$ obere Grenze: $ \overline{max}=23.83\approx 24 $
 		\caption{Komplexität der Satzstruktur: schwere Texte}
 	\end{table}
 	\begin{figure}[h]
