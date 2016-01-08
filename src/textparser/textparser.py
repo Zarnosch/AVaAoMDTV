@@ -156,6 +156,6 @@ class Stanford():
 
         sent_depth_feature_value = (depth - 4) / 15
 
-        if sent_depth_feature_value < 0: return 0
-        if sent_depth_feature_value > 1: return 1
+        if sent_depth_feature_value < 0: return current_tree, 0
+        if sent_depth_feature_value > 1: return current_tree, 1
         return current_tree, round(sent_depth_feature_value, 2)
