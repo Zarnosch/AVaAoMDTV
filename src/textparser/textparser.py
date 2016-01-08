@@ -147,11 +147,14 @@ class Stanford():
                 expanduser("~") + '/lib/stanford-parser-full-2015-04-20/stanford-parser-3.5.2-models.jar')
 
     def get_sent_depth(self, s):
+        # remove linebreaks for syntax tree
+        s = s.replace('\n', ' ')
+
         sentence = self.english_parser.raw_parse(s)
-        depth = 0
-        for i in sentence:
-            current_tree = i
-            depth = i.height() - 1
+
+        for line in sentence:
+            current_tree = line
+            depth = line.height() - 1
             # print('The depth of the parse tree is ' + depth + '.')
 
         sent_depth_feature_value = (depth - 4) / 15
