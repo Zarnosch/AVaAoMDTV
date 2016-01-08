@@ -54,7 +54,7 @@ if test_features:
         if test_compl: compl_lst.append(textp.get_sent_voc_complexity(sentence))
         if test_nomi: nomi_lst.append(textp.get_sent_nomins(sentence))
         if test_slength: slength_lst.append(textp.get_sent_length(sentence))
-        if test_depth: depth_lst.append(stanford_parser.get_sent_depth(sentence, False))
+        if test_depth: depth_lst.append(stanford_parser.get_sent_depth(sentence)[1])
 
         # test_sentence = "The use of drugs is dangerous."
         # print("Test sentence: \"", test_sentence, "\"\n")

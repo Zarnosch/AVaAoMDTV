@@ -53,7 +53,11 @@ class TextParser:
         length_sum = 0
         for word in tokens:
             length_sum += len(word)
-        average_length = length_sum / len(tokens)
+
+        if length_sum > 0:
+            average_length = length_sum / len(tokens)
+        else:
+            average_length = 0
         # print("The average word length is ", average_length, ".")
 
         word_length_feature_value = (average_length - 2) / 4
@@ -65,15 +69,18 @@ class TextParser:
     def get_sent_voc_complexity(self, s):
         tokens = self.tokenizer.tokenize(s.lower())
         length = len(tokens)
-        word_matches = 0
-        # print(self.common_words)
-        for word in self.common_words:
-            for token in tokens:
-                if token.lower() == word:
-                    word_matches += 1
-        complex_word_count = length - word_matches
+        if length > 0:
+            word_matches = 0
+            # print(self.common_words)
+            for word in self.common_words:
+                for token in tokens:
+                    if token.lower() == word:
+                        word_matches += 1
+            complex_word_count = length - word_matches
 
-        complexity = complex_word_count / length
+            complexity = complex_word_count / length
+        else:
+            complexity = 0
 
         # print(complex_word_count, " of ", length, words in this sentence are not common, so the vocabular complexity is ", complexity, ".")
 
@@ -162,4 +169,3 @@ class Stanford():
         if sent_depth_feature_value < 0: return current_tree, 0
         if sent_depth_feature_value > 1: return current_tree, 1
         return current_tree, round(sent_depth_feature_value, 2)
-
