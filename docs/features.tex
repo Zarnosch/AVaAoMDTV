@@ -14,11 +14,9 @@
  
 \begin{document}
 	\section*{Kriterien für die Lesbarkeitsanalyse}
-	Die folgenden 5 Kriterien sind in der Literatur\footnote{\url{http://bib.dbvis.de/uploadedFiles/305.pdf}} durch empirische Analyse als für die Lesbarkeit bedeutsam befunden worden. Die Beschreibung enthält jeweils einen Vorschlag zur Berechnung des Kriteriums aus den zu erhebenden Features. 
+	Die folgenden 5 Kriterien sind in der Literatur\footnote{\url{http://bib.dbvis.de/uploadedFiles/305.pdf}} durch empirische Analyse als für die Lesbarkeit bedeutsam befunden worden. Die Beschreibung zur Berechnung des Kriteriums aus den zu erhebenden Features enthält außerdem eine tabellarische Auswertung der Testergebnisse, die zur Ermittlung der Grenzwerte der Feature-Werte genutzt wurden. Dabei beschreibt der Mittelwert der min-Werte für einfache Texte die untere Grenze und der Mittelwert der max-Werte für schwere Texte die obere Grenze (außer bei \textit{Komplexität der Vokabeln}). Werte oberhalb/unterhalb dieser Grenzen werden auf das jeweilige Minimum/Maximum geclipt.
 	
-	Alternativ zur Ad-hoc-Normalisierung könnte analog zu den \textit{Grundwahrheiten} im Paper ein Korpus von etwa 5 besonders leicht bzw. schwer lesbaren Texten analysiert und das resultierende Minimum / Maximum als Grundlage für die Normalisierung genutzt werden. 
-	
-	Wird die Farbkodierung adaptiv in Bezug auf den zugrundeliegenden Maßstab für die Normalisierung (vgl. Figure 2 im Paper) implementiert, überlappen sich vermutlich die Werte des längsten Wörter in den leicht lesbaren Texten mit den Werten der kürzesten Wörter in den schwer lesbaren Texten. Es ist generell zu diskutieren, ob dieser Umstand in der Farbkodierung reflektiert werden sollte oder ob dies die Interpretation der Analyseergebnisse nicht sogar erschwert.
+	\textcolor{gray}{Wird die Farbkodierung adaptiv in Bezug auf den zugrundeliegenden Maßstab für die Normalisierung (vgl. Figure 2 im Paper) implementiert, überlappen sich vermutlich die Werte des längsten Wörter in den leicht lesbaren Texten mit den Werten der kürzesten Wörter in den schwer lesbaren Texten. Es ist generell zu diskutieren, ob dieser Umstand in der Farbkodierung reflektiert werden sollte oder ob dies die Interpretation der Analyseergebnisse nicht sogar erschwert.}
 	
 	\subsection*{Wortlänge}
 	Hierfür wird zunächst die durchschnittliche Wortlänge analysiert und normiert. 
@@ -27,7 +25,7 @@
 	Der Lesbarkeitswert jedes Wortes wird normiert durch $ \frac{|w_i|}{|w_i|_{max}}$ und der summierte Wert der Wörter des entsprechenden Satzes durch die Anzahl der Wörter $ |W| $ geteilt. Anschließend wird der Wert z.B. auf Farbwerte zwischen blau $ (32,62,181) $, weiß und rot $ (186,57,44) $ abgetragen.
 		
 	\begin{equation*}
-		\text{Wortlänge-Wert: }\frac{1}{|W|}\cdot\sum\limits_i \frac{|w_i|-2}{6}
+		\text{Wortlänge-Wert: }\frac{1}{|W|}\cdot\sum\limits_i \frac{|w_i|-2}{4}
 	\end{equation*}
 		
 	\subsubsection*{Skala}
@@ -39,7 +37,7 @@
 			\hline the\_little\_gingerbread\_man & 2.50 & 6.33 & 4.17 \\ 
 			\hline who\_did\_patricks\_homework & 2.00 & 6.00 & 3.84 \\ 
 			\hline 
-		\end{tabular}\right\}$ untere Grenze: 2.00
+		\end{tabular}\right\}$ untere Grenze: $ \overline{min}=2.4375\approx 2 $
 		\caption{Wortlänge: einfache Texte}
 	\end{table}
 	\begin{table}[H]
@@ -52,7 +50,7 @@
 			\hline poems & 2.00 & 4.86 & 3.47 \\ 
 			\hline political\_english\_text & 3.50 & 5.91 & 4.85 \\ 
 			\hline 
-		\end{tabular}\right\}$ obere Grenze: $ 7.55\approx 8.00 $
+		\end{tabular}\right\}$ obere Grenze: $ \overline{max}=6,3183\approx 6 $
 		\caption{Wortlänge: schwere Texte}
 	\end{table}
 	\pgfplotsset{compat=1.10}
@@ -140,7 +138,7 @@
 	\textbf{Achtung!} Hier ist ausnahmsweise ein höherer Wert besser als ein kleiner! Für die Visualisierung wird daher der normierte Kehrwert zurückgegeben.
 	
 	\begin{equation*}
-	\text{Nominalisierungskomplexitäts-Wert: } 1-\frac{1}{5}\cdot\frac{|Verben|}{|Nomen|+|Nominalisierungen|}
+	\text{Nominalisierungskomplexitäts-Wert: } 1-\frac{1}{4}\cdot\frac{|Verben|}{|Nomen|+|Nominalisierungen|}
 	\end{equation*}
 		
 	
@@ -153,7 +151,7 @@
 			\hline the\_little\_gingerbread\_man & 0 & 5 & 1.29 \\ 
 			\hline who\_did\_patricks\_homework & 0 & 3 & 1.10 \\ 
 			\hline 
-		\end{tabular}\right\}$ obere Grenze: 5.00
+		\end{tabular}\right\}$ obere Grenze: $ \overline{max}=4.25\approx 4 $
 		\caption{Nominalisierungen: einfache Texte}
 	\end{table}
 	\begin{table}[H]
@@ -166,7 +164,7 @@
 			\hline poems & 0.00 & 3.00 & 1.08 \\ 
 			\hline political\_english\_text & 0.00 & 1.33 & 0.46 \\ 
 			\hline 
-			\end{tabular}\right\}$ untere Grenze: 0.00
+			\end{tabular}\right\}$ untere Grenze: $ \overline{min}=0.023\approx 0 $
 		\caption{Nominalisierungen: schwere Texte}
 	\end{table}
 	
@@ -196,7 +194,7 @@
 	önnten entsprechende Werte aus anderer Literatur\footnote{\url{https://de.wikipedia.org/wiki/Satzl\%C3\%A4nge\#Durchschnittliche_Satzl.C3.A4nge}} für die Maßstabsfindung übernommen werden, was jedoch in je nach Kontext (nicht berücksichtige Textarten, Sprachwandel) zu weniger aussagekräftigen Ergebnissen führen könnte.
 		
 	\begin{equation*}
-		\text{Satzlänge-Wert: }\frac{|W|}{29}
+		\text{Satzlänge-Wert: }\frac{|W|-2}{27}
 	\end{equation*}	
 	
 	\subsubsection*{Skala}
@@ -208,7 +206,7 @@
 			\hline the\_little\_gingerbread\_man & 1 & 31 & 10.91 \\ 
 			\hline who\_did\_patricks\_homework & 2 & 21 & 10.00 \\ 
 			\hline 
-		\end{tabular}\right\}$ untere Grenze: 1.00
+		\end{tabular}\right\}$ untere Grenze: $ \overline{min}=1.75\approx 2 $
 		\caption{Satzlänge: einfache Texte}
 	\end{table}
 	\begin{table}[H]
@@ -221,7 +219,7 @@
 			\hline poems & 2 & 54 & 17.22 \\ 
 			\hline political\_english\_text & 6 & 39 & 19.15 \\ 
 			\hline 
-			\end{tabular}\right\}$ {obere Grenze: 101.00}
+			\end{tabular}\right\}$ {tatsächliche Grenze: 29 (siehe Beschreibung oben)}
 		\caption{Satzlänge: schwere Texte}
 		\label{sent_length_hard}
 	\end{table}
@@ -249,7 +247,7 @@
 	Der dem Maßstab zugrundeliegende Verzweigungsfaktor des Satzstruktur-Baums muss zunächst experimentell ermittelt werden. Um Mehrdeutigkeiten aufzulösen, wird der Stanford Parser\footnote{\url{http://nlp.stanford.edu/software/lex-parser.shtml}} verwendet. Dieser hat auch eine eingebaute Visualisierungsmöglichkeit für den entstehenden Syntaxbaum.
 	
 	\begin{equation*}
-		\text{Verschachtelungswert: } \frac{Baumtiefe-3}{23}
+		\text{Verschachtelungswert: } \frac{Baumtiefe-4}{15}
 	\end{equation*}
 		
 	
@@ -262,7 +260,7 @@
 			\hline the\_little\_gingerbread\_man & 3 & 19 & 8.08 \\ 
 			\hline who\_did\_patricks\_homework & 4 & 17 & 7.36 \\ 
 			\hline 
-		\end{tabular}\right\}$ untere Grenze: 3.00
+		\end{tabular}\right\}$ untere Grenze: $ \overline{min}=3.75\approx 4 $
 		\caption{Komplexität der Satzstruktur: einfache Texte}
 	\end{table}
 	\begin{table}[H]
@@ -275,7 +273,7 @@
 			\hline poems & 3 & 10 & 5.78 \\ 
 			\hline political\_english\_text & 5 & 19 & 11.12 \\ 
 			\hline 
-			\end{tabular}\right\}$ obere Grenze: 26.00
+			\end{tabular}\right\}$ obere Grenze: $ \overline{max}=19 $
 		\caption{Komplexität der Satzstruktur: schwere Texte}
 	\end{table}
 	\begin{figure}[h]

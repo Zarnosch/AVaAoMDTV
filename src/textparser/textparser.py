@@ -42,7 +42,7 @@ class TextParser:
         length = len(self.tokenizer.tokenize(s))
         # print("The sentence has ", length, "words.")
 
-        sent_length_feature_value = length / 29
+        sent_length_feature_value = (length - 2) / 27
 
         if sent_length_feature_value < 0: return 0
         if sent_length_feature_value > 1: return 1
@@ -56,7 +56,7 @@ class TextParser:
         average_length = length_sum / len(tokens)
         # print("The average word length is ", average_length, ".")
 
-        word_length_feature_value = (average_length - 2) / 6
+        word_length_feature_value = (average_length - 2) / 4
 
         if word_length_feature_value < 0: return 0
         if word_length_feature_value > 1: return 1
@@ -101,12 +101,12 @@ class TextParser:
                     nomin_count += 1
 
         # add number of potential nominalizations to noun count, giving them more weight, so bigger is better
-        nomin_compl = 5 if noun_count == 0 else (verb_count / (noun_count + nomin_count))
+        nomin_compl = 4 if noun_count == 0 else (verb_count / (noun_count + nomin_count))
 
         # print("The sentence has", verb_count, "verb(s) and", noun_count, "noun(s), \nverb/noun ratio: ",
         #       verb_noun_ratio, ", \nnominalizations: ", nomin_count)
 
-        nomin_compl_feature_value = 1 - (0.2 * nomin_compl)
+        nomin_compl_feature_value = 1 - (0.25 * nomin_compl)
 
         if nomin_compl_feature_value < 0: return 0
         if nomin_compl_feature_value > 1: return 1
@@ -154,7 +154,7 @@ class Stanford():
             depth = i.height() - 1
             # print('The depth of the parse tree is ' + depth + '.')
 
-        sent_depth_feature_value = (depth - 3) / 23
+        sent_depth_feature_value = (depth - 4) / 15
 
         if sent_depth_feature_value < 0: return 0
         if sent_depth_feature_value > 1: return 1
