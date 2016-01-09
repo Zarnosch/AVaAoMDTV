@@ -1,4 +1,4 @@
-from nltk.tokenize import sent_tokenize
+from nltk.tokenize import PunktSentenceTokenizer
 
 from textparser.textparser import *
 
@@ -36,6 +36,11 @@ class Text(object):
     """Describes the whole text."""
 
     def __init__(self, text):
+        # train PunktSentenceTokenizer to recognize abbreviations
+        self.punkt = PunktSentenceTokenizer()
+        abbrevs = "i.e., e.g., etc., Mr., Mrs.,"
+        self.punkt.train(abbrevs)
+
         self.Parser = TextParser()
         self.StanfordParser = Stanford()
         # self.Sentences = self.split_text_and_work(text)
@@ -49,7 +54,7 @@ class Text(object):
         self.Sentences = []
 
     def split_text_and_work(self, text):
-        tokens = sent_tokenize(text)
+        tokens = self.punkt.sentences_from_text(text)
 
         sentences = []
 
@@ -62,7 +67,8 @@ class Text(object):
         return sentences
 
     def split_text(self, text):
-        tokens = sent_tokenize(text)
+        tokens = self.punkt.sentences_from_text(text)
+
         return tokens
 
     def process_next_token(self):
