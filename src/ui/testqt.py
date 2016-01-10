@@ -17,6 +17,8 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         # Load TextParser
         # self.textParser = TextParser()
 
+        self.tag = None
+
         # Set up the user interface from Designer.
         self.setupUi(self)
 
@@ -307,7 +309,8 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.updateFeatureWeights()
 
     def sliderChanged(self):
-        self.taggedTextWidget.showDataNoWait(self.tag)
+        if self.tag != None:
+            self.taggedTextWidget.showDataNoWait(self.tag)
 
     def setActiveTabDocumentView(self):
         self.tabWidget.setCurrentIndex(1)
@@ -362,20 +365,23 @@ class MainApplication(QMainWindow, Ui_MainWindow):
     def chooseWorstColor(self):
         self.worstColor = QColorDialog.getColor(self.worstColor)
         self.setWorstColorButton(self.worstColor)
-        self.taggedTextWidget.showDataNoWait(self.tag)
-        self.taggedDocumentWidget.showDateNoWaitDetails(self.tag)
+        if self.tag != None:
+            self.taggedTextWidget.showDataNoWait(self.tag)
+            self.taggedDocumentWidget.showDateNoWaitDetails(self.tag)
 
     def chooseNeutralColor(self):
         self.neutralColor = QColorDialog.getColor(self.neutralColor)
         self.setNeutralColorButton(self.neutralColor)
-        self.taggedTextWidget.showDataNoWait(self.tag)
-        self.taggedDocumentWidget.showDateNoWaitDetails(self.tag)
+        if self.tag != None:
+            self.taggedTextWidget.showDataNoWait(self.tag)
+            self.taggedDocumentWidget.showDateNoWaitDetails(self.tag)
 
     def chooseBestColor(self):
         self.bestColor = QColorDialog.getColor(self.bestColor)
         self.setBestColorButton(self.bestColor)
-        self.taggedTextWidget.showDataNoWait(self.tag)
-        self.taggedDocumentWidget.showDateNoWaitDetails(self.tag)
+        if self.tag != None:
+            self.taggedTextWidget.showDataNoWait(self.tag)
+            self.taggedDocumentWidget.showDateNoWaitDetails(self.tag)
 
     def getWorstColorHSL(self):
         return self.worstColor.getHsl()
