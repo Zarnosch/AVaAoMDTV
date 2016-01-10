@@ -1,9 +1,9 @@
+import codecs
+
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
+from PyQt5.QtGui import QColor, QFont
 from PyQt5.QtWidgets import QFileDialog, QMainWindow, QSizePolicy, QWidget, QMessageBox, QColorDialog
-from PyQt5.QtGui import QColor, QFont, QTextCursor
-
-
 
 from ui.taggedtextwidget import MQTaggedTextWidget
 from ui.text_worker import TextWorker
@@ -19,7 +19,6 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
         # Set up the user interface from Designer.
         self.setupUi(self)
-
 
         # connect Textedit buttons
         self.textEditApply.clicked.connect(self.applyAllText)
@@ -42,8 +41,6 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.bestColorButton.clicked.connect(self.chooseBestColor)
         self.neutralColorButton.clicked.connect(self.chooseNeutralColor)
         self.worstColorButton.clicked.connect(self.chooseWorstColor)
-
-
 
         # open Buttons
         self.openButton_1.clicked.connect(self.open_text)
@@ -185,7 +182,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.progressBar_2.setVisible(True)
         self.progressBar_3.setVisible(True)
         if file_name[0] != '':
-            text = open(file_name[0]).read()
+            text = codecs.open(file_name[0], "r", "utf-8").read()
             # We need to create new TextWorker
             self.tag = (TextWorker(), QtCore.QThread())
 
@@ -340,22 +337,25 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         r = str(color.red())
         g = str(color.green())
         b = str(color.blue())
-        self.bestColorButton.setStyleSheet("background-color: rgb("+r+", "+g+", "+b +"); border: 1px dashed black; padding: 2px;")
-        #self.bestColorButton.setStyleSheet("border: 1px solid black")
+        self.bestColorButton.setStyleSheet(
+            "background-color: rgb(" + r + ", " + g + ", " + b + "); border: 1px dashed black; padding: 2px;")
+        # self.bestColorButton.setStyleSheet("border: 1px solid black")
 
     def setNeutralColorButton(self, color):
         r = str(color.red())
         g = str(color.green())
         b = str(color.blue())
-        self.neutralColorButton.setStyleSheet("background-color: rgb("+r+", "+g+", "+b +"); border: 1px dashed black; padding: 2px;")
-        #self.neutralColorButton.setStyleSheet("border: 1px solid black")
+        self.neutralColorButton.setStyleSheet(
+            "background-color: rgb(" + r + ", " + g + ", " + b + "); border: 1px dashed black; padding: 2px;")
+        # self.neutralColorButton.setStyleSheet("border: 1px solid black")
 
     def setWorstColorButton(self, color):
         r = str(color.red())
         g = str(color.green())
         b = str(color.blue())
-        self.worstColorButton.setStyleSheet("background-color: rgb("+r+", "+g+", "+b +"); border: 1px dashed black; padding: 2px;")
-        #self.worstColorButton.setStyleSheet("border: 1px solid black")
+        self.worstColorButton.setStyleSheet(
+            "background-color: rgb(" + r + ", " + g + ", " + b + "); border: 1px dashed black; padding: 2px;")
+        # self.worstColorButton.setStyleSheet("border: 1px solid black")
 
     def chooseWorstColor(self):
         self.worstColor = QColorDialog.getColor(self.worstColor)
@@ -386,7 +386,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
     def applyChoosenText(self):
         cursor = self.textEdit.textCursor()
-        #cursor = QTextCursor()
+        # cursor = QTextCursor()
         stext = cursor.selection()
         mtext = stext.toPlainText()
         self.applyTextEdit(mtext)
@@ -460,10 +460,6 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         font = QFont()
         font.setPixelSize(self.spinBox.value())
         self.textEdit.setFont(font)
-
-
-
-
 
 
 class CorpusChooser(QMessageBox, QWidget):

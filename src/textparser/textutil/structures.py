@@ -1,3 +1,5 @@
+import string
+
 from nltk.tokenize import PunktSentenceTokenizer
 
 from textparser.textparser import *
@@ -13,11 +15,11 @@ class Sentence(object):
         self.id = my_id
         self.Text = textpart
 
-        # nasty umlaut workaround
-        self.Text = self.Text.encode('latin-1').decode('utf-8')
+        # remove non-printable chars for StanfordParser but keep umlauts
         self.Text = self.Text.replace("ä", "ae")
         self.Text = self.Text.replace("ö", "oe")
         self.Text = self.Text.replace("ü", "ue")
+        self.Text = ''.join(filter(lambda x: x in string.printable, self.Text))
 
         """features"""
         self.sent_len = parser.get_sent_length(self.Text)
