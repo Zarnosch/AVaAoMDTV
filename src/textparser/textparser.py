@@ -80,7 +80,7 @@ class TextParser:
 
             complexity = complex_word_count / length
         else:
-            complexity = 0
+            complexity = 1
 
         # print(complex_word_count, " of ", length, words in this sentence are not common, so the vocabular complexity is ", complexity, ".")
 
