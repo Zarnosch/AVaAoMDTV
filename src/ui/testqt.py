@@ -196,6 +196,8 @@ class MainApplication(QMainWindow, Ui_MainWindow):
                 dialog.setDefaultSuffix('.txt')
                 file_name = dialog.getOpenFileName(self, 'Open file')
                 self.tag[0].common_words_file = file_name[0]
+            else:
+                self.tag[0].common_words_file = "textparser/wordlist.txt"
 
             self.tag[0].TextToParse = text
             self.textEdit.setText(text)

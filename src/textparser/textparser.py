@@ -17,7 +17,6 @@ class TextParser:
 
         # default common words list
         self.common_words = set()
-        self.set_common_words("textparser/wordlist.txt")
 
         self.unigram_tagger = nltk.UnigramTagger(brown_tagged_sents)
         self.bigram_tagger = nltk.BigramTagger(brown_tagged_sents, backoff=self.unigram_tagger)
