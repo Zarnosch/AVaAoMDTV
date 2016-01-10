@@ -1,3 +1,4 @@
+import codecs
 import os
 from os.path import expanduser
 
@@ -29,7 +30,7 @@ class TextParser:
     def set_common_words(self, path_to_file):
         if path_to_file != "":
             # print("path to file: ", path_to_file)
-            file = open(path_to_file).read()
+            file = codecs.open(path_to_file, "r", "utf-8").read()
             # sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
             # sentences_ntlk = sent_detector.tokenize(file.strip())
             #
