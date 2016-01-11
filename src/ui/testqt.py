@@ -43,6 +43,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.bestColorButton.clicked.connect(self.chooseBestColor)
         self.neutralColorButton.clicked.connect(self.chooseNeutralColor)
         self.worstColorButton.clicked.connect(self.chooseWorstColor)
+        self.comboBox.currentIndexChanged.connect(self.changeColor)
 
         # open Buttons
         self.openButton_1.clicked.connect(self.open_text)
@@ -468,6 +469,35 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         font = QFont()
         font.setPixelSize(self.spinBox.value())
         self.textEdit.setFont(font)
+
+    def changeColor(self):
+        if self.comboBox.currentIndex() == 0:
+            self.setTemperatureScale()
+        elif self.comboBox.currentIndex() == 1:
+            self.setGreyScale()
+        else :
+            self.setRainbowScale()
+        self.setBestColorButton(self.bestColor)
+        self.setNeutralColorButton(self.neutralColor)
+        self.setWorstColorButton(self.worstColor)
+        if self.tag != None:
+            self.taggedTextWidget.showDataNoWait(self.tag)
+            self.taggedDocumentWidget.showDateNoWaitDetails(self.tag)
+
+    def setTemperatureScale(self):
+        self.worstColor = QColor(173, 50, 31)
+        self.neutralColor = QColor(255, 255, 255)
+        self.bestColor = QColor(51, 71, 153)
+
+    def setGreyScale(self):
+        self.worstColor = QColor(50, 50, 50)
+        self.neutralColor = QColor(102, 102, 102)
+        self.bestColor = QColor(255, 255, 255)
+
+    def setRainbowScale(self):
+        self.worstColor = QColor(187, 34, 34)
+        self.neutralColor = QColor(255, 215, 0)
+        self.bestColor = QColor(50, 205, 50)
 
 
 class CorpusChooser(QMessageBox, QWidget):
