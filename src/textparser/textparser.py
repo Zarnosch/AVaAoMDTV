@@ -155,7 +155,7 @@ class Stanford():
 
     def get_sent_depth(self, s):
         # remove linebreaks for syntax tree
-        s = s.replace('\n', ' ')
+        s = s.replace('\n', ' ').replace('\r', ' ')
 
         sentence = self.english_parser.raw_parse(s)
 
