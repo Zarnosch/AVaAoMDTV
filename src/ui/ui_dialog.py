@@ -591,7 +591,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Not Our Tool"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "TAVA - Text Analysing and Visualisation Application"))
         self.openButton_2.setText(_translate("MainWindow", "Open"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Detail View"))
         self.openButton_1.setText(_translate("MainWindow", "Open"))
