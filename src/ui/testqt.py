@@ -28,6 +28,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.textEditApplyMarked.clicked.connect(self.applyChoosenText)
         self.spinBox.valueChanged.connect(self.setTextSize)
         self.setTextSize()
+        self.fontComboBox.currentFontChanged.connect(self.setTextSize)
 
         # set default colors
         self.worstColor = QColor(173, 50, 31)
@@ -466,7 +467,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
     def setTextSize(self):
         self.textEdit.setAcceptRichText(True)
-        font = QFont()
+        font = self.fontComboBox.currentFont()
         font.setPixelSize(self.spinBox.value())
         self.textEdit.setFont(font)
 
@@ -498,6 +499,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.worstColor = QColor(187, 34, 34)
         self.neutralColor = QColor(255, 215, 0)
         self.bestColor = QColor(50, 205, 50)
+
 
 
 class CorpusChooser(QMessageBox, QWidget):

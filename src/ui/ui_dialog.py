@@ -506,6 +506,9 @@ class Ui_MainWindow(object):
         self.spinBox.setProperty("value", 20)
         self.spinBox.setObjectName("spinBox")
         self.horizontalLayout_3.addWidget(self.spinBox)
+        self.fontComboBox = QtWidgets.QFontComboBox(self.tab_3)
+        self.fontComboBox.setObjectName("fontComboBox")
+        self.horizontalLayout_3.addWidget(self.fontComboBox)
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem2)
         self.verticalLayout_2.addLayout(self.horizontalLayout_3)
@@ -580,7 +583,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuHilfe.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

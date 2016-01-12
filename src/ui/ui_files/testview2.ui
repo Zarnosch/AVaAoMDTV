@@ -467,7 +467,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -1099,6 +1099,9 @@
              <number>20</number>
             </property>
            </widget>
+          </item>
+          <item>
+           <widget class="QFontComboBox" name="fontComboBox"/>
           </item>
           <item>
            <spacer name="horizontalSpacer_3">
