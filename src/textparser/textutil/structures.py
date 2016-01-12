@@ -13,13 +13,7 @@ class Sentence(object):
 
     def __init__(self, textpart, my_id, parser, s_parser):
         self.id = my_id
-        self.Text = textpart
-
-        # remove non-printable chars for StanfordParser but keep umlauts
-        self.Text = self.Text.replace("ä", "ae")
-        self.Text = self.Text.replace("ö", "oe")
-        self.Text = self.Text.replace("ü", "ue")
-        self.Text = ''.join(filter(lambda x: x in string.printable, self.Text))
+        self.Text = parser.purify(textpart)
 
         """features"""
         self.sent_len = parser.get_sent_length(self.Text)

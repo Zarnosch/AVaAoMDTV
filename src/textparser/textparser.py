@@ -1,5 +1,6 @@
 import codecs
 import os
+import string
 from os.path import expanduser
 
 import nltk
@@ -27,16 +28,23 @@ class TextParser:
 
         self.tokenizer = RegexpTokenizer(r'\w+')
 
+    def purify(self, polluted_text):
+        """ remove non-printable chars but keep umlauts """
+        purified_text = polluted_text.replace("ä", "ae").replace("ö", "oe").replace("ü", "ue")
+        purified_text = ''.join(filter(lambda x: x in string.printable, purified_text))
+        return purified_text
+
     def set_common_words(self, path_to_file):
         if path_to_file != "":
             # print("path to file: ", path_to_file)
-            file = codecs.open(path_to_file, "r", "utf-8").read()
+            text = codecs.open(path_to_file, "r", "utf-8").read()
             # sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
             # sentences_ntlk = sent_detector.tokenize(file.strip())
             #
             # self.common_words = nltk.word_tokenize(sentences_ntlk[0])
             tokenizer = RegexpTokenizer(r'\w+')
-            self.common_words = set(tokenizer.tokenize(file.lower()))
+
+            self.common_words = set(tokenizer.tokenize(self.purify(text).lower()))
 
     def get_sent_length(self, s):
         length = len(self.tokenizer.tokenize(s))
