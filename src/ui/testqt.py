@@ -40,6 +40,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
 
         # colorwidget
         self.colorDia = QColorDialog(self.neutralColor, self.centralwidget)
+
         # connect widget with buttons
         self.bestColorButton.clicked.connect(self.chooseBestColor)
         self.neutralColorButton.clicked.connect(self.chooseNeutralColor)
@@ -49,6 +50,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         # open Buttons
         self.openButton_1.clicked.connect(self.open_text)
         self.openButton_2.clicked.connect(self.open_text)
+
         # progressBar
         self.progress = 0
         self.progressBar.setValue(self.progress)
@@ -57,21 +59,12 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.progressBar.setVisible(False)
         self.progressBar_2.setVisible(False)
         self.progressBar_3.setVisible(False)
-        # print(self.progressBar.value)
 
         # numWords
         self.numWords.setText("0")
 
         # numSent
         self.numSent.setText("0")
-
-        # Corpora
-        # self.CorporaBox.addItem("Thriller")  # 0
-        # self.CorporaBox.addItem("Kindertext")  # 1
-        # self.CorporaBox.addItem("Nachrichten")  # 2
-        # self.CorporaBox.addItem("Gesetzestexte")  # 3
-        # self.activeCorporaIndex = 0
-        # self.CorporaBox.activated.connect(self.updateCorpora)
 
         # remove qttextWidget and setup own textwidget (detailview)
         self.verticalLayout.removeWidget(self.plainTextEdit)
@@ -89,10 +82,6 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.gridLayout_9.addWidget(self.taggedDocumentWidget)
         self.gridLayout_9.update()
 
-        # setup the slider
-        # self.ViewSlider.setMaximum(1)
-        # self.ViewSlider.actionTriggered.connect(self.updateView)
-
         # menue actions
         self.actionText_ffnen.triggered.connect(self.open_text)
         self.action_ber.triggered.connect(self.showAbout)
@@ -100,8 +89,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.actionDetailView.triggered.connect(self.setActiveTabDetailView)
         self.actionChangeView.triggered.connect(self.changeView)
         self.actionSave.triggered.connect(self.saveTextEdit)
-
-        # statusbar
+        self.actionEditorView.triggered.connect(self.setActiveTabEditorView)
 
         # initilize features
         self.kompVokIsActive = False
@@ -320,11 +308,16 @@ class MainApplication(QMainWindow, Ui_MainWindow):
     def setActiveTabDetailView(self):
         self.tabWidget.setCurrentIndex(0)
 
+    def setActiveTabEditorView(self):
+        self.tabWidget.setCurrentIndex(2)
+
     def changeView(self):
         # print(self.tabWidget.currentIndex())
         if self.tabWidget.currentIndex() == 0:
             self.tabWidget.setCurrentIndex(1)
         elif self.tabWidget.currentIndex() == 1:
+            self.tabWidget.setCurrentIndex(2)
+        elif self.tabWidget.currentIndex() == 2:
             self.tabWidget.setCurrentIndex(0)
 
     def showAbout(self):

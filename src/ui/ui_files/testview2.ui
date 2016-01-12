@@ -1171,6 +1171,7 @@
     </property>
     <addaction name="actionDocumentView"/>
     <addaction name="actionDetailView"/>
+    <addaction name="actionEditorView"/>
     <addaction name="actionChangeView"/>
    </widget>
    <addaction name="menuDatei"/>
@@ -1273,6 +1274,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionEditorView">
+   <property name="text">
+    <string>EditorView</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+3</string>
    </property>
   </action>
  </widget>
