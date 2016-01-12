@@ -135,6 +135,23 @@ class ViewGenerator(object):
         with open(style, "w") as f:
             f.write(gen_css)
 
+    @staticmethod
+    def genterate_colorbar(app):
+        color_bar_template = "rgb(${r}, ${g}, ${b})"
+        best_bar_color = Template(color_bar_template).substitute(r=app.bestColor.red(), g=app.bestColor.green(), b=app.bestColor.blue())
+        mid_bar_color = Template(color_bar_template).substitute(r=app.neutralColor.red(), g=app.neutralColor.green(), b=app.neutralColor.blue())
+        worst_bar_color = Template(color_bar_template).substitute(r=app.worstColor.red(), g=app.worstColor.green(), b=app.worstColor.blue())
+
+        filled_cb_template = ""
+        file = os.path.dirname(__file__)
+        color_bar_tpl = os.path.join(file, '../../generated_html/color_bar_template.html')
+        with open(color_bar_tpl, "r") as f:
+            for line in f:
+                filled_cb_template += Template(line).substitute(best=best_bar_color, mid=mid_bar_color, worst=worst_bar_color)
+
+        html_bar = os.path.join(file, '../../generated_html/color_bar.html')
+        with open(html_bar, "w") as f:
+            f.write(filled_cb_template)
 
 class GenScale(object):
 

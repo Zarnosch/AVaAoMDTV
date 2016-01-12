@@ -1,4 +1,4 @@
-import codecs
+import codecs, os
 
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import QFileDialog, QMainWindow, QSizePolicy, QWidget, QMes
 from ui.taggedtextwidget import MQTaggedTextWidget
 from ui.text_worker import TextWorker
 from ui.ui_dialog import Ui_MainWindow
-
+from ui.htmlgen.generator import ViewGenerator
 
 class MainApplication(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -130,6 +130,18 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.sliderNom.sliderReleased.connect(self.sliderChanged)
 
         self.setAllWeights(100)
+
+        # fill colorBar
+        # self.colorBar QWebSettings.setMaximumPagesInCache(0)
+        # QWebSettings.setObjectCacheCapacities(0, 0, 0)
+        self.colorBar.page().mainFrame().setScrollBarPolicy(QtCore.Qt.Vertical, QtCore.Qt.ScrollBarAlwaysOff)
+        self.colorBar.page().mainFrame().setScrollBarPolicy(QtCore.Qt.Horizontal, QtCore.Qt.ScrollBarAlwaysOff)
+        self.update_colorbar()
+
+    def update_colorbar(self):
+        ViewGenerator.genterate_colorbar(self)
+        self.colorBar.load(QtCore.QUrl('file:///'+os.getcwd()+"/generated_html/color_bar.html"))
+        self.colorBar.reload()
 
     def show_data(self):
         self.taggedTextWidget.stop()
@@ -363,6 +375,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         if self.tag != None:
             self.taggedTextWidget.showDataNoWait(self.tag)
             self.taggedDocumentWidget.showDateNoWaitDetails(self.tag)
+        self.update_colorbar()
 
     def chooseNeutralColor(self):
         self.neutralColor = QColorDialog.getColor(self.neutralColor)
@@ -370,6 +383,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         if self.tag != None:
             self.taggedTextWidget.showDataNoWait(self.tag)
             self.taggedDocumentWidget.showDateNoWaitDetails(self.tag)
+        self.update_colorbar()
 
     def chooseBestColor(self):
         self.bestColor = QColorDialog.getColor(self.bestColor)
@@ -377,6 +391,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         if self.tag != None:
             self.taggedTextWidget.showDataNoWait(self.tag)
             self.taggedDocumentWidget.showDateNoWaitDetails(self.tag)
+        self.update_colorbar()
 
     def getWorstColorHSL(self):
         return self.worstColor.getHsl()
@@ -477,6 +492,7 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         if self.tag != None:
             self.taggedTextWidget.showDataNoWait(self.tag)
             self.taggedDocumentWidget.showDateNoWaitDetails(self.tag)
+        self.update_colorbar()
 
     def setTemperatureScale(self):
         self.worstColor = QColor(173, 50, 31)

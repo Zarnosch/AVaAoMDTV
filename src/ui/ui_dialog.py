@@ -6,7 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtGui, QtWidgets, QtWebKitWidgets
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -156,7 +156,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.colorBar = QtWidgets.QTextBrowser(self.centralwidget)
+        self.colorBar = QtWebKitWidgets.QWebView(self.centralwidget) # QtWidgets.QTextBrowser(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -646,4 +646,3 @@ class Ui_MainWindow(object):
         self.actionSave.setShortcut(_translate("MainWindow", "Ctrl+S"))
         self.actionEditorView.setText(_translate("MainWindow", "EditorView"))
         self.actionEditorView.setShortcut(_translate("MainWindow", "Ctrl+3"))
-
