@@ -9,8 +9,10 @@ from ui.taggedtextwidget import MQTaggedTextWidget
 from ui.text_worker import TextWorker
 from ui.ui_dialog import Ui_MainWindow
 from ui.htmlgen.generator import ViewGenerator
+from ui.jsbridge import JSBridge
 
 class MainApplication(QMainWindow, Ui_MainWindow):
+
     def __init__(self):
         super(MainApplication, self).__init__()
 
@@ -132,11 +134,18 @@ class MainApplication(QMainWindow, Ui_MainWindow):
         self.setAllWeights(100)
 
         # fill colorBar
-        # self.colorBar QWebSettings.setMaximumPagesInCache(0)
-        # QWebSettings.setObjectCacheCapacities(0, 0, 0)
         self.colorBar.page().mainFrame().setScrollBarPolicy(QtCore.Qt.Vertical, QtCore.Qt.ScrollBarAlwaysOff)
         self.colorBar.page().mainFrame().setScrollBarPolicy(QtCore.Qt.Horizontal, QtCore.Qt.ScrollBarAlwaysOff)
         self.update_colorbar()
+
+
+        # on click handling document
+        self.jsbridge = JSBridge(self.taggedTextWidget, self.taggedDocumentWidget, self)
+        self.taggedTextWidget.page().mainFrame().javaScriptWindowObjectCleared.connect(self.add_js_to_page)
+
+
+    def add_js_to_page(self):
+        self.taggedTextWidget.page().mainFrame().addToJavaScriptWindowObject("jsbridge", self.jsbridge)
 
     def update_colorbar(self):
         ViewGenerator.genterate_colorbar(self)

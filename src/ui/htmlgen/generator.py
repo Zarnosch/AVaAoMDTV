@@ -113,7 +113,7 @@ class ViewGenerator(object):
         gen_css = ""
 
         for sent in text.Sentences:
-            gen_html += Template("""            <div class="feature-block-${id}"></div>\n""").substitute(id=sent.id)
+            gen_html += Template("""            <div class="feature-block-${id}" id="${id}" onclick="sentSelected(${id});"></div>\n""").substitute(id=sent.id)
 
             avg_color = GenScale.get_avg_color(sent, app)
 
@@ -125,7 +125,7 @@ class ViewGenerator(object):
         filled_template = ""
         with open(html_template, "r") as f:
             for line in f:
-                filled_template += Template(line).substitute(html=gen_html)
+                filled_template += Template(line).substitute(html=gen_html, maxids=len(text.Sentences))
 
         html = os.path.join(file, '../../generated_html/document_view.html')
         with open(html, "w") as f:

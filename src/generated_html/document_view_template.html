@@ -10,5 +10,23 @@
         <div>
 ${html}
         </div>
+        <script type="text/javascript">
+            function sentSelected(id) {
+                var selected = document.getElementById(id);
+
+                var maxIds = ${maxids};
+                for (var i = 0; i < maxIds; i++) {
+                    var prevSelected = document.getElementsByClassName("feature-block-" + i + " selected");
+                    if (prevSelected.length > 0) {
+                        for (var i = 0; i < prevSelected.length; i++) {
+                            prevSelected[i].className = "feature-block-" + prevSelected[i].id;
+                        }
+                    }
+                }
+
+                selected.className = selected.className + " selected";
+                jsbridge.switch_to_detail();
+            }
+        </script>
     </body>
 </html>
