@@ -1,5 +1,3 @@
-import string
-
 from nltk.tokenize import PunktSentenceTokenizer
 
 from textparser.textparser import *
@@ -23,8 +21,6 @@ class Sentence(object):
 
         self.stanford_result = s_parser.get_sent_depth(self.Text)
         self.syntax_tree = self.stanford_result[0]
-        # draw some happy trees with the following line
-        # self.syntax_tree.draw()
         self.depth = self.stanford_result[1]
 
 
@@ -39,7 +35,6 @@ class Text(object):
 
         self.Parser = TextParser()
         self.StanfordParser = Stanford()
-        # self.Sentences = self.split_text_and_work(text)
         self.Tokens = self.split_text(text)
 
         self.ProcessedTokens = 0
@@ -68,7 +63,7 @@ class Text(object):
         return tokens
 
     def process_next_token(self):
-        if self.TokensCount > (self.ProcessedTokens):
+        if self.TokensCount > self.ProcessedTokens:
             self.Sentences.append(Sentence(self.Tokens[self.ProcessedTokens], self.ProcessedTokens,
                                            self.Parser, self.StanfordParser))
 

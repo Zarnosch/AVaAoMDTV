@@ -1,44 +1,40 @@
 import sys
 import time
+
 from PyQt5.QtWidgets import QApplication
+
 from textparser.textparser import *
 from ui.testqt import MainApplication
 
-# turn feature tests on/off
+# turn feature tests on/off (debug)
 test_features = False
 
-test_wlength = False
-test_compl = False
-test_nomi = True
-test_slength = False
-test_depth = False
-
-# setup nltk text parsing
-# textp = TextParser()
-# stanford_parser = Stanford()
-
-textp = None
-stanford_parser = None
-
-# function tests
 if test_features:
+    test_wlength = True
+    test_compl = True
+    test_nomi = True
+    test_slength = True
+    test_depth = True
+
+    # setup nltk text parsing
+    textp = TextParser()
+    stanford_parser = Stanford()
+
     t = time.time()
 
-    # easy texts
+    """ easy texts """
     text = open('../texts/easy/it_could_happen.txt').read()
     # text = open('../texts/easy/the_halloween_house.txt').read()
     # text = open('../texts/easy/the_little_gingerbread_man.txt').read()
     # text = open('../texts/easy/who_did_patricks_homework.txt').read()
 
-    # hard texts
+    """ hard texts """
     # text = open('../texts/hard/black_and_white_and_everything_in_between.txt').read()
     # text = open('../texts/hard/fight_terrorism.txt').read()
     # text = open('../texts/hard/jura_paper.txt').read()
     # text = open('../texts/hard/paper_medicine.txt').read()
     # text = open('../texts/hard/poems.txt').read()
     # text = open('../texts/hard/political_english_text.txt').read()
-
-
 
     sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
     sentences_ntlk = sent_detector.tokenize(text.strip())
@@ -55,15 +51,6 @@ if test_features:
         if test_nomi: nomi_lst.append(textp.get_sent_nomins(sentence))
         if test_slength: slength_lst.append(textp.get_sent_length(sentence))
         if test_depth: depth_lst.append(stanford_parser.get_sent_depth(sentence)[1])
-
-        # test_sentence = "The use of drugs is dangerous."
-        # print("Test sentence: \"", test_sentence, "\"\n")
-
-        # textp.get_sent_length(test_sentence)
-        # textp.get_word_length(test_sentence)
-        # textp.get_sent_voc_complexity(test_sentence)
-        # stanford_parser.get_sent_depth(test_sentence, False)
-        # stanford_parser.get_sent_nomins(test_sentence)
 
     if test_wlength:
         min_wlength = min(wlength_lst)
